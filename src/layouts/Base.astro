@@ -1,0 +1,110 @@
+---
+// The frame of every page: head, test banner, menu, comment box, footer and the optional script.
+import spaceGrotesk from '@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2?url';
+import interTight from '@fontsource-variable/inter-tight/files/inter-tight-latin-wght-normal.woff2?url';
+import interTightItalic from '@fontsource-variable/inter-tight/files/inter-tight-latin-wght-italic.woff2?url';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Feedback from '../components/Feedback.astro';
+import { site, absoluteUrl, editUrl, pagePath } from '../lib/site';
+
+interface Props {
+  title: string;
+  description?: string;
+  source?: string;      // file in the repository, for the "Edit this page on GitHub" link
+  home?: boolean;
+  canonical?: boolean;  // false for the 404 page
+}
+const { title, description, source, home = false, canonical = true } = Astro.props;
+const pageUrl = absoluteUrl(Astro.url, Astro.site);
+const fullTitle = home ? `${site.name} (${site.shortName})` : `${title} | ${site.shortName}`;
+const metaDescription = description || site.description;
+
+// The fonts of the learning system, served by this site under the same family names
+// (the learning system's diagrams name them in their SVG text).
+const fontFaces = `
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 300 700; font-display: swap; src: url(${spaceGrotesk}) format('woff2'); }
+@font-face { font-family: 'Inter Tight'; font-style: normal; font-weight: 100 900; font-display: swap; src: url(${interTight}) format('woff2'); }
+@font-face { font-family: 'Inter Tight'; font-style: italic; font-weight: 100 900; font-display: swap; src: url(${interTightItalic}) format('woff2'); }`;
+---
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={metaDescription} />
+    {site.draft && <meta name="robots" content="noindex" />}
+    {canonical && <link rel="canonical" href={pageUrl} />}
+    <link rel="icon" href="/graphics/aio-logo.png" type="image/png" />
+    <link rel="alternate" type="application/rss+xml" title={`${site.shortName} news`} href="/rss.xml" />
+    <link rel="preload" href={spaceGrotesk} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={interTight} as="font" type="font/woff2" crossorigin />
+    <style is:inline set:html={fontFaces}></style>
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={metaDescription} />
+    {canonical && <meta property="og:url" content={pageUrl} />}
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0f172a" />
+    {site.analytics.goatcounter && (
+      <script is:inline data-goatcounter={`https://${site.analytics.goatcounter}.goatcounter.com/count`} async src="//gc.zgo.at/count.js"></script>
+    )}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    {site.draft && <div class="test-banner" role="note">Test – Under Development</div>}
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    {site.draft && <Feedback title={title} path={pagePath(Astro.url)} />}
+    <Footer editLink={editUrl(source)} />
+
+    <script is:inline>
+      // Optional: the site works without JavaScript.
+      (function () {
+        // Menu: close the open list on Escape, on a click outside it, or when focus leaves it.
+        var menus = document.querySelectorAll('.nav-desktop details, .nav-mobile');
+        document.addEventListener('click', function (e) {
+          var inside = e.target.closest('.nav-desktop details, .nav-mobile');
+          menus.forEach(function (d) { if (d !== inside) d.removeAttribute('open'); });
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key !== 'Escape') return;
+          var open = document.querySelector('.nav-desktop details[open], .nav-mobile[open]');
+          if (open) { open.removeAttribute('open'); open.querySelector('summary').focus(); }
+        });
+        menus.forEach(function (d) {
+          d.addEventListener('focusout', function (e) { if (e.relatedTarget && !d.contains(e.relatedTarget)) d.removeAttribute('open'); });
+        });
+        // Videos: load the YouTube player only after a click, so YouTube sets no cookies before that.
+        document.querySelectorAll('.video[data-youtube] a').forEach(function (a) {
+          a.addEventListener('click', function (e) {
+            e.preventDefault();
+            var box = a.parentElement, frame = document.createElement('iframe');
+            frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(box.getAttribute('data-youtube')) + '?autoplay=1&rel=0';
+            frame.title = a.textContent.trim();
+            frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+            frame.allowFullscreen = true;
+            box.replaceChildren(frame);
+            frame.focus();
+          });
+        });
+      })();
+    </script>
+    {site.draft && (
+      <script is:inline>
+        (function () {
+          // Section links: a "#" after each heading, so reviewers can point to an exact section.
+          document.querySelectorAll('.page-main h2[id], .page-main h3[id]').forEach(function (h) {
+            var a = document.createElement('a');
+            a.className = 'anchor'; a.href = '#' + h.id; a.textContent = '#';
+            a.setAttribute('aria-label', 'Link to the section ' + h.textContent);
+            h.appendChild(a);
+          });
+        })();
+      </script>
+    )}
+  </body>
+</html>

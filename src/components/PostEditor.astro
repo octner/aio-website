@@ -1,0 +1,90 @@
+---
+// The post editor of the test version (/editor/, listing "editor"). It works without an account:
+// a saved post goes into the shared sheet with the status "submitted", and only a team member's
+// approval in the sheet writes it to GitHub (docs/feedback/posts.gs). The script is src/scripts/post-editor.ts.
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { getCollection } from 'astro:content';
+import { site, typeLabel } from '../lib/site';
+import { readPostSource, gitBlobSha } from '../lib/post-source.mjs';
+
+const store = site.feedback.commentsUrl;
+// Drafts stay out, because this page is public. So do posts that the form cannot save exactly
+// (see post-source.mjs): Pages CMS or GitHub's file editor can still edit both.
+const all = (await getCollection('posts')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const posts = all.flatMap((p) => {
+  const bytes = readFileSync(join(process.cwd(), p.filePath ?? `src/content/posts/${p.id}.md`));
+  const { fields, body, editable } = readPostSource(bytes.toString('utf8'));
+  return editable && !p.data.draft ? [{ slug: p.id, sha: gitBlobSha(bytes), fields, body }] : [];
+});
+const left = all.length - posts.length;
+// "<" is escaped, so a "</script>" in a post cannot end the data block early.
+const data = JSON.stringify(posts).replace(/</g, '\\u003c');
+---
+{store ? (
+  <form class="post-editor" data-post-editor data-store={store}>
+    <script is:inline type="application/json" data-post-data set:html={data}></script>
+
+    <label>Post
+      <select name="pick" data-post-pick>
+        <option value="">New post</option>
+        {posts.map((p) => <option value={p.slug}>{`${p.fields.date} · ${p.fields.title}`}</option>)}
+      </select>
+    </label>
+    {left > 0 && <p class="hint">{left} {left === 1 ? 'post is' : 'posts are'} not in this list: drafts, and posts with a field that the form cannot keep exactly. Edit those in Pages CMS or on GitHub.</p>}
+
+    <label>Title <input name="title" required maxlength="200" /></label>
+    <div class="post-row">
+      <label>Date <input name="date" type="date" required /></label>
+      <label>Type
+        <select name="type">
+          {(['news', 'event', 'case-study'] as const).map((t) => <option value={t}>{typeLabel[t]}</option>)}
+        </select>
+      </label>
+    </div>
+    <label>Summary, for the lists and the home page <textarea name="summary" rows="2" maxlength="400"></textarea></label>
+    <label>Author <input name="author" maxlength="100" /></label>
+    <div class="post-row">
+      <label>Image address (https:// or /uploads/…) <input name="image" maxlength="500" /></label>
+      <label>What the image shows <input name="imageAlt" maxlength="300" /></label>
+    </div>
+
+    <fieldset class="post-event" data-post-event>
+      <legend>Event</legend>
+      <div class="post-row">
+        <label>Start <input name="eventStart" placeholder="2026-12-03T13:00:00+11:00" /></label>
+        <label>End <input name="eventEnd" placeholder="2026-12-03T14:00:00+11:00" /></label>
+      </div>
+      <label class="post-check"><input type="checkbox" name="allDay" /> Whole days: write the dates only, for example 2026-12-03</label>
+      <div class="post-row">
+        <label>Place <input name="location" maxlength="200" /></label>
+        <label>Registration link (https://) <input name="registration" maxlength="500" /></label>
+      </div>
+    </fieldset>
+
+    <label>Text, in Markdown <textarea name="body" rows="18" required maxlength="40000" class="post-body"></textarea></label>
+    <label class="post-check"><input type="checkbox" name="draft" /> Draft: keep the post off the site after approval</label>
+
+    <div class="post-row">
+      <label>Your name (optional) <input name="editor" maxlength="100" autocomplete="name" /></label>
+      <label>Note for the approver (optional) <input name="note" maxlength="1000" /></label>
+    </div>
+    <label class="comment-trap" aria-hidden="true">Leave this field empty <input name="website" tabindex="-1" autocomplete="off" /></label>
+    <p class="hint">Anyone who has the address of the shared sheet can read your post, your name and your note before approval.</p>
+    <p><button type="submit" class="btn btn-primary">Send for approval</button></p>
+    <p class="comment-status" data-post-status role="status"></p>
+
+    <section class="post-sent" aria-labelledby="post-sent-heading">
+      <h2 id="post-sent-heading">Your posts sent from this browser</h2>
+      <ol data-post-sent></ol>
+      <p><button type="button" class="btn btn-outline" data-post-refresh>Check their status</button></p>
+    </section>
+  </form>
+) : (
+  <p class="todo">The post editor is not connected yet. It uses the same store as the comments: set <code>feedback.commentsUrl</code> in <code>src/data/site.json</code>.</p>
+)}
+
+<script>
+  import { initPostEditor } from '../scripts/post-editor';
+  initPostEditor();
+</script>

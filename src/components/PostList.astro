@@ -1,0 +1,26 @@
+---
+import { formatDateShort, typeLabel } from '../lib/site';
+import { postUrl, eventDate, type Post } from '../lib/content';
+interface Props { posts: Post[]; showType?: boolean; headingLevel?: 'h2' | 'h3'; }
+const { posts, showType = true, headingLevel: H = 'h3' } = Astro.props;
+---
+{posts.length === 0 ? (
+  <p>Nothing here yet.</p>
+) : (
+  <ul class="item-list">
+    {posts.map((p) => {
+      // Events are listed by the day they take place, other posts by the day they were published.
+      const when = p.data.type === 'event' ? eventDate(p) : p.data.date;
+      return (
+        <li>
+          <div class="when"><time datetime={when.toISOString()}>{formatDateShort(when)}</time></div>
+          <div>
+            <H class="item-title"><a href={postUrl(p)}>{p.data.title}</a></H>
+            {p.data.summary && <p>{p.data.summary}</p>}
+            {showType && <p><span class="tag">{typeLabel[p.data.type]}</span></p>}
+          </div>
+        </li>
+      );
+    })}
+  </ul>
+)}

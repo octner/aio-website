@@ -1,0 +1,92 @@
+---
+// One template for every Markdown page, the plan (test version only) and the redirect pages
+// that send old WordPress addresses to the new pages.
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Page from '../layouts/Page.astro';
+import Listing from '../components/Listing.astro';
+import { allPages, publishedPosts, publishedResources, postUrl, resourceUrl, sectionHeadings } from '../lib/content';
+import { site, BASE } from '../lib/site';
+import { withFigures } from '../lib/figures';
+import { withPeople } from '../lib/people';
+
+type Props =
+  | { kind: 'page'; entry: CollectionEntry<'pages'> }
+  | { kind: 'plan'; entry: CollectionEntry<'plan'> }
+  | { kind: 'redirect'; to: string };
+
+export async function getStaticPaths() {
+  const everyPage = await allPages();
+  // The review page, the list of all pages and the post editor exist only in the test version.
+  const testOnly = ['review', 'site-map', 'editor'];
+  const pages = everyPage.filter((p) => p.path !== '/' && (site.draft || !testOnly.includes(p.entry.data.listing ?? '')));
+  const home = everyPage.find((p) => p.path === '/');
+  const posts = await publishedPosts();
+  const resources = await publishedResources();
+  const [plan] = await getCollection('plan');
+
+  // Every address the site publishes. Two items may never claim the same one.
+  const taken = new Map<string, string>();
+  const claim = (path: string, what: string) => {
+    const other = taken.get(path);
+    if (other) throw new Error(`Two items want the address ${path}: ${other} and ${what}`);
+    taken.set(path, what);
+  };
+  claim('/', 'home page');
+  if (site.draft) claim('/plan/', 'PLAN.md');
+  pages.forEach((p) => claim(p.path, p.entry.filePath ?? p.entry.id));
+  posts.forEach((p) => claim(postUrl(p), p.filePath ?? p.id));
+  resources.forEach((r) => claim(resourceUrl(r), r.filePath ?? r.id));
+
+  // Old addresses ("legacy" in the front matter) redirect to the new page. An old address that
+  // would replace a new page stops the build, through claim().
+  const redirects: { from: string; to: string }[] = [];
+  const addRedirects = (legacy: string[], to: string, what: string) => {
+    for (const raw of legacy) {
+      const from = raw.endsWith('/') ? raw : raw + '/';
+      if (from === to) continue;
+      claim(from, `redirect page in ${what}`);
+      redirects.push({ from, to });
+    }
+  };
+  if (home) addRedirects(home.entry.data.legacy, '/', home.entry.filePath ?? 'home page');
+  pages.forEach((p) => addRedirects(p.entry.data.legacy, p.path, p.entry.filePath ?? p.entry.id));
+  posts.forEach((p) => addRedirects(p.data.legacy, postUrl(p), p.filePath ?? p.id));
+  resources.forEach((r) => addRedirects(r.data.legacy, resourceUrl(r), r.filePath ?? r.id));
+
+  return [
+    ...pages.map((p) => ({ params: { slug: p.path.slice(1, -1) }, props: { kind: 'page', entry: p.entry } as Props })),
+    ...(site.draft ? [{ params: { slug: 'plan' }, props: { kind: 'plan', entry: plan } as Props }] : []),
+    ...redirects.map((r) => ({ params: { slug: r.from.slice(1, -1) }, props: { kind: 'redirect', to: r.to } as Props })),
+  ];
+}
+
+const props = Astro.props as Props;
+---
+{props.kind === 'redirect' ? (
+  <html lang="en-AU">
+    <head>
+      <meta charset="utf-8" />
+      <title>This page has moved</title>
+      <meta name="robots" content="noindex" />
+      <link rel="canonical" href={BASE + props.to} />
+      <meta http-equiv="refresh" content={`0; url=${BASE}${props.to}`} />
+    </head>
+    <body><p>This page has moved to <a href={props.to}>{props.to}</a>.</p></body>
+  </html>
+) : props.kind === 'plan' ? (
+  <Page title={props.entry.data.title} summary={props.entry.data.summary} status="new" source="PLAN.md" headings={sectionHeadings(props.entry)}>
+    <div class="prose wide" set:html={withFigures(props.entry.rendered?.html ?? '')} />
+  </Page>
+) : (
+  <Page
+    title={props.entry.data.title}
+    summary={props.entry.data.summary}
+    status={props.entry.data.status}
+    source={props.entry.filePath}
+    headings={sectionHeadings(props.entry)}
+    searchable={!['search', 'editor'].includes(props.entry.data.listing ?? '')}
+  >
+    <div class="prose" set:html={(props.entry.data.people ? withPeople : (h: string) => h)(withFigures(props.entry.rendered?.html ?? ''))} />
+    {props.entry.data.listing && <Listing kind={props.entry.data.listing} />}
+  </Page>
+)}

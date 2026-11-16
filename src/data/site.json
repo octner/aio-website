@@ -1,0 +1,40 @@
+{
+  "name": "Australian Internet Observatory",
+  "shortName": "AIO",
+  "tagline": "National research infrastructure for digital platform observability.",
+  "description": "The Australian Internet Observatory builds data collection and analysis tools, methods and workflows for research on digital cultures and societies in the public interest.",
+  "draft": true,
+  "platformUrl": "https://app.internetobservatory.org.au/",
+  "trainingUrl": "",
+  "contactEmail": "contact@internetobservatory.org.au",
+  "newsletterUrl": "https://internetobservatory.us12.list-manage.com/subscribe?u=03c89d9276b4135d9d64dc9f6&id=c289ddbcd4",
+  "repository": "",
+  "branch": "main",
+  "social": [
+    {
+      "label": "Bluesky",
+      "url": "https://bsky.app/profile/internetobservatory.org.au"
+    },
+    {
+      "label": "YouTube",
+      "url": "https://www.youtube.com/@AustralianInternetObservatory"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/company/australian-internet-observatory"
+    }
+  ],
+  "funding": "The Australian Internet Observatory (AIO) is a co-investment partnership with the Australian Research Data Commons (ARDC) through the HASS and Indigenous Research Data Commons (DOI: 10.3565/hjrp-b141). The ARDC is enabled by the Australian Government's National Collaborative Research Infrastructure Strategy (NCRIS).",
+  "fundingDoiUrl": "https://doi.org/10.3565/hjrp-b141",
+  "licence": {
+    "label": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "analytics": {
+    "goatcounter": ""
+  },
+  "feedback": {
+    "commentsUrl": "https://script.google.com/macros/s/AKfycbxIq7P0llIcc2JGzrVsETHAOAPPvhx695ww-9-65b0jdmCnwbHQCMRCvOaaFLqX4sKKLQ/exec",
+    "sheetUrl": "https://docs.google.com/spreadsheets/d/1G43m-j7KNgDkvO_qT87s0G7ntkh8Qf7LwBpmw1jZqkc"
+  }
+}

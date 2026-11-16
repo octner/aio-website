@@ -1,0 +1,60 @@
+---
+// Layout of every content page: section menu | text | "On this page".
+// The three columns share the page width, so every page has the same left and right edges.
+import Base from './Base.astro';
+import Icon from '../components/Icon.astro';
+import { site, pagePath, sectionFor, statusLabel, type Status } from '../lib/site';
+
+interface Props {
+  title: string;
+  summary?: string;          // shown under the title
+  description?: string;      // for search engines, if different from the summary
+  status?: Status;           // label in the test version
+  source?: string;           // file in the repository
+  headings?: { slug: string; text: string }[];
+  searchable?: boolean;      // false keeps the page out of the search index
+  canonical?: boolean;
+}
+const { title, summary, description, status, source, headings = [], searchable = true, canonical = true } = Astro.props;
+const path = pagePath(Astro.url);
+const section = sectionFor(path);
+const showStatus = site.draft && status && status !== 'migrated';
+---
+<Base title={title} description={description ?? summary} source={source} canonical={canonical}>
+  <div class="wrap page-grid">
+    <aside class="section-nav" aria-label={section ? `${section.group.label} pages` : 'Pages'}>
+      {section && (
+        <>
+          <h2><Icon name={section.group.icon} />{section.group.label}</h2>
+          <ul>
+            {section.group.items.map((item) => (
+              <li><a href={item.href} aria-current={item.href === path ? 'page' : undefined}>{item.label}</a></li>
+            ))}
+          </ul>
+        </>
+      )}
+    </aside>
+
+    <article class="page-main" data-pagefind-body={searchable ? '' : undefined}>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        {section && <> › {section.group.label}</>}
+        {section && section.item.href !== path && <> › <a href={section.item.href}>{section.item.label}</a></>}
+      </nav>
+      <header class="page-head">
+        {showStatus && <p class={`status status-${status}`} data-pagefind-ignore>{statusLabel[status]}</p>}
+        <slot name="meta" />
+        <h1>{title}</h1>
+        {summary && <p class="lede">{summary}</p>}
+      </header>
+      <slot />
+    </article>
+
+    {headings.length > 1 && (
+      <nav class="page-toc" aria-label="On this page">
+        <h2>On this page</h2>
+        <ul>{headings.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ul>
+      </nav>
+    )}
+  </div>
+</Base>

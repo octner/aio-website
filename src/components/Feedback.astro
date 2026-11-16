@@ -1,0 +1,74 @@
+---
+// The comment tools of the test version (site.json "draft": true). Base.astro loads this component
+// only in the test version, so the real site has none of this code.
+// Reviewers comment on a part of the page, on the whole page or on the menu. Every comment goes into
+// one shared Google Sheet through the comment store (feedback.commentsUrl, see README.md).
+// The script is src/scripts/comments.ts.
+import Icon from './Icon.astro';
+import { site } from '../lib/site';
+interface Props { title: string; path: string; }
+const { title, path } = Astro.props;
+const f = site.feedback;
+---
+<section class="feedback" aria-labelledby="feedback-heading" data-comments={f.commentsUrl} data-page={path} data-title={title}>
+  <div class="wrap">
+    <h2 id="feedback-heading">Comments on this page</h2>
+    {f.commentsUrl ? (
+      <>
+        <p>
+          This is a test version of the new AIO website. You can comment on a part of the page, on the whole page,
+          or on the menu. Every comment goes into one shared file, so the whole team can read it.
+        </p>
+        <div class="actions">
+          <button type="button" class="btn btn-primary" data-comment-mode>Comment on a part of the page</button>
+          <button type="button" class="btn btn-outline" data-comment-page>Comment on the whole page</button>
+          <button type="button" class="btn btn-outline" data-comment-menu>Comment on the menu</button>
+        </div>
+        <p class="hint">
+          {f.sheetUrl && <><a href={f.sheetUrl} target="_blank" rel="noopener">Open all comments<span class="sr-only"> (opens in a new tab)</span></a> · </>}
+          <a href="/review/">Answer the eight questions about the whole site</a>
+        </p>
+        <p class="comment-status" data-comment-status role="status"></p>
+        <ol class="comment-list" data-comment-list></ol>
+      </>
+    ) : (
+      <p class="todo">
+        The shared comment file is not connected yet. The developer connects it with the setting
+        <code>feedback.commentsUrl</code> in <code>src/data/site.json</code>, as <code>README.md</code> describes.
+      </p>
+    )}
+  </div>
+</section>
+
+{f.commentsUrl && (
+  <>
+    <button type="button" class="comment-toggle" data-comment-mode aria-pressed="false"><Icon name="review" />Comment</button>
+    <div class="comment-bar" data-comment-bar hidden>
+      <span>Select any part of the page to comment on it. Press Escape to stop.</span>
+      <button type="button" data-comment-page>This page</button>
+      <button type="button" data-comment-menu>The menu</button>
+      <button type="button" data-comment-stop>Stop</button>
+    </div>
+    <dialog class="comment-dialog" data-comment-dialog aria-labelledby="comment-dialog-title">
+      <form data-comment-form>
+        <h2 id="comment-dialog-title">Your comment</h2>
+        <p class="comment-target" data-comment-target></p>
+        <blockquote data-comment-quote hidden></blockquote>
+        <label>Comment <textarea name="comment" required maxlength="4000" rows="5"></textarea></label>
+        <label>Your name (optional) <input name="name" maxlength="100" autocomplete="name" /></label>
+        <label class="comment-trap" aria-hidden="true">Leave this field empty <input name="website" tabindex="-1" autocomplete="off" /></label>
+        <p class="hint">Comments and names are public to anyone with the comment service address. Do not include private information.</p>
+        <p class="comment-error" data-comment-error role="alert"></p>
+        <div class="actions">
+          <button type="submit" class="btn btn-primary">Send</button>
+          <button type="button" class="btn btn-outline" data-comment-cancel>Cancel</button>
+        </div>
+      </form>
+    </dialog>
+  </>
+)}
+
+<script>
+  import { initComments } from '../scripts/comments';
+  initComments();
+</script>

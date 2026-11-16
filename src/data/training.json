@@ -1,0 +1,85 @@
+{
+  "_source": "Titles and descriptions copied from the AIO Research Training System (app/app.js MODULE_DESCS and app/modules.json) on 14 November 2026. 'available' follows app/site-config.js of the learning system on that date (Modules 1, 4, 5.1 and 5.2).",
+  "modules": [
+    {
+      "id": "0",
+      "label": "Overview",
+      "title": "AIO Research Training Program: Overview",
+      "summary": "How the program is structured, the module map, and suggested learning pathways.",
+      "available": false,
+      "minutes": 4
+    },
+    {
+      "id": "1",
+      "label": "Module 1",
+      "title": "What Is the Australian Internet Observatory?",
+      "summary": "What the Australian Internet Observatory is, what it offers researchers, and what it is not.",
+      "available": true,
+      "minutes": 22
+    },
+    {
+      "id": "2",
+      "label": "Module 2",
+      "title": "What Questions Should We Answer Before Working with Digital Media Data?",
+      "summary": "Framing research questions and understanding what digital media data can and cannot answer.",
+      "available": false,
+      "minutes": 27
+    },
+    {
+      "id": "3",
+      "label": "Module 3",
+      "title": "Why Can't We Just Collect It All?",
+      "summary": "The main ways of collecting digital media data, from user-centric to platform-centric methods.",
+      "available": false,
+      "minutes": 20
+    },
+    {
+      "id": "4",
+      "label": "Module 4",
+      "title": "Working with Participants to Collect Data",
+      "summary": "Data donation as a participant-centred method: recruitment, consent, and study design.",
+      "available": true,
+      "minutes": 26
+    },
+    {
+      "id": "5.1",
+      "label": "Module 5.1",
+      "title": "Collecting Data Using Data Download Packages",
+      "summary": "Data Download Packages (DDPs): what they contain, how to request them, and how to process them.",
+      "available": true,
+      "minutes": 29
+    },
+    {
+      "id": "5.2",
+      "label": "Module 5.2",
+      "title": "Working with DDPs on the AIO Platform",
+      "summary": "Setting up and running a DDP study on the AIO platform, step by step.",
+      "available": true,
+      "minutes": 26
+    },
+    {
+      "id": "6",
+      "label": "Module 6",
+      "title": "Ethics for Working with Digital Media Data",
+      "summary": "Ethics for digital media research: consent, privacy, de-identification, and ethics applications.",
+      "available": false,
+      "minutes": 32
+    },
+    {
+      "id": "7",
+      "label": "Module 7",
+      "title": "Working with Platform-Centric Data",
+      "summary": "Platform-centric data: APIs, dashboards such as AIReD, and their limitations.",
+      "available": false,
+      "minutes": 17
+    },
+    {
+      "id": "8",
+      "label": "Module 8",
+      "title": "Combining Data Donation with Traditional Methods",
+      "summary": "Combining data donation with interviews, surveys, and other traditional methods.",
+      "available": false,
+      "minutes": 33
+    }
+  ]
+}

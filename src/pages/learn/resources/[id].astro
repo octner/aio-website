@@ -1,0 +1,25 @@
+---
+import Page from '../../../layouts/Page.astro';
+import { publishedResources, sectionHeadings } from '../../../lib/content';
+import { site, formatDate, kindLabel, summaryIsNew } from '../../../lib/site';
+import { withFigures } from '../../../lib/figures';
+
+export async function getStaticPaths() {
+  const items = await publishedResources();
+  return items.map((item) => ({ params: { id: item.id }, props: { item } }));
+}
+const { item } = Astro.props;
+const d = item.data;
+---
+<Page
+  title={d.title}
+  summary={summaryIsNew(d.summary, item.body) ? d.summary : undefined}
+  description={d.summary}
+  status={d.status}
+  source={item.filePath}
+  headings={sectionHeadings(item)}
+>
+  <p slot="meta" class="meta"><a class="tag" href={`/learn/resources/#${d.kind}`}>{kindLabel[d.kind]}</a> Updated {formatDate(d.date)}</p>
+  <div class="prose" set:html={withFigures(item.rendered?.html ?? '')} />
+  <p class="meta">This {d.format} by AIO is licensed under <a href={site.licence.url}>{site.licence.label}</a>.</p>
+</Page>

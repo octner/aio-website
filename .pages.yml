@@ -1,0 +1,139 @@
+# Pages CMS configuration (https://pagescms.org): the browser editor for the outreach team.
+# Keep the field names in step with src/content.config.ts (the build checks the same fields).
+# NOT TESTED: this file was written from the Pages CMS documentation, November 2026.
+# Test it once in app.pagescms.org before the team relies on it (see EDITING.md).
+
+settings:
+  content:
+    merge: true   # keep front matter fields that the forms below do not show (legacy, status, listing, video, blocks)
+
+media:
+  input: public/uploads   # where uploaded images are saved in the repository
+  output: /uploads        # how they are linked in the text (the build adds the sub-path)
+
+content:
+  - name: posts
+    label: News and events
+    type: collection
+    path: src/content/posts
+    format: yaml-frontmatter
+    filename: '{primary}.md'
+    view:
+      fields: [title, date, type, draft]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: date, label: Date of publication, type: date, required: true }
+      - name: type
+        label: Type
+        type: select
+        default: news
+        options:
+          values:
+            - { value: news, label: News }
+            - { value: event, label: Event }
+            - { value: case-study, label: Case study }
+      - { name: summary, label: Summary (one or two sentences for the lists), type: text }
+      - { name: image, label: Image, type: image }
+      - { name: imageAlt, label: Image description for screen readers, type: string }
+      - { name: author, label: Author, type: string }
+      - { name: eventStart, label: Event start (events only), type: date, options: { time: true, format: "yyyy-MM-dd'T'HH:mm:ssxxx" } }
+      - { name: eventEnd, label: Event end (events only), type: date, options: { time: true, format: "yyyy-MM-dd'T'HH:mm:ssxxx" } }
+      - { name: allDay, label: Whole-day event (show dates without a time), type: boolean, default: false }
+      - { name: location, label: Event location (events only), type: string }
+      - { name: registration, label: Registration link (events only), type: string }
+      - { name: originalSource, label: First published by (republished articles only), type: string }
+      - { name: originalUrl, label: Link to the original article, type: string }
+      - { name: draft, label: Draft (not shown on the site), type: boolean, default: true }
+      - { name: body, label: Text, type: rich-text }
+
+  - name: resources
+    label: Learning resources
+    type: collection
+    path: src/content/resources
+    format: yaml-frontmatter
+    filename: '{primary}.md'
+    view:
+      fields: [title, kind, date]
+      primary: title
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: date, label: Last updated, type: date, required: true }
+      - name: kind
+        label: Kind (what the reader needs)
+        type: select
+        required: true
+        options:
+          values:
+            - { value: tutorial, label: Tutorial (learn by doing) }
+            - { value: how-to, label: How-to guide (do one task) }
+            - { value: explanation, label: Explanation (understand) }
+            - { value: reference, label: Reference (look up facts) }
+      - name: format
+        label: Format
+        type: select
+        default: guide
+        options:
+          values: [guide, explainer, video, faq, article]
+      - { name: summary, label: Summary, type: text }
+      - { name: draft, label: Draft (not shown on the site), type: boolean, default: false }
+      - { name: body, label: Text, type: rich-text }
+
+  - name: pages
+    label: Pages
+    type: collection
+    path: src/content/pages
+    format: yaml-frontmatter
+    subfolders: true
+    view:
+      fields: [title]
+      primary: title
+    # Editors change the text of pages. New pages change the menu, so the developer adds them.
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: summary, label: Summary, type: text }
+      - { name: body, label: Text, type: rich-text }
+
+  - name: site
+    label: Site settings
+    type: file
+    path: src/data/site.json
+    format: json
+    fields:
+      - { name: draft, label: Test mode (banner, comment box, hidden from search engines), type: boolean }
+      - { name: platformUrl, label: AIO Platform address, type: string }
+      - { name: trainingUrl, label: Learning system address (empty until it is published), type: string }
+      - { name: contactEmail, label: Contact email, type: string }
+      - { name: newsletterUrl, label: Newsletter sign-up address, type: string }
+      - name: feedback
+        label: Feedback on the test version
+        type: object
+        fields:
+          - { name: commentsUrl, label: Address of the comment store (the Apps Script web app that ends in /exec), type: string }
+          - { name: sheetUrl, label: Address of the shared comment sheet, for "Open all comments", type: string }
+
+  - name: training
+    label: Training modules
+    type: file
+    path: src/data/training.json
+    format: json
+    fields:
+      - name: modules
+        label: Modules
+        type: object
+        list: true
+        fields:
+          - { name: id, label: Module id (as in the learning system), type: string }
+          - { name: label, label: Label, type: string }
+          - { name: title, label: Title, type: string }
+          - { name: summary, label: Summary, type: text }
+          - { name: available, label: Published in the learning system, type: boolean }
+          - { name: minutes, label: Minutes of reading, type: number }

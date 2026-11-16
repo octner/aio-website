@@ -1,0 +1,89 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Video from '../components/Video.astro';
+import PostList from '../components/PostList.astro';
+import { allPages, publishedPosts, eventDate, isUpcoming, postUrl } from '../lib/content';
+import { site } from '../lib/site';
+import motif from '../assets/motif-arcs.svg?url';
+
+const home = (await allPages()).find((p) => p.path === '/');
+if (!home) throw new Error('The home page text is missing: add src/content/pages/index.md');
+const d = home.entry.data;
+const posts = await publishedPosts();
+const next = posts.filter((p) => isUpcoming(p)).sort((a, b) => eventDate(a).valueOf() - eventDate(b).valueOf())[0];
+---
+<Base title={d.title} description={d.summary} source={home.entry.filePath} home>
+  <!-- The learning system's lesson band: dark, with the AIO arcs as the one decorative motif -->
+  <section class="hero" style={`--motif: url("${motif}")`}>
+    <div class="wrap">
+      <h1>{d.title}</h1>
+      {d.summary && <p class="lede">{d.summary}</p>}
+      <p class="hero-actions">
+        <a class="btn btn-light" href={site.platformUrl} target="_blank" rel="noopener">Launch AIO Platform<span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="btn btn-ghost" href="/learn/platform-guide/">Plan a project with AIO</a>
+      </p>
+      <p class="hero-aside">Asked to share your data for a study? <a href="/take-part/">Find out how data donation works</a>.</p>
+    </div>
+  </section>
+
+  <section class="wrap intro" aria-label="What is the AIO Platform?">
+    <div class="prose" set:html={home.entry.rendered?.html ?? ''} />
+    {d.video && <Video id={d.video} title={d.videoTitle ?? 'Introduction to AIO'} />}
+  </section>
+
+  {d.blocks.length > 0 && (
+    <section class="wrap" aria-labelledby="offer-heading">
+      <h2 id="offer-heading">What AIO offers</h2>
+      <ul class="offer">
+        {d.blocks.map((b) => (
+          <li>
+            <span class="emblem"><Icon name={b.icon} /></span>
+            <div>
+              <h3>{b.title}</h3>
+              <p>{b.text}</p>
+              <a href={b.href}>{b.link}</a>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <section class="wrap" aria-labelledby="news-heading">
+    <h2 id="news-heading">Latest news</h2>
+    {next && <p class="next-event"><Icon name="time" /> Next event: <a href={postUrl(next)}>{next.data.title}</a></p>}
+    <PostList posts={posts.slice(0, 3)} />
+    <p><a href="/news/">All news</a> · <a href="/events/">Events</a> · <a href={site.newsletterUrl}>Subscribe to the newsletter</a></p>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    --hero: #334155; /* slate 700: white text on it has a contrast of 10.4:1 */
+    margin-top: -2.25rem; margin-bottom: 3rem; padding: 4rem 0 3.5rem;
+    background: var(--hero) var(--motif) no-repeat right -4rem center / auto 170%;
+    color: var(--primary-fg);
+  }
+  .hero h1 { color: #fff; font-size: clamp(2.4rem, 1.6rem + 3.2vw, 4rem); line-height: 1.05; letter-spacing: -0.02em; max-width: 18ch; margin-bottom: 1.25rem; }
+  .hero .lede { color: #e2e8f0; max-width: 44rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 2rem 0 1rem; }
+  .btn-light { background: #fff; color: var(--primary); }
+  .btn-light:hover { background: var(--muted); }
+  .btn-ghost { color: #fff; border-color: #94a3b8; }
+  .btn-ghost:hover { border-color: #fff; }
+  .hero-aside { color: #e2e8f0; margin: 0; }
+  .hero a:not(.btn) { color: #fff; text-decoration-color: var(--accent); }
+  .hero :focus-visible { outline-color: #fff; }
+  .intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
+  .intro :global(h2) { margin-top: 0; }
+  .offer { list-style: none; margin: 1rem 0 2rem; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; border-top: 1px solid var(--border); }
+  .offer li { display: flex; gap: 1.1rem; padding: 1.4rem 0; border-bottom: 1px solid var(--border); }
+  .offer h3 { margin: 0 0 0.3rem; font-size: var(--fs-lead); }
+  .offer p { margin: 0 0 0.5rem; color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-snug); }
+  .next-event { display: flex; align-items: center; gap: 0.5rem; font-weight: 500; }
+  @media (max-width: 52rem) {
+    .intro, .offer { grid-template-columns: minmax(0, 1fr); }
+    .hero { padding: 3rem 0 2.5rem; background-size: auto 120%; background-position: right -8rem center; }
+  }
+</style>

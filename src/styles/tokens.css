@@ -1,0 +1,51 @@
+/* AIO design tokens, shared by the website and (from January) the learning system.
+   Names and values are those of the AIO Research Training System (app/style.css, October 2026),
+   so that the learning system can load this file without a change of meaning:
+   slate neutrals and one orange accent, Space Grotesk for headings, Inter Tight for text.
+   The website loads both fonts itself (src/layouts/Base.astro), under the same family names.
+   Contrast on white: --fg 19.0:1, --primary 17.9:1, --text 14.6:1, --text-2 7.6:1,
+   --muted-fg 4.8:1, --accent-text 7.3:1, --accent-strong 3.6:1 (focus marks only).
+   --accent (2.8:1) is for marks and rules only, never for text or focus rings. */
+:root {
+  --bg: #ffffff;           /* page background */
+  --fg: #020617;           /* strongest text */
+  --text: #1e293b;         /* body text */
+  --text-2: #475569;       /* secondary text */
+  --muted-fg: #64748b;     /* captions, dates */
+  --muted: #f1f5f9;        /* quiet background (hover) */
+  --muted-2: #f8fafc;      /* quietest background (bands) */
+  --border: #e2e8f0;       /* rules and borders */
+  --border-strong: #cbd5e1;
+  --ring: #94a3b8;
+  --primary: #0f172a;      /* headings and primary buttons */
+  --primary-fg: #f8fafc;
+  --accent: #f97316;       /* the AIO orange: marks only */
+  --accent-strong: #ea580c;
+  --accent-soft: #fff7ed;
+  --accent-border: #fed7aa;
+  --accent-text: #9a3412;  /* website only: orange that is safe for text */
+
+  --font-head: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Type scale: one size for each role. Every font size and line height in global.css uses these. */
+  --fs-xs: 0.875rem;    /* 14 px: labels, tags, the small print of the footer */
+  --fs-sm: 1rem;        /* 16 px: menus, breadcrumb, dates, summaries in lists, notes, buttons */
+  --fs-base: 1.125rem;  /* 18 px: running text, one step above the learning system's 17 px */
+  --fs-lead: 1.25rem;   /* 20 px: the text under a page title, titles in lists */
+  --fs-h3: 1.375rem;    /* 22 px */
+  --fs-h2: clamp(1.625rem, 1.4rem + 0.8vw, 2rem);  /* 26 to 32 px */
+  --fs-h1: clamp(2.25rem, 1.8rem + 2vw, 3rem);     /* 36 to 48 px */
+  --lh-head: 1.2;       /* headings, buttons */
+  --lh-snug: 1.5;       /* small text, menus, the text under a page title */
+  --lh-text: 1.7;       /* running text */
+
+  --radius-sm: 0.375rem;
+  --radius: 0.625rem;
+  --radius-lg: 0.875rem;
+
+  /* website only */
+  --page: 80rem;                      /* one width for header, content and footer */
+  --gutter: clamp(1rem, 4vw, 2.5rem); /* equal left and right margins */
+}

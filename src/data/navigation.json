@@ -1,0 +1,73 @@
+{
+  "groups": [
+    {
+      "label": "Platform & tools",
+      "icon": "dashboard",
+      "items": [
+        { "label": "AIO Platform", "href": "/platform/", "icon": "project", "description": "What the platform does and how to start" },
+        { "label": "Data collection tools", "href": "/platform/data-collection-tools/", "icon": "data-donation", "description": "Data donation, download packages, screen capture and APIs" },
+        { "label": "AIReD", "href": "/platform/aired/", "icon": "aired", "description": "Dashboard for platform-centric social media data" },
+        { "label": "Test AI range and environments", "href": "/platform/test-ai-range/", "icon": "tools", "description": "To be written" }
+      ]
+    },
+    {
+      "label": "News & events",
+      "icon": "history",
+      "items": [
+        { "label": "News", "href": "/news/", "icon": "glossary", "description": "All articles, newest first" },
+        { "label": "Events", "href": "/events/", "icon": "time", "description": "Upcoming and past events and training" },
+        { "label": "Case studies", "href": "/case-studies/", "icon": "case-study", "description": "Research done with AIO" },
+        { "label": "Newsletter", "href": "/newsletter/", "icon": "external", "description": "Sign up for the AIO newsletter" }
+      ]
+    },
+    {
+      "label": "Learning & resources",
+      "icon": "lesson",
+      "items": [
+        { "label": "Training", "href": "/learn/training/", "icon": "lesson", "description": "Online modules and workshops" },
+        { "label": "Learning resources", "href": "/learn/resources/", "icon": "full-text", "description": "Guides, explainers and reference" },
+        { "label": "Platform guide", "href": "/learn/platform-guide/", "icon": "plan", "description": "Steps to a project on the AIO Platform" }
+      ]
+    },
+    {
+      "label": "Take part",
+      "icon": "participant",
+      "items": [
+        { "label": "Share your data", "href": "/take-part/", "icon": "data-donation", "description": "How data donation works for participants" },
+        { "label": "How we protect your data", "href": "/take-part/how-we-protect-your-data/", "icon": "privacy", "description": "Consent, storage and privacy" },
+        { "label": "MOT apps", "href": "/take-part/mot/", "icon": "screen-mobile", "description": "Mobile Observatory Ad Toolkit" },
+        { "label": "Questions and answers", "href": "/take-part/questions/", "icon": "question", "description": "Short answers to common questions" }
+      ]
+    },
+    {
+      "label": "About AIO",
+      "icon": "observatory",
+      "items": [
+        { "label": "Who we are", "href": "/about/", "icon": "observatory", "description": "Mission and the four pillars" },
+        { "label": "Team", "href": "/about/team/", "icon": "team", "description": "Steering committee and team" },
+        { "label": "Funding", "href": "/about/funding/", "icon": "infrastructure", "description": "ARDC, NCRIS and our partners" },
+        { "label": "Communities", "href": "/about/communities/", "icon": "network", "description": "Networks and related observatories" },
+        { "label": "Contact", "href": "/about/contact/", "icon": "briefing", "description": "Email and social channels" }
+      ]
+    }
+  ],
+  "site": {
+    "label": "This site",
+    "icon": "glossary",
+    "items": [
+      { "label": "Search", "href": "/search/", "icon": "explore", "description": "Search all pages" },
+      { "label": "Privacy", "href": "/privacy/", "icon": "lock", "description": "What this website collects" },
+      { "label": "Accessibility", "href": "/accessibility/", "icon": "check", "description": "Accessibility statement" }
+    ]
+  },
+  "draftReview": {
+    "label": "Test version",
+    "icon": "review",
+    "items": [
+      { "label": "Review the test version", "href": "/review/", "icon": "review", "description": "Eight questions for reviewers" },
+      { "label": "Plan", "href": "/plan/", "icon": "plan", "description": "Plan for the new website" },
+      { "label": "All pages", "href": "/site-map/", "icon": "network", "description": "Every page as a graph" },
+      { "label": "Post editor", "href": "/editor/", "icon": "uploader", "description": "Add or edit a news post" }
+    ]
+  }
+}

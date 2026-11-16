@@ -1,0 +1,7 @@
+---
+// One icon from the learning system's sprite (public/graphics/icons.svg). Icons label and orient;
+// they never carry meaning alone, so a text label always stands next to them.
+interface Props { name: string; class?: string; }
+const { name, class: cls } = Astro.props;
+---
+<svg class:list={['i', cls]} aria-hidden="true" focusable="false"><use href={`/graphics/icons.svg#i-${name}`} /></svg>

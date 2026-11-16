@@ -1,0 +1,52 @@
+---
+import Brand from './Brand.astro';
+import { nav, site } from '../lib/site';
+interface Props { editLink?: string; }
+const { editLink } = Astro.props;
+// The ARDC funding statement, with its DOI as a link (ARDC acknowledgement rules).
+const doi = site.fundingDoiUrl.replace('https://doi.org/', '');
+const [beforeDoi, afterDoi] = site.funding.split(doi);
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <Brand />
+        <p>{site.tagline}</p>
+        <p><a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a></p>
+      </div>
+      <nav aria-label={nav.site.label}>
+        <h2>{nav.site.label}</h2>
+        <ul>
+          {nav.site.items.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+          <li><a href="/about/contact/">Contact</a></li>
+          <li><a href="/rss.xml">News feed (RSS)</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Follow AIO</h2>
+        <ul>
+          <li><a href={site.newsletterUrl}>Newsletter</a></li>
+          {site.social.map((s) => <li><a href={s.url}>{s.label}</a></li>)}
+        </ul>
+      </div>
+      {site.draft && (
+        <nav aria-label={nav.draftReview.label}>
+          <h2>{nav.draftReview.label}</h2>
+          <ul>{nav.draftReview.items.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+        </nav>
+      )}
+    </div>
+
+    <div class="footer-small">
+      <p>{beforeDoi}<a href={site.fundingDoiUrl}>{doi}</a>{afterDoi}</p>
+      <div class="funders">
+        <!-- Test version: the logos load from the current site. Copy them into public/graphics/ before launch. -->
+        <img src="https://internetobservatory.org.au/wp-content/uploads/2026/04/ARDC-logo-RGB-1024x335.png" alt="Australian Research Data Commons (ARDC)" width="134" height="44" loading="lazy" />
+        <img src="https://internetobservatory.org.au/wp-content/uploads/2026/04/NCRIS_Aus-Gov_Lockup.png" alt="Australian Government, National Collaborative Research Infrastructure Strategy (NCRIS)" width="176" height="44" loading="lazy" />
+      </div>
+      <p>AIO guides and explainers are licensed under <a href={site.licence.url}>{site.licence.label}</a>. Republished articles keep the licence of their first publisher.</p>
+      {editLink && <p><a href={editLink}>Edit this page on GitHub</a></p>}
+    </div>
+  </div>
+</footer>

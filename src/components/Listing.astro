@@ -1,0 +1,126 @@
+---
+// The list that a page asks for with "listing:" in its front matter.
+import PostList from './PostList.astro';
+import { publishedPosts, publishedResources, resourceUrl, eventDate, isUpcoming } from '../lib/content';
+import { site, BASE, kindLabel, kindIntro, formatDateShort } from '../lib/site';
+import { siteGraphFigure } from '../lib/figures';
+import PostEditor from './PostEditor.astro';
+import training from '../data/training.json';
+
+interface Props { kind: 'news' | 'events' | 'case-studies' | 'resources' | 'training' | 'search' | 'review' | 'site-map' | 'editor'; }
+const { kind } = Astro.props;
+
+const posts = kind === 'news' || kind === 'events' || kind === 'case-studies' ? await publishedPosts() : [];
+const events = posts.filter((p) => p.data.type === 'event');
+const upcoming = events.filter((p) => isUpcoming(p)).sort((a, b) => eventDate(a).valueOf() - eventDate(b).valueOf());
+const past = events.filter((p) => !isUpcoming(p)).sort((a, b) => eventDate(b).valueOf() - eventDate(a).valueOf());
+
+const resources = kind === 'resources' ? await publishedResources() : [];
+const kinds = ['tutorial', 'how-to', 'explanation', 'reference'] as const;
+
+const trainingBase = site.trainingUrl && !site.trainingUrl.endsWith('/') ? site.trainingUrl + '/' : site.trainingUrl;
+
+const questions = [
+  'Does the home page tell you in a few seconds what AIO is and what you can do here?',
+  'Can you find what you came for in the menu? What did you look for first?',
+  'Are the five menu groups right (Platform & tools, News & events, Learning & resources, Take part, About AIO)? What would you rename, move or drop?',
+  'Is anything missing that the current website has and that you need?',
+  'Is the text clear for a researcher who is new to digital data? And for a member of the public who was invited to share data?',
+  'How does the site look and work on your phone?',
+  'Who should write the pages marked "To be written"?',
+  'Anything else?',
+];
+---
+{kind === 'news' && <PostList posts={posts} headingLevel="h2" />}
+
+{kind === 'case-studies' && <PostList posts={posts.filter((p) => p.data.type === 'case-study')} showType={false} headingLevel="h2" />}
+
+{kind === 'events' && (
+  <>
+    <h2>Upcoming</h2>
+    {upcoming.length ? <PostList posts={upcoming} showType={false} /> : <p>No upcoming events right now. <a href={site.newsletterUrl}>Subscribe to the newsletter</a> to hear about the next one.</p>}
+    <h2>Past events</h2>
+    <PostList posts={past} showType={false} />
+  </>
+)}
+
+{kind === 'resources' && kinds.map((k) => {
+  const list = resources.filter((r) => r.data.kind === k);
+  return (
+    <section>
+      <h2 id={k}>{kindLabel[k]}</h2>
+      <p>{kindIntro[k]}</p>
+      {k === 'tutorial' && <p>The AIO online training modules are the tutorials: see <a href="/learn/training/">Training</a>.</p>}
+      {k === 'reference' && list.length === 0 && <p>Short answers to common questions: see <a href="/take-part/questions/">Questions and answers</a>.</p>}
+      {list.length > 0 && (
+        <ul class="item-list">
+          {list.map((r) => (
+            <li>
+              <div class="when">{formatDateShort(r.data.date)}</div>
+              <div>
+                <h3 class="item-title"><a href={resourceUrl(r)}>{r.data.title}</a></h3>
+                {r.data.summary && <p>{r.data.summary}</p>}
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  );
+})}
+
+{kind === 'training' && (
+  <>
+    <h2>Online modules</h2>
+    {!trainingBase && <p class="todo">The online modules are not published yet. Links to each module will appear here when they are.</p>}
+    <ul class="item-list">
+      {training.modules.map((m) => (
+        <li>
+          <div class="when">{m.label}</div>
+          <div>
+            <h3 class="item-title">{m.available && trainingBase ? <a href={`${trainingBase}#module-${m.id}`}>{m.title}</a> : m.title}</h3>
+            <p>{m.summary}</p>
+            <p class="meta">{m.available ? `About ${m.minutes} minutes of reading, plus activities` : 'In preparation'}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </>
+)}
+
+{kind === 'search' && (
+  <>
+    <div id="search"><noscript><p>Search needs JavaScript. You can also use the menu at the top of the page.</p></noscript></div>
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+    <script is:inline src="/pagefind/pagefind-ui.js"></script>
+    <script is:inline define:vars={{ bundlePath: `${BASE}/pagefind/`, baseUrl: `${BASE}/` }}>
+      window.addEventListener('DOMContentLoaded', function () {
+        new PagefindUI({ element: '#search', bundlePath: bundlePath, baseUrl: baseUrl, showImages: false, resetStyles: false });
+      });
+    </script>
+  </>
+)}
+
+{kind === 'editor' && <PostEditor />}
+
+{kind === 'review' && (
+  <>
+    <h2>Eight questions</h2>
+    {site.feedback.commentsUrl ? (
+      <form class="review-form" data-review-form>
+        {questions.map((q, i) => (
+          <label>{`${i + 1}. ${q}`}<textarea rows="3" maxlength="4000" data-question={`Question ${i + 1}: ${q}`}></textarea></label>
+        ))}
+        <label>Your name (optional) <input name="name" maxlength="100" autocomplete="name" /></label>
+        <label class="comment-trap" aria-hidden="true">Leave this field empty <input name="website" tabindex="-1" autocomplete="off" /></label>
+        <p class="hint">Answers and names are public to anyone with the comment service address. Do not include private information.</p>
+        <p><button type="submit" class="btn btn-primary">Send the answers</button></p>
+        <p class="comment-status" data-review-status role="status"></p>
+      </form>
+    ) : (
+      <ol>{questions.map((q) => <li>{q}</li>)}</ol>
+    )}
+  </>
+)}
+
+{kind === 'site-map' && <div class="wide" set:html={siteGraphFigure()} />}

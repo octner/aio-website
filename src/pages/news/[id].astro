@@ -1,0 +1,56 @@
+---
+import Page from '../../layouts/Page.astro';
+import PostList from '../../components/PostList.astro';
+import { publishedPosts, sectionHeadings } from '../../lib/content';
+import { formatDate, typeLabel, summaryIsNew } from '../../lib/site';
+import { withFigures } from '../../lib/figures';
+
+export async function getStaticPaths() {
+  const posts = await publishedPosts();
+  return posts.map((post) => ({ params: { id: post.id }, props: { post, posts } }));
+}
+const { post, posts } = Astro.props;
+const d = post.data;
+const more = posts.filter((p) => p.id !== post.id && p.data.type === d.type).slice(0, 3);
+const listName = { news: 'news', event: 'events', 'case-study': 'case studies' }[d.type];
+const listHref = { news: '/news/', event: '/events/', 'case-study': '/case-studies/' }[d.type];
+
+// Event times show in Melbourne time. A whole-day event (allDay) is written as dates only,
+// which YAML reads as midnight UTC, so it is formatted in UTC to keep the right day.
+const timeFormat = new Intl.DateTimeFormat('en-AU', { dateStyle: 'full', timeStyle: 'short', timeZone: 'Australia/Melbourne' });
+const dayFormat = new Intl.DateTimeFormat('en-AU', { dateStyle: 'full', timeZone: 'UTC' });
+const when = (dt: Date) => (d.allDay ? dayFormat.format(dt) : timeFormat.format(dt));
+
+const body = withFigures(post.rendered?.html ?? '');
+// The lead image shows above the text, unless the text already contains the same picture.
+const leadImage = d.image && !body.includes(d.image) ? d.image : undefined;
+---
+<Page
+  title={d.title}
+  summary={summaryIsNew(d.summary, post.body) ? d.summary : undefined}
+  description={d.summary}
+  status={d.status}
+  source={post.filePath}
+  headings={sectionHeadings(post)}
+>
+  <p slot="meta" class="meta"><span class="tag">{typeLabel[d.type]}</span> <time datetime={d.date.toISOString()}>{formatDate(d.date)}</time>{d.author && <span>{d.author}</span>}</p>
+  {d.type === 'event' && (d.eventStart || d.location || d.registration) && (
+    <div class="event-box">
+      <dl>
+        {d.eventStart && <><dt>When</dt><dd>{when(d.eventStart)}{d.eventEnd && <> to {when(d.eventEnd)}</>}{!d.allDay && ' (Melbourne time)'}</dd></>}
+        {d.location && <><dt>Where</dt><dd>{d.location}</dd></>}
+        {d.registration && <><dt>Register</dt><dd><a href={d.registration}>Registration page</a></dd></>}
+      </dl>
+    </div>
+  )}
+  {leadImage && <img class="hero-img" src={leadImage} alt={d.imageAlt ?? ''} />}
+  <div class="prose" set:html={body} />
+  {d.originalUrl && <p class="meta">First published by {d.originalSource ?? 'another outlet'}: <a href={d.originalUrl}>read the original article</a>.</p>}
+  {more.length > 0 && (
+    <section aria-labelledby="more-heading">
+      <h2 id="more-heading">More {listName}</h2>
+      <PostList posts={more} showType={false} />
+      <p><a href={listHref}>All {listName}</a></p>
+    </section>
+  )}
+</Page>

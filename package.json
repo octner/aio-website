@@ -1,0 +1,29 @@
+{
+  "name": "aio-website",
+  "description": "Website of the Australian Internet Observatory (test version)",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "dev": "node scripts/site-graph.mjs && astro dev",
+    "build": "node scripts/site-graph.mjs && astro build && node scripts/postbuild.mjs dist && pagefind --site dist",
+    "preview": "astro preview",
+    "check": "node scripts/check-links.mjs dist",
+    "check:code": "astro check",
+    "test:store": "node --test scripts/test-comment-store.mjs scripts/test-post-store.mjs"
+  },
+  "dependencies": {
+    "@astrojs/rss": "4.0.19",
+    "@astrojs/sitemap": "3.7.5",
+    "@fontsource-variable/inter-tight": "5.3.0",
+    "@fontsource-variable/space-grotesk": "5.3.0",
+    "astro": "7.4.12"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "pagefind": "1.6.0",
+    "typescript": "6.0.3"
+  }
+}

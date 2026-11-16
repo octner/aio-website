@@ -1,0 +1,13 @@
+---
+// A YouTube video that loads the player only after a click (script in Base.astro).
+// Without JavaScript it is a plain link to YouTube. Markdown pages use the same markup (see EDITING.md).
+import Icon from './Icon.astro';
+interface Props { id: string; title: string; }
+const { id, title } = Astro.props;
+---
+<div class="video" data-youtube={id}>
+  <a href={`https://www.youtube.com/watch?v=${id}`}>
+    <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="" loading="lazy" width="480" height="360" />
+    <span class="play"><Icon name="play" />Play video: {title}</span>
+  </a>
+</div>

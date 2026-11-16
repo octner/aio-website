@@ -1,0 +1,1579 @@
+{
+ "taken": "2026-11-14",
+ "site": "https://internetobservatory.org.au/",
+ "pages": [
+  {
+   "url": "https://internetobservatory.org.au/",
+   "title": "Home",
+   "kind": "page",
+   "purpose": "Front page: announces the new AIO Platform, states what AIO does, and sends visitors to the main sections and the latest news.",
+   "summary": "The main heading is \"All new AIO Platform is now available\", with a button to the platform and a YouTube video from the Director, Julian Thomas. A section \"The Digital Transformation Challenge\" explains why researchers need access to platform data. Four cards follow (Digital Research Platform, Data Collection Tools, Data Governance and Management, Outreach and Training), then \"Work with us\", \"Participate\" and a partner statement (ARDC, NCRIS). A grid shows the 4 newest posts: \"The all new AIO platform is here!\" (2026-09-23), \"SICSS-Melbourne 2026 – Our First Week\" (2026-06-24), \"Shaping the future at Building Digital Platform Observatories\" (2026-06-24), \"SICSS 2026 starts in Melbourne\" (2026-06-20).",
+   "verdict": "keep",
+   "verdictReason": "This is the page that WordPress treats as the front page: its body class is \"home\" and its canonical link is \"/\". It was modified last (7 October 2026). Carry it over, but fold in the shorter wording of /home-2/ and cut the repeated sections.",
+   "date": "",
+   "author": "",
+   "categories": [],
+   "tags": [],
+   "wordCount": 550,
+   "externalLinks": [
+    "Try it out here (AIO Platform) -> https://app.internetobservatory.org.au/",
+    "Explore -> https://internetobservatory.org.au/explore/",
+    "Data Collection Tools card -> /observe (redirects to https://internetobservatory.org.au/explore/observe/)",
+    "Data Governance and Management card -> https://internetobservatory.org.au/resources/",
+    "Outreach and Training card -> /learn (redirects to https://internetobservatory.org.au/explore/learn/)",
+    "Participate: Find out more -> https://internetobservatory.org.au/participate/",
+    "Latest News & Events / View all news + events -> https://internetobservatory.org.au/news-and-events/",
+    "About AIO -> https://internetobservatory.org.au/about/"
+   ],
+   "media": [
+    "YouTube video \"What is AIO? Introducing the AIO Platform\" -> https://youtu.be/15xDm12TMFU",
+    "ARDC logo -> https://internetobservatory.org.au/wp-content/uploads/2026/04/ARDC-logo-RGB-1024x335.png",
+    "NCRIS Aus Gov logos -> https://internetobservatory.org.au/wp-content/uploads/2026/04/NCRIS_Aus-Gov_Lockup.png",
+    "Card image Outreach and Training -> https://internetobservatory.org.au/wp-content/uploads/2026/04/Pattern_05.jpg",
+    "Card icons -> https://internetobservatory.org.au/wp-content/uploads/2026/02/data-governance.svg , data-sourcing.svg , open-source.svg"
+   ],
+   "problems": [
+    "Two pages are titled \"Home\". The menu item \"Home\" goes to /home-2/, but the logo goes to this page (/).",
+    "The video is configured to start by itself with sound on and to repeat (settings in the HTML: autoplay true, mute false, loop true). I did not render the page, so I did not watch this happen.",
+    "The level-2 heading under \"The Digital Transformation Challenge\" is a full sentence of 32 words.",
+    "The card links use /observe and /learn. These work only through WordPress redirects.",
+    "The \"View all news + events\" button is in the HTML twice (one copy for desktop, one for mobile).",
+    "One news card shows two overlapping categories: \"News\" and \"News and Events\".",
+    "The text repeats itself: \"The tools that power digital observation\" restates the cards above it, and \"Work with us\" repeats the Get Started introduction word for word.",
+    "The page loads 26 stylesheet files and 19 script files, and its main content holds 28 image elements."
+   ]
+  },
+  {
+   "url": "https://internetobservatory.org.au/home-2/",
+   "title": "Home",
+   "kind": "page",
+   "purpose": "A second, newer draft of the home page, which the main menu item \"Home\" opens.",
+   "summary": "The main heading is \"Tools to observe and understand the digital world\", with the subheading \"Collect, manage and analyse digital platform data\" and a \"Get Started\" button. Three links follow: Explore the Platform, Data Collection Tools, Participate / Donate Your Data. The rest repeats the front page: a shorter \"Digital Transformation Challenge\" text, the same four cards with slightly longer text, \"Work with us\", \"Participate\", the partner statement, and the same grid of the 4 newest posts. It has no platform announcement and no video.",
+   "verdict": "merge",
+   "verdictReason": "Merge into the new home page (/). About 70 per cent of the text is the same as on /. Its hero wording and its short challenge text are clearer than those on /, so use them there. Then drop this address and redirect it to /.",
+   "date": "",
+   "author": "",
+   "categories": [],
+   "tags": [],
+   "wordCount": 468,
+   "externalLinks": [
+    "Get Started -> https://internetobservatory.org.au/explore/get-started/",
+    "Explore the Platform -> https://internetobservatory.org.au/explore/",
+    "Data Collection Tools -> https://internetobservatory.org.au/explore/observe/",
+    "Participate / Donate Your Data -> /participate// (double slash, redirects to https://internetobservatory.org.au/participate/)",
+    "Read more about AIO and the challenge it solves -> https://internetobservatory.org.au/about/",
+    "Learn more (resources) -> https://internetobservatory.org.au/resources/",
+    "View all news + events -> https://internetobservatory.org.au/news-and-events/"
+   ],
+   "media": [
+    "ARDC logo -> https://internetobservatory.org.au/wp-content/uploads/2026/04/ARDC-logo-RGB-1024x335.png",
+    "NCRIS Aus Gov logos -> https://internetobservatory.org.au/wp-content/uploads/2026/04/NCRIS_Aus-Gov_Lockup.png",
+    "Card image Outreach and Training -> https://internetobservatory.org.au/wp-content/uploads/2026/04/Pattern_05.jpg"
+   ],
+   "problems": [
+    "Duplicate home page. The address \"home-2\" is a WordPress default name, and the page is open to search engines with its own canonical link.",
+    "The four \"What we want to achieve\" cards are link elements with no target. A click on them goes nowhere.",
+    "The link \"Participate / Donate Your Data\" has a double slash (/participate//).",
+    "The label \"Explore the Platform\" opens the Explore page of the website, not the AIO Platform (app.internetobservatory.org.au).",
+    "This page has no link to the AIO Platform in its main content, although / leads with it.",
+    "The level-2 heading under \"The Digital Transformation Challenge\" is two sentences (41 words).",
+    "The \"View all news + events\" button is in the HTML twice (one copy for desktop, one for mobile).",
+    "The site search lists this page as \"Home\" next to the real home page."
+   ]
+  },
+  {
+   "url": "https://internetobservatory.org.au/explore/",
+   "title": "Explore",
+   "kind": "page",
+   "purpose": "Hub page for researchers: four large link blocks that lead to Get Started, data collection methods, training, and research projects.",
+   "summary": "Four sections, each one large link: \"Build a Project\" (to Get Started), \"AIO Data Collection Methods\" (to Observe), \"Training & Support\" (to Learn) and \"Research Projects\" (to the post \"Research projects using AIO 2026\"). Each has one or two paragraphs that summarise the target page. A grid at the end shows the same 4 newest posts as the home page (2026-09-23, 2026-06-24, 2026-06-24, 2026-06-20).",
+   "verdict": "merge",
+   "verdictReason": "Merge into the new home page and the menu. The page only introduces three pages that the menu already lists, plus one post. Keep its four short texts as the card texts on the home page. Keep a visible link to \"Research projects using AIO 2026\", because this page is the main route to it.",
+   "date": "",
+   "author": "",
+   "categories": [],
+   "tags": [],
+   "wordCount": 309,
+   "externalLinks": [
+    "Build a Project -> /get-started (redirects to https://internetobservatory.org.au/explore/get-started/)",
+    "AIO Data Collection Methods -> /observe (redirects to https://internetobservatory.org.au/explore/observe/)",
+    "Training & Support -> https://internetobservatory.org.au/explore/learn/",
+    "Research Projects -> https://internetobservatory.org.au/current-research-projects/",
+    "View all news + updates -> /news (returns 404)"
+   ],
+   "media": [
+    "Stock photo -> https://internetobservatory.org.au/wp-content/uploads/2026/08/AdobeStock_1500814358-scaled.jpeg",
+    "Stock photo -> https://internetobservatory.org.au/wp-content/uploads/2026/08/AdobeStock_140169187-scaled.jpeg",
+    "Screenshot, alt \"Bogdan Mamaev presenting on AIO\" -> https://internetobservatory.org.au/wp-content/uploads/2026/04/Screenshot-2026-04-17-233456.png",
+    "Screenshot, alt \"Collection of advertising images\" -> https://internetobservatory.org.au/wp-content/uploads/2026/04/Screenshot-2026-04-30-173006.png"
+   ],
+   "problems": [
+    "Dead link: the desktop button \"View all news + updates\" goes to /news, which returns 404 (I tried it). The mobile copy of the button goes to \"#\".",
+    "The label \"Explore\" does not say what the page holds. The menu also lists its three child pages beside it, at the same level.",
+    "All body text is marked up as level-4 headings, and each whole section is one link.",
+    "There is an empty level-4 heading in the \"AIO Data Collection Methods\" block.",
+    "Two of the links (/get-started, /observe) work only through WordPress redirects.",
+    "Heavy images: the four photos and screenshots are 289 KB, 498 KB, 521 KB and 533 KB (sizes from the server headers). The two stock photos have no alternative text.",
+    "The news grid is the same as on the home page."
+   ]
+  },
+  {
+   "url": "https://internetobservatory.org.au/explore/get-started/",
+   "title": "Get Started",
+   "kind": "guide",
+   "purpose": "Tells a researcher the five steps to start working with AIO.",
+   "summary": "A short introduction, then five steps. Step 1: define your research question. Step 2: look at the AIO tools. Step 3: get ethics approval from a Human Research Ethics Committee (HREC). Step 4: use the AIO training. Step 5: create a project on the platform.",
+   "verdict": "keep",
+   "verdictReason": "The text is short and useful, and it is the natural entry page for researchers. Add the missing links to each step when it moves to the new site.",
+   "date": "",
+   "author": "",
+   "categories": [],
+   "tags": [],
+   "wordCount": 269,
+   "externalLinks": [],
+   "media": [
+    "Step icons -> https://internetobservatory.org.au/wp-content/uploads/2026/02/objective-1.svg , objective-2.svg , objective-3.svg"
+   ],
+   "problems": [
+    "The main content has 0 links. The text names the Resources section, the About page, the Ethics section, an ethics template and the platform, but links to none of them.",
+    "Step 5 says to create a project on the platform, with no link or button to https://app.internetobservatory.org.au/.",
+    "The text mentions an \"Ethics section\". The menu has no item with that name.",
+    "\"HREC\" is not written out on this page.",
+    "The step icons repeat: one icon serves steps 2 and 4, another serves steps 3 and 5.",
+    "The page sits under /explore/ in the address, but the menu shows it before \"Explore\" at the same level."
+   ]
+  },
+  {
+   "url": "https://internetobservatory.org.au/explore/observe/",
+   "title": "Observe",
+   "kind": "explainer",
+   "purpose": "Explains the ways to collect data with AIO: data donation (screen capture, Data Download Packages) and access through APIs and archives.",
+   "summary": "The main heading is \"AIO Data Collection Methods\". The page defines data donation and its two approaches: screen capture, and Data Download Packages (DDPs, the personal data archives that a user can request from a platform). Each has a link to its explainer post. A section \"APIs & Archives\" says partner resources, such as the AIReD dashboard at the University of Melbourne, will be offered through AIO. A grid shows the 4 newest posts in the category \"Resource\": \"How to do digital platform research using AIO?\" (2026-05-04), \"Research projects using AIO 2026\" (2026-04-06), \"Data Download Packages Explainer\" (2026-04-04), \"Screen Capture Explainer\" (2026-04-02).",
+   "verdict": "keep",
+   "verdictReason": "This is the core description of what AIO offers. Carry it over under a name that matches its heading, for example \"Data collection methods\" or \"Tools\".",
+   "date": "",
+   "author": "",
+   "categories": [],
+   "tags": [],
+   "wordCount": 590,
+   "externalLinks": [
+    "Find out more about screen capture -> https://internetobservatory.org.au/screen-capture-explainer/",
+    "Find out more about DDPS -> https://internetobservatory.org.au/data-download-packages-explainer/",
+    "View Related Resources -> https://internetobservatory.org.au/resources/",
+    "How to do digital platform research using AIO? -> https://internetobservatory.org.au/how-to-do-digital-platform-research-using-aio/",
+    "Research projects using AIO 2026 -> https://internetobservatory.org.au/current-research-projects/"
+   ],
+   "media": [
+    "Section image, no alternative text -> https://internetobservatory.org.au/wp-content/uploads/2026/04/image-768x512.webp",
+    "Section image, no alternative text -> https://internetobservatory.org.au/wp-content/uploads/2025/12/adem-ay-Tk9m_HP4rgQ-unsplash-768x512.jpg"
+   ],
+   "problems": [
+    "Three names for one page: the menu says \"Observe\", the browser title says \"Observe\", and the main heading says \"AIO Data Collection Methods\".",
+    "The main heading ends with an invisible character (zero-width space).",
+    "The three introduction paragraphs are marked up as level-4 headings.",
+    "Spelling varies: \"DDPs\" and \"DDPS\". The second introduction paragraph has no full stop.",
+    "The \"APIs & Archives\" section has no link, also not for the AIReD dashboard. It speaks of the future (\"will be provided\") and gives no date.",
+    "The page has no link to the AIO Platform and no link to Get Started.",
+    "The page repeats the opening of the two explainer posts and then shows the same two posts again in the grid.",
+    "Both section images have no alternative text."
+   ]
+  },
+  {
+   "url": "https://internetobservatory.org.au/explore/learn/",
+   "title": "Learn",
+   "kind": "page",
+   "purpose": "Describes AIO training: workshops and webinars, planned online learning materials, the 2026 summer institute, and how to ask for help.",
+   "summary": "The main heading is \"Training & Support\". The page lists where the team teaches (ResBaz Queensland, ARDC summer school, webinars, conferences). It says online learning modules are in development and that the \"AIO Library will be available soon\". It reports the Summer Institute for Computational Social Science in Melbourne (22 June to 3 July 2026). It ends with \"Talk to us!\" and the email of the Research Training Manager. A grid shows the same 4 newest \"Resource\" posts as the Observe page.",
+   "verdict": "keep",
+   "verdictReason": "This is the page that will link to the learning system, so it must stay. Rewrite the dated parts (the summer institute, \"available soon\") and repair the wrong links when it moves.",
+   "date": "",
+   "author": "",
+   "categories": [],
+   "tags": [],
+   "wordCount": 517,
+   "externalLinks": [
+    "Subscribe to stay up to date -> https://internetobservatory.org.au/screen-capture-explainer/ (wrong target)",
+    "More information (summer institute) -> https://internetobservatory.org.au/sicss-melbourne-2026-our-first-week/",
+    "View Related Resources -> https://internetobservatory.org.au/resources/",
+    "Bogdan Mamaev (email) -> mailto:bogdan.mamaev@deakin.edu.au",
+    "Follow us on socials -> / (wrong target)"
+   ],
+   "media": [
+    "Screenshot, alt \"Bogdan Mamaev presenting on AIO\" -> https://internetobservatory.org.au/wp-content/uploads/2026/04/Screenshot-2026-04-17-233456-768x520.png",
+    "Image, no alternative text -> https://internetobservatory.org.au/wp-content/uploads/2025/02/design-768x432.jpg",
+    "Screenshot, no alternative text -> https://internetobservatory.org.au/wp-content/uploads/2026/04/Screenshot-2026-04-17-235423.png"
+   ],
+   "problems": [
+    "Wrong link: the button \"Subscribe to stay up to date\" opens the Screen Capture Explainer, not the newsletter form.",
+    "Wrong link: the button \"Follow us on socials\" opens the home page.",
+    "\"Talk to us!\" names the contact page, the News & Events page and the newsletter, but links to none of them.",
+    "Placeholder: \"AIO Library will be available soon\", with no date and no link.",
+    "Outdated text: the summer institute ended on 3 July 2026. The text mixes past and present tense and has an error (\"The school run from\").",
+    "There is an empty level-2 heading before \"Talk to us!\".",
+    "Three names for one page: menu \"Learn\", browser title \"Learn\", main heading \"Training & Support\".",
+    "The resource grid is the same as on the Observe page.",
+    "A personal work email address is in the page text as a mailto link."
+   ]
+  },
+  {
+   "url": "https://internetobservatory.org.au/global-search/",
+   "title": "Global Search",
+   "kind": "other",
+   "purpose": "An unused search page: a heading \"Search Result\", one search field and an empty result grid.",
+   "summary": "The page shows a breadcrumb (Home, Global Search), the heading \"Search Result\", a search form and nothing else. The form sends the query to the home address (/?s=...), where a different template with the heading \"Search\" shows the results. That template showed \"1 - 12 of 41 Results\" for the word \"data\".",
+   "verdict": "drop",
+   "verdictReason": "The page is empty and no menu links to it. The real search runs on another address. On a static site, a search tool that runs in the browser replaces both.",
+   "date": "",
+   "author": "",
+   "categories": [],
+   "tags": [],
+   "wordCount": 6,
+   "externalLinks": [
+    "Breadcrumb Home -> https://internetobservatory.org.au/",
+    "Search form target -> https://internetobservatory.org.au/?s=<query>"
+   ],
+   "media": [],
+   "problems": [
+    "Empty page: the result grid has an empty \"nothing found\" block with no text.",
+    "The heading says \"Search Result\" although no search has run.",
+    "A query on the page itself fails: /global-search/?s=data returns the 404 page (I tried it).",
+    "The page was last changed on 28 May 2025 and is still open to search engines.",
+    "The search field has no visible label and no placeholder text."
+   ]
+  },
+  {
+   "url": "https://internetobservatory.org.au/about/",
+   "title": "About AIO",
+   "kind": "page",
+   "date": "",
+   "author": "",
+   "categories": [],
+   "tags": [],
+   "purpose": "Explains what the Australian Internet Observatory (AIO) is, why it exists, its four work areas, its partners and its funding.",
+   "summary": "The page says AIO is a national research infrastructure facility set up in 2024 under the National Collaborative Research Infrastructure Strategy (NCRIS). It names four pillars: Digital Research Platform, Data Collection Tools, Data governance and management, Outreach and training. It embeds one introduction video, links to the team page, and lists six university partners plus the Australian Research Data Commons (ARDC). It ends with 4 news cards.",
+   "wordCount": 512,
+   "externalLinks": [
+    "DOI 10.3565/hjrp-b141 (resolves to the ARDC project page for AIO) -> https://doi.org/10.3565/hjrp-b141",
+    "Meet the Team (internal) -> https://internetobservatory.org.au/about/team/",
+    "View all news + events (internal) -> https://internetobservatory.org.au/news-and-events/"
+   ],
+   "media": [
+    "YouTube video 'Australian Internet Observatory (AIO)', channel ADM+S Centre -> https://www.youtube.com/watch?v=euBcBukcW8w",
+    "HASS and Indigenous Research Data Commons focus-areas diagram -> https://internetobservatory.org.au/wp-content/uploads/2026/08/HASSI-RDC-Focus-Areas@3x-scaled.png",
+    "8 partner and funder logos (file URLs are in the saved Markdown copy)",
+    "4 decorative pattern images, one per pillar (Pattern_11-1-2.jpg, Pattern_15-1-2.jpg, Pattern_08-1-1.jpg, Pattern_05.jpg)",
+    "Team teaser graphic -> https://internetobservatory.org.au/wp-content/uploads/2026/02/meet-our-team.svg"
+   ],
+   "problems": [
+    "Typo in the partner text: 'Queensland University of Technolgoy'.",
+    "On tablet and mobile widths, the button 'View all news + updates' links to '#', so it goes nowhere. The desktop button 'View all news + events' works.",
+    "Heading levels skip: the page goes from H1 to H3, and 'Our Partners' is an H6 heading.",
+    "The 8 logos have no usable alt text. The alt text is empty or a file name, for example '7e157377bccf520ec21084fb5ea7ad4b'.",
+    "The HTML <title> is 'About' but the visible H1 is 'About AIO'.",
+    "The same block of 4 news cards ('Feeling Curious?') is repeated on /about/team/ and /participate/.",
+    "The same introduction video is also embedded on /participate/. YouTube reports the ADM+S Centre channel as its owner, not the AIO channel.",
+    "The heading 'Data Collection Tools' contains an invisible zero-width space character."
+   ],
+   "verdict": "keep",
+   "verdictReason": "This is the core description of the organisation. Carry the text, fix the typo, and add alt text to the logos. The list of related observatories from /networks/ can become a section here."
+  },
+  {
+   "url": "https://internetobservatory.org.au/about/team/",
+   "title": "AIO Team",
+   "kind": "page",
+   "date": "",
+   "author": "",
+   "categories": [],
+   "tags": [],
+   "purpose": "Lists the people who govern and build AIO.",
+   "summary": "The page has three groups. The Steering Committee has 8 members, each with a role, a photo and a short biography. The AIO Team has 15 members, each with a job title and a university but no biography. 'Former AIO Members' lists 3 people. The page ends with 4 news cards.",
+   "wordCount": 749,
+   "externalLinks": [
+    "View all news + events (internal) -> https://internetobservatory.org.au/news-and-events/"
+   ],
+   "media": [
+    "26 portrait images, one per person (file URLs are in the saved Markdown copy)"
+   ],
+   "problems": [
+    "Placeholder text is visible at the bottom of the page: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...'. I confirmed it in a rendered page at 1280 px width.",
+    "The image for Robert Glasgow is a file named 'Pattern_01', a decorative pattern and not a named portrait file.",
+    "Most portraits have empty alt text or a file name as alt text, for example 'WhatsApp Image 2026-08-11 at 4.14.18 PM', 'IMG_3077' and 'Headshot-scaled'.",
+    "Titles do not match the biographies: the heading says 'Prof Heather Ford' and the text says 'Dr Heather Ford'. The heading says 'Prof Matteo Vergani' and the text says 'Associate Professor'.",
+    "Two of the 3 former members (Robert Fleet, Luke Munn) have no role text.",
+    "The HTML <title> is 'Team', the H1 is 'AIO Team', and an H2 lower on the page is also 'AIO Team'.",
+    "The page is long: 26 person cards in one column of sections, and 44 <img> tags in the HTML.",
+    "The block of 4 news cards is the same as on /about/ and /participate/."
+   ],
+   "verdict": "keep",
+   "verdictReason": "The content is current (last modified 27 August 2026) and needed. In the new site, store people as a data list so that editors change one entry. Remove the placeholder text."
+  },
+  {
+   "url": "https://internetobservatory.org.au/networks/",
+   "title": "Research Networks",
+   "kind": "page",
+   "date": "",
+   "author": "",
+   "categories": [],
+   "tags": [],
+   "purpose": "Lists related internet observatories and data donation projects in other countries.",
+   "summary": "A short introduction is followed by 6 linked organisations, each with one or two sentences: Smart Data UK, Digital Data Donation Initiative (D3I), Data Donation Lab, National Internet Observatory, Social Media Observatory, and GESIS Leibniz Institute for the Social Sciences. The page ends with 4 resource cards under the heading 'Worth Exploring? Dig deeper here.'",
+   "wordCount": 264,
+   "externalLinks": [
+    "Smart Data UK -> https://www.sdruk.ukri.org/",
+    "Digital Data Donation Initiative (D3I) -> https://datadonation.eu",
+    "Data Donation Lab -> https://datadonation.uzh.ch/en/",
+    "National Internet Observatory -> https://nationalinternetobservatory.org/",
+    "Social Media Observatory -> https://leibniz-hbi.de/en/hbi-projects/social-media-observatory/",
+    "GESIS Leibniz Institute for the Social Sciences -> https://www.gesis.org/en/home",
+    "View Related Resources (internal) -> https://internetobservatory.org.au/resources/"
+   ],
+   "media": [],
+   "problems": [
+    "No header menu item and no footer link points to this page on any of the 11 pages that I read.",
+    "On tablet and mobile widths, the button under the resource cards reads 'View all news + updates' and links to '#'. The label is wrong for a resources block and the link goes nowhere.",
+    "The 6 organisation names are H6 headings directly under the H1.",
+    "The HTML <title> is 'Networks' but the H1 is 'Research Networks'.",
+    "The Smart Data UK text is in the first person ('Our mission is to...'), so it reads as if AIO speaks.",
+    "I could not verify the GESIS link: the server returned HTTP 403 to automated requests. The other 5 links returned HTTP 200."
+   ],
+   "verdict": "merge",
+   "verdictReason": "The page has 6 links and about 150 words of its own text, and it is not in the menu. Fold it into /about/ as a section 'Related observatories and networks'."
+  },
+  {
+   "url": "https://internetobservatory.org.au/contact/",
+   "title": "Contact Us",
+   "kind": "page",
+   "date": "",
+   "author": "",
+   "categories": [],
+   "tags": [],
+   "purpose": "Gives the contact email address, the social media accounts and an enquiry form.",
+   "summary": "The page gives the address contact@internetobservatory.org.au and three social links (Bluesky, YouTube, LinkedIn). An enquiry form has 4 required fields: Name, Email, Subject and Message, and a 'Submit Enquiry' button.",
+   "wordCount": 71,
+   "externalLinks": [
+    "Email -> mailto:contact@internetobservatory.org.au",
+    "Bluesky -> https://bsky.app/profile/internetobservatory.org.au",
+    "YouTube channel -> https://www.youtube.com/@AustralianInternetObservatory",
+    "LinkedIn -> https://www.linkedin.com/company/australian-internet-observatory"
+   ],
+   "media": [
+    "Decorative graphic -> https://internetobservatory.org.au/wp-content/uploads/2026/02/contact-image.svg"
+   ],
+   "problems": [
+    "The text asks the visitor to choose 'which department you would like to send your enquiry to', but the form has no department field.",
+    "The form depends on a WordPress plugin (WPForms Lite), on JavaScript and on Google reCAPTCHA version 2. It cannot move to a static site unchanged.",
+    "The Name field has the placeholder 'Enter your first name', which does not match its label.",
+    "The LinkedIn icon has empty alt text.",
+    "This page loads 30 external script files, the highest count of the 11 pages.",
+    "I could not verify the LinkedIn link: the server returned HTTP 403 to automated requests. The Bluesky account and the YouTube channel exist."
+   ],
+   "verdict": "keep",
+   "verdictReason": "A contact page is needed. On a static site, keep the email address and social links. Replace the form with a mail link or an external form service, and remove the 'department' sentence."
+  },
+  {
+   "url": "https://internetobservatory.org.au/terms/",
+   "title": "Terms & Conditions",
+   "kind": "page",
+   "date": "2025-04-17",
+   "author": "",
+   "categories": [],
+   "tags": [],
+   "purpose": "Holds the site's real privacy policy, under a 'Terms' label.",
+   "summary": "The text is a privacy policy, not terms of service. It refers to the Privacy Act 1988 and the Australian Privacy Principles. Its sections are Information Collection, Use and Disclosure of Information, Data Security, User Rights, Cookies and Website Tracking, and Policy Updates. It states that the site uses cookies and Google Analytics, and it ends with 'Effective date: 17 April, 2025'.",
+   "wordCount": 665,
+   "externalLinks": [
+    "Privacy Act 1988 -> https://www.legislation.gov.au/C2004A03712/latest/text",
+    "Australian Privacy Principles -> https://www.oaic.gov.au/privacy/australian-privacy-principles",
+    "ARDC Identifiable data -> https://ardc.edu.au/resource/identifiable-data/",
+    "national research data protocols (PDF, linked twice) -> https://www.nhmrc.gov.au/sites/default/files/documents/attachments/Management-of-Data-and-Information-in-Research.pdf",
+    "Email -> mailto:contact@internetobservatory.org.au",
+    "Site link in the text (uses http, not https) -> http://internetobservatory.org.au/"
+   ],
+   "media": [],
+   "problems": [
+    "The labels do not match the content. The URL is /terms/, the HTML <title> is 'Terms of Service', the H1 is 'Terms & Conditions' and the footer link is 'Terms'. The body calls itself 'this Privacy Policy' 4 times.",
+    "The site has no actual terms of service text.",
+    "The HTML has 6 empty H4 headings, one before each of the 6 section headings.",
+    "The effective date is 17 April 2025, but the page metadata shows a last change on 30 April 2026.",
+    "The text says the site gives visitors options to opt out of non-essential data collection. I did not check whether such a control exists.",
+    "I could not verify the OAIC link: the server returned HTTP 403 to automated requests. The legislation.gov.au link returned HTTP 500 to one client and loaded correctly in a second client."
+   ],
+   "verdict": "merge",
+   "verdictReason": "Carry this text to a single page named 'Privacy policy' that replaces both /terms/ and /privacy-policy/. Review the cookie and analytics statements, because a static site will collect less data."
+  },
+  {
+   "url": "https://internetobservatory.org.au/privacy-policy/",
+   "title": "Privacy Policy",
+   "kind": "page",
+   "date": "",
+   "author": "",
+   "categories": [],
+   "tags": [],
+   "purpose": "An unedited WordPress default privacy template that was left published.",
+   "summary": "The page has 9 sections, and each one starts with the words 'Suggested text:'. The first section says 'Our website address is: http://localhost:8081.' The rest describes visitor comments, user logins, cookies and embedded content in WordPress's generic wording.",
+   "wordCount": 611,
+   "externalLinks": [
+    "Gravatar privacy policy (plain text, not a link) -> https://automattic.com/privacy/"
+   ],
+   "media": [],
+   "problems": [
+    "This is the default WordPress privacy template. All 9 sections still start with 'Suggested text:'.",
+    "It gives the website address as 'http://localhost:8081', a developer's local address.",
+    "It describes visitor comments and user accounts, which are features of WordPress and not statements written by AIO.",
+    "The page body has no H1 heading. The title 'Privacy Policy' comes from the HTML <title> tag.",
+    "No header menu item and no footer link points to it on the 11 pages that I read. The real privacy policy is at /terms/.",
+    "The page metadata shows a last change on 4 July 2025."
+   ],
+   "verdict": "drop",
+   "verdictReason": "It is placeholder template text with a localhost address. The real policy text is on /terms/ and should take the name 'Privacy policy'."
+  },
+  {
+   "url": "https://internetobservatory.org.au/participate/",
+   "title": "Participate",
+   "kind": "page",
+   "date": "",
+   "author": "",
+   "categories": [],
+   "tags": [],
+   "purpose": "Explains to members of the public why and how they can share their platform data with researchers through AIO.",
+   "summary": "Three text blocks cover 'Sharing your data for research', 'About data donation' and 'Protecting your data'. The page says AIO supports two kinds of data donation: data download packages and screen capture. It names the principles of data minimisation, consent, ethics approval, Australian hosting, the right to withdraw and privacy. It embeds the introduction video and ends with 4 news cards.",
+   "wordCount": 401,
+   "externalLinks": [
+    "All three text blocks link to (internal) -> https://internetobservatory.org.au/share-your-data-for-research/",
+    "About AIO button (internal, goes to the home page) -> https://internetobservatory.org.au/",
+    "View all news + updates (internal, returns 404) -> https://internetobservatory.org.au/news"
+   ],
+   "media": [
+    "YouTube video 'Australian Internet Observatory (AIO)', channel ADM+S Centre -> https://www.youtube.com/watch?v=euBcBukcW8w",
+    "Stock photo -> https://internetobservatory.org.au/wp-content/uploads/2026/04/photo-1486312338219-ce68d2c6f44d.avif",
+    "Stock photo -> https://internetobservatory.org.au/wp-content/uploads/2026/04/image-2048x1366-1.webp",
+    "Stock photo -> https://internetobservatory.org.au/wp-content/uploads/2026/04/photo-1454165804606-c3d57bc86b40.avif"
+   ],
+   "problems": [
+    "The desktop button 'View all news + updates' links to /news, which returns HTTP 404.",
+    "On tablet and mobile widths, the second 'View all news + updates' button links to '#'.",
+    "The button 'About AIO' links to '/', the home page, and not to /about/.",
+    "Each of the 3 text blocks is one large link to the same page, /share-your-data-for-research/. The phrases 'Learn more about each kind.' and 'Find out more about sharing your data' are not separate links.",
+    "The page has no direct way to take part: no list of open studies and no sign-up link.",
+    "The 3 photos have empty alt text.",
+    "The page is in the footer menu only. The header menu has no 'Participate' item.",
+    "The video and the block of 4 news cards repeat content from /about/."
+   ],
+   "verdict": "keep",
+   "verdictReason": "It is the only entry page for research participants. Keep the text, give each block its own correct link, and fix the two broken buttons. Check the overlap with /share-your-data-for-research/ when that page is reviewed."
+  },
+  {
+   "url": "https://internetobservatory.org.au/resources/",
+   "title": "Resources",
+   "kind": "other",
+   "date": "",
+   "author": "",
+   "categories": [
+    "resources"
+   ],
+   "tags": [],
+   "purpose": "Listing page for guides, explainers, case studies and videos.",
+   "summary": "The page lists 7 items as cards, newest first, on one page. A dropdown filters by 4 types: Case Study (1 item), Explainer (3 items), Guide (2 items) and Video (1 item). A select field sorts by Newest, Oldest, A to Z or Z to A. A closing block 'Our current toolkit' links to /explore.",
+   "wordCount": 272,
+   "externalLinks": [
+    "How to do digital platform research using AIO? (04/05/2026, Resource + Video) -> https://internetobservatory.org.au/how-to-do-digital-platform-research-using-aio/",
+    "Research projects using AIO 2026 (06/04/2026, Case study + Resource) -> https://internetobservatory.org.au/current-research-projects/",
+    "Data Download Packages Explainer (04/04/2026, Explainer + Resource) -> https://internetobservatory.org.au/data-download-packages-explainer/",
+    "Screen Capture Explainer (02/04/2026, Explainer + Resource) -> https://internetobservatory.org.au/screen-capture-explainer/",
+    "Research Ethics Guide (02/04/2026, Guide + Resource) -> https://internetobservatory.org.au/ethics-guide/",
+    "FAQ (01/04/2026, Guide + Resource) -> https://internetobservatory.org.au/faq/",
+    "Share your data for research (01/04/2026, Explainer + Resource) -> https://internetobservatory.org.au/share-your-data-for-research/",
+    "Explore the AIO toolkit (internal) -> https://internetobservatory.org.au/explore/"
+   ],
+   "media": [],
+   "problems": [
+    "Each card shows two category labels with no space between them, for example 'ResourceVideo' and 'Case studyResource'.",
+    "The post 'Screen Capture Explainer' carries a test tag, 'test123', in its HTML classes.",
+    "Card images are generic. The video item shows the site favicon, and two items show icon files ('quote-footer.svg', 'open-source.svg'). All 7 card images have empty alt text.",
+    "The filter needs a dropdown, 5 checkboxes and a 'Filter Results' button that reloads the page, for a list of 7 items.",
+    "'FAQ' and 'Share your data for research' are standing pages, but the site files them as dated posts (01/04/2026).",
+    "The HTML <title> is 'Resource Archives' but the H1 is 'Resources'.",
+    "Dates use the numeric form DD/MM/YYYY, which readers outside Australia can misread.",
+    "The closing block 'Our current toolkit' is the same as on the news listing."
+   ],
+   "verdict": "keep",
+   "verdictReason": "A resources index is needed and all 4 filters return correct results. In the new site, build it from the content files, with one type per item and a simple filter without page reload."
+  },
+  {
+   "url": "https://internetobservatory.org.au/news-and-events/",
+   "title": "News & Events",
+   "kind": "other",
+   "date": "",
+   "author": "",
+   "categories": [
+    "news-and-events"
+   ],
+   "tags": [],
+   "purpose": "Listing page for all news posts and event posts.",
+   "summary": "The page lists 21 items as cards, newest first: 12 cards on page 1 and 9 cards on page 2. The dates run from 04/03/2024 to 23/09/2026. Two dropdowns filter by 'All News' (18 items), 'All Events' (3 items), 'Webinar' (1 item) and 'Workshop' (0 items). The full list of 21 items with dates, labels and URLs is in the saved Markdown copy and in groupNotes.",
+   "wordCount": 598,
+   "externalLinks": [
+    "Page 2 of the listing -> https://internetobservatory.org.au/news-and-events/?pg=2",
+    "Explore the AIO toolkit (internal) -> https://internetobservatory.org.au/explore/"
+   ],
+   "media": [],
+   "problems": [
+    "Three overlapping categories exist: 'News', 'Events' and 'News and Events'. One item (10/12/2025, HASS and Indigenous Research Data Commons Symposium presentations) has only 'News and Events', so neither the News filter nor the Events filter returns it.",
+    "The 'Webinar' filter returns 1 item, the news post 'The all new AIO platform is here!'. It does not return the item titled 'Webinar: Doing Digital Platform Research with AIO'.",
+    "The 'Workshop' filter returns 0 items.",
+    "Cards show two labels with no space between them: 'NewsWebinar' and 'NewsNews and Events'.",
+    "Event cards show the publication date, not the date of the event. The symposium card shows 07/05/2026, while its image file name contains '16-June-2026'.",
+    "The listing does not separate upcoming events from past events. Only 2 items have the category 'Events'.",
+    "The newest card ('The all new AIO platform is here!') uses the site favicon as its image. 13 of the 21 card images have empty alt text.",
+    "The HTML <title> is 'News and Events Archives' but the H1 is 'News & Events'.",
+    "Two post addresses contain errors: '/aio-critical-to-information-integriy-senate-report/' (typo) and '/building-global-connections-for-national-research-infrastructure-2/' (a '-2' suffix)."
+   ],
+   "verdict": "keep",
+   "verdictReason": "Keep one combined listing. In the new site, give each item exactly one type (news or event), give events a real event date, and filter without page reload."
+  },
+  {
+   "url": "https://internetobservatory.org.au/news-and-events/news/",
+   "title": "News & Events",
+   "kind": "other",
+   "date": "",
+   "author": "",
+   "categories": [
+    "news"
+   ],
+   "tags": [],
+   "purpose": "Meant to be the news-only listing. The footer menu item 'News' points here.",
+   "summary": "On 14 November 2026 this address returned the same content as /news-and-events/. It showed the same H1, the same filter controls, the count 'Showing 1 - 12 of 21 Results' and the same 21 cards in the same order on both result pages. Only the pagination link addresses differ.",
+   "wordCount": 373,
+   "externalLinks": [
+    "Page 2 of the listing -> https://internetobservatory.org.au/news-and-events/news/?pg=2"
+   ],
+   "media": [],
+   "problems": [
+    "The address does not narrow the list to news. It shows all 21 items, including the 2 items with the category 'Events' only. The News filter on the same page returns 18 items.",
+    "It is a full duplicate of /news-and-events/.",
+    "The HTML <title> is 'News Archives' but the H1 is 'News & Events'.",
+    "The footer menu item 'News' leads here, so a visitor who expects news only gets the combined list."
+   ],
+   "verdict": "merge",
+   "verdictReason": "Fold into /news-and-events/. In the new site, 'News' can be a filter state of the one listing, with a redirect from this address."
+  },
+  {
+   "url": "https://internetobservatory.org.au/news-and-events/events/",
+   "title": "News & Events",
+   "kind": "other",
+   "date": "",
+   "author": "",
+   "categories": [
+    "events"
+   ],
+   "tags": [],
+   "purpose": "Meant to be the events-only listing.",
+   "summary": "On 14 November 2026 this address returned the same content as /news-and-events/. It showed the same H1, the same filter controls, the count 'Showing 1 - 12 of 21 Results' and the same 21 cards. I confirmed this in the raw HTML and in a rendered page: no filter checkbox was ticked.",
+   "wordCount": 373,
+   "externalLinks": [
+    "Page 2 of the listing -> https://internetobservatory.org.au/news-and-events/events/?pg=2"
+   ],
+   "media": [],
+   "problems": [
+    "The address does not narrow the list to events. It shows all 21 items. The Events filter on the same page returns 3 items.",
+    "It is a full duplicate of /news-and-events/.",
+    "The HTML <title> is 'Events Archives' but the H1 is 'News & Events'.",
+    "A visitor cannot see which events are upcoming. The 2 items with the category 'Events' appear to be past events of April and June 2026."
+   ],
+   "verdict": "merge",
+   "verdictReason": "Fold into /news-and-events/. In the new site, 'Events' can be a filter state of the one listing or a short 'Upcoming events' block, with a redirect from this address."
+  },
+  {
+   "url": "https://internetobservatory.org.au/algorithms-dictate-everything-we-see-time-to-crack-them/",
+   "title": "Algorithms dictate everything we see. Time to crack them",
+   "kind": "news",
+   "date": "2026-04-06",
+   "author": "Daniel Angus (the WordPress account that posted the item, shown as 'By Daniel Angus'; the text has no byline)",
+   "categories": [
+    "News"
+   ],
+   "tags": [],
+   "purpose": "A short news item that points readers to a podcast episode in which Daniel Angus talks about AIO.",
+   "summary": "The item says that social media algorithms shape what people see and that Meta and Google keep the details secret. It says researchers in the Australian Internet Observatory partnership are working to change that. Daniel Angus of QUT joins Bension Siebert on The Briefing podcast. A Spotify player for the episode follows the text.",
+   "wordCount": 114,
+   "externalLinks": [
+    "The Briefing (podcast show page) -> https://open.spotify.com/show/77nIoFcQZSzcQap4Pnj9xD"
+   ],
+   "media": [
+    "Audio embed (Spotify episode player) -> https://open.spotify.com/embed/episode/5HrxZN3jUVDqyBZbVrRIUG?utm_source=generator",
+    "Featured image (no alt text) -> https://internetobservatory.org.au/wp-content/uploads/2026/04/unsplash-image-w7ZyuGYNpRQ.webp"
+   ],
+   "problems": [
+    "Very thin: 114 words of main text.",
+    "The only text link goes to the podcast show, not to the episode. The episode is reachable only through the embedded player.",
+    "The item gives no episode date and does not name the podcast publisher.",
+    "The player is a third-party iframe from Spotify. It adds weight and tracking to a very short page.",
+    "The featured image has no alt text.",
+    "The byline is the name of the WordPress account, not a stated author."
+   ],
+   "verdict": "keep",
+   "verdictReason": "It is a real media mention with a working link and player (both returned 200 on 14 November 2026). Carry it as a short 'in the media' news item. Replace the iframe with a plain link to the episode, or load the player only on click."
+  },
+  {
+   "url": "https://internetobservatory.org.au/ethics-guide/",
+   "title": "Research Ethics Guide",
+   "kind": "guide",
+   "date": "2026-04-02",
+   "author": "Jigya Khabar (the WordPress account that posted the item, shown as 'By Jigya Khabar'; the text has no byline)",
+   "categories": [
+    "Guide",
+    "Resource"
+   ],
+   "tags": [
+    "Ethics"
+   ],
+   "purpose": "A long guide for researchers on the ethics of research with digital media data, with sample wording for an ethics application.",
+   "summary": "The guide explains the four principles of the National Statement on Ethical Conduct in Human Research and applies each to digital media research. It covers citizen science, the FAIR and CARE data principles, the Human Research Ethics Committee process, and data retention, destruction and security. It gives four sample paragraphs for an ethics application (data collection, data security, third-party data, de-identification). It ends with one section on informed consent in data donation.",
+   "wordCount": 2158,
+   "externalLinks": [],
+   "media": [
+    "Featured image (decorative pattern, no alt text) -> https://internetobservatory.org.au/wp-content/uploads/2026/04/Pattern_15.jpg"
+   ],
+   "problems": [
+    "The page has zero links. It names the National Statement, the Australian Code, the FAIR and CARE principles and AIO tools, and links to none of them.",
+    "It has four in-text citations (Strycharz et al., 2024; van Driel et al., 2022; Ohme et al., 2021; ACSA, 2025) and no reference list.",
+    "It cites the National Statement as '2007, updated 2018'. A web search summary says the 2025 edition has been in effect since 23 June 2026 and replaced the 2023 edition. I could not confirm this on the NHMRC page itself, because the request timed out. Another post on the site (Building global connections) already cites the 2025 edition.",
+    "Very long for one page: 2,158 words, with no contents list and no anchors.",
+    "Only 7 real headings (H2). 11 sub-headings are bold paragraphs and 4 are italic paragraphs, so they are not headings for a screen reader or for a contents list.",
+    "The page ends after one consent section, 'Data Donation: Full Informed Consent'. The section compares data donation with other methods, but no other method follows. I checked that the live page and the JSON copy end at the same sentence, so the guide looks unfinished.",
+    "Three tool names appear without a definition or a link: Data Donation Registration System (DDRS), AIO Data Laboratory and Data Relay.",
+    "The sample paragraphs contain placeholders in square brackets, such as [Platform Name]. These are intended, but they need care in Markdown.",
+    "The guide is stored as a blog post with a date and a personal byline, not as a maintained page."
+   ],
+   "verdict": "keep",
+   "verdictReason": "It is original AIO guidance and one of the two items in the Guide category. Carry it as a guide page with a contents list, real headings, links and a reference list. An owner must update the National Statement reference and decide whether the missing consent sections exist."
+  },
+  {
+   "url": "https://internetobservatory.org.au/faq/",
+   "title": "FAQ",
+   "kind": "guide",
+   "date": "2026-04-01",
+   "author": "AIO (the WordPress account that posted the item, shown as 'By AIO')",
+   "categories": [
+    "Guide",
+    "Resource"
+   ],
+   "tags": [],
+   "purpose": "Eight frequently asked questions about AIO, data donation and data download packages (DDPs).",
+   "summary": "The page answers eight questions in an accordion. They cover what AIO is, what data researchers can collect (Facebook, Instagram, TikTok, Reddit), what data donation is, what a data download package is, why it is useful and what it contains. The last two answer who can see donated data and where it is stored (encrypted, on Australian servers through Nectar, the ARDC research cloud).",
+   "wordCount": 457,
+   "externalLinks": [],
+   "media": [
+    "Featured image (an 'open source' icon, no alt text) -> https://internetobservatory.org.au/wp-content/uploads/2026/02/open-source.svg"
+   ],
+   "problems": [
+    "The FAQ is a dated blog post in the Guide category with a 'By AIO' byline. It is not a page and is not in the main menu structure.",
+    "The title 'FAQ' is followed at once by a second heading 'FAQs'.",
+    "The accordion is set to open every item by default, so it adds script and markup but hides nothing. This is the only one of the ten pages built with Elementor widgets inside the content.",
+    "No answer has a link. The DDP answers do not link to the Data Download Packages Explainer, and the storage answer does not link to a privacy or terms page.",
+    "The questions mix two readers: participants ('Who will have access to my data?') and researchers.",
+    "Three of the eight questions repeat the topic of the separate Data Download Packages Explainer.",
+    "Wording is vague in places ('understand engagement scenarios'), and spelling mixes 'analyzing' with 'behaviour'.",
+    "The featured image is an unrelated icon with no alt text."
+   ],
+   "verdict": "keep",
+   "verdictReason": "The content is short, correct in form and needed. Carry it as a permanent FAQ page built with plain HTML details elements. Split it by reader (participants, researchers) and link each answer to the explainer or guide that covers it."
+  },
+  {
+   "url": "https://internetobservatory.org.au/current-research-projects/",
+   "title": "Research projects using AIO 2026",
+   "kind": "case-study",
+   "date": "2026-04-06",
+   "author": "AIO (the WordPress account that posted the item, shown as 'By AIO')",
+   "categories": [
+    "Case study",
+    "Resource"
+   ],
+   "tags": [],
+   "purpose": "One page that describes four research projects that use AIO tools.",
+   "summary": "The page describes four projects. The Australian Ad Observatory collected over 700,000 ad observations from more than 2,000 volunteers. The 'For You' project studies TikTok's recommendation algorithm with data download packages and screen tracking. A 2024 study with FARE and others tracked alcohol and gambling ads shown to ten at-risk people on Facebook. A 2025 federal election study monitored political ads and found many third-party and astroturfing ads.",
+   "wordCount": 802,
+   "externalLinks": [
+    "Australian Ad Observatory -> https://adobservatory.org/",
+    "Automated Decision-Making and Society (ADM+S) -> https://www.admscentre.org.au/",
+    "'For You' project -> https://www.foryouresearch.net/",
+    "FARE -> https://fare.org.au/",
+    "interventions (FARE report, PDF) -> https://fare.org.au/wp-content/uploads/Gambling-and-alcohol-advertising-on-Facebook.pdf"
+   ],
+   "media": [],
+   "problems": [
+    "Editing residue in three places, where the old and the new wording both remain: 'Mobile RoverAIO's Mobile Observatory Ad Toolkit', 'seeencounter' and 'theMobile Rover'.",
+    "The text says 'roughly 1 from a third-party entity', written as a digit. The source article says roughly one ad for each party ad.",
+    "The link https://adobservatory.org/ is dead from here: the host name did not resolve on this machine or through the public resolvers 1.1.1.1 and 8.8.8.8 on 14 November 2026. The ADM+S page https://www.admscentre.org.au/adobservatory/ returned 200 and can replace it.",
+    "Two FARE links returned 403 to a header-only request. I could not verify them.",
+    "Tool names differ from other pages: 'Mobile Rover', 'Browser Rover' and 'Mobile Observatory Ad Toolkit' here, 'Mobile Observation Ad Toolkit' and 'Mobile Online Advertising Toolkit (MOAT)' elsewhere.",
+    "The introduction is marked up as a heading (H4), and the heading 'The For You' is not the project name.",
+    "The slug 'current-research-projects' does not match the title 'Research projects using AIO 2026'. The year in the title will go out of date.",
+    "No featured image, so the card in a listing has no picture.",
+    "The fourth project repeats the news post 'What political ads are Australians seeing online?'.",
+    "It is the only item in the 'Case study' category, and it holds four case studies in one post."
+   ],
+   "verdict": "keep",
+   "verdictReason": "This is the only page that shows who uses AIO and for what. Carry it after a copy-edit. In the new site, make each project one short entry in a 'Research projects' collection, so that people can add a project as one file."
+  },
+  {
+   "url": "https://internetobservatory.org.au/doing-digital-platform-research-webinar-april-2026/",
+   "title": "Webinar: Doing Digital Platform Research with AIO",
+   "kind": "webinar",
+   "date": "2026-04-01",
+   "author": "AIO (the WordPress account that posted the item, shown as 'By AIO')",
+   "categories": [
+    "Events"
+   ],
+   "tags": [],
+   "purpose": "The announcement of a free online webinar on 21 April 2026, with a registration link and speaker biographies.",
+   "summary": "The webinar ran 2-3 pm AEST on Tuesday 21 April, online via Zoom. Prof Dan Angus, Prof Nic Carah and Dr Amanda Lawrence were to give an overview of the digital platform research challenge, AIO's data donation methods and how to combine them with other methods, followed by questions. The page has two 'Register now' buttons, says the event will be recorded, and gives three speaker biographies. It was presented with the ARC Centre of Excellence for Automated Decision-Making and Society (ADM+S).",
+   "wordCount": 467,
+   "externalLinks": [
+    "Register now (Humanitix, appears twice) -> https://events.humanitix.com/digital-platform-research-aio",
+    "ADM+S -> https://www.admscentre.org.au/"
+   ],
+   "media": [
+    "Event banner, in the text and as featured image (alt 'Banner image for event') -> https://internetobservatory.org.au/wp-content/uploads/2026/04/AIO-april-webinar-matt-version.png"
+   ],
+   "problems": [
+    "The event is past (21 April 2026), but the page still reads as an invitation with two 'Register now' buttons. The Humanitix link still returns 200.",
+    "The page says the event will be recorded but does not link to the recording. The recording is on another page.",
+    "The event date has no year in the text. The only date shown as data is the publication date, 01/04/2026.",
+    "The publication date is 1 April 2026 in site time and 31 March 2026 in the UTC metadata.",
+    "The post is in the category 'Events' only. The child category 'Webinar' exists but is not used here.",
+    "Typo 'Excllence', and the closing bracket of '(ADM+S)' sits inside the link.",
+    "The same banner appears twice: as the featured image and at the end of the text. The file name contains 'matt-version'."
+   ],
+   "verdict": "merge",
+   "verdictReason": "Merge with the recording page https://internetobservatory.org.au/how-to-do-digital-platform-research-using-aio/ (Resource, Video, 4 May 2026). Its YouTube video https://www.youtube.com/embed/EEzlKi5nT8k is titled 'Doing Digital Platform Research with the Australian Internet Observatory Webinar April 2026'. The new site should have one event entry with the date, the speakers and the recording, and no registration button after the event."
+  },
+  {
+   "url": "https://internetobservatory.org.au/aio-critical-to-information-integriy-senate-report/",
+   "title": "AIO critical to information integrity on climate change and political advertising – reports",
+   "kind": "news",
+   "date": "2026-03-31",
+   "author": "Jigya Khabar (the WordPress account that posted the item, shown as 'By Jigya Khabar'; the text has no byline)",
+   "categories": [
+    "News"
+   ],
+   "tags": [
+    "Policy"
+   ],
+   "purpose": "A news item on two reports that name AIO as a means of independent monitoring of online information.",
+   "summary": "A Senate select committee report on information integrity on climate change and energy found that online platforms help spread misinformation. Its Recommendation 7 asks the government to explore funding for independent monitoring, with AIO as the example. In the same week the ADM+S Australian Ad Observatory published a report on 2025 election advertising, based on more than 22,000 ads collected from voters' phones with an AIO toolkit. The item lists four key findings and places the inquiry beside UNESCO and COP30 declarations.",
+   "wordCount": 597,
+   "externalLinks": [
+    "Select Committee on Information Integrity on Climate Change and Energy (report) -> https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Information_Integrity_on_Climate_Change_and_Energy/ClimateIntegrity/Report",
+    "ADM+S submission -> https://apo.org.au/node/332111",
+    "2025 Australian Election Advertising on Social Media (report) -> https://apo.org.au/node/332660",
+    "Global Declaration on Information Integrity Online (PDF) -> https://www.esteri.it/wp-content/uploads/2024/06/un-global-principles-for-information-integrity-en.pdf",
+    "Declaration on Information Integrity on Climate Change -> https://www.unesco.org/en/information-integrity-climate-change/cop30declaration?hub=780"
+   ],
+   "media": [
+    "Report cover image inside the text (no alt text, loaded from an outside host) -> https://images.squarespace-cdn.com/content/v1/649cfa2ca1a08259397c286f/2ab9315e-683c-4d02-8681-ede60f6c89f2/thumbnail-apoimage-nid332660.png",
+    "Featured image (alt 'Photo of people holding mobile phones') -> https://internetobservatory.org.au/wp-content/uploads/2026/04/unsplash-image-qZenO_gQ7QA.webp"
+   ],
+   "problems": [
+    "The URL slug has a typo: 'integriy'. The correctly spelled URL returns 404.",
+    "The image in the text loads from images.squarespace-cdn.com, not from the AIO site. It has no alt text. If that host removes the file, the image breaks.",
+    "The lead sentence is marked up as a heading (H3).",
+    "Time words are relative ('last week', 'This week'), so the reader must work out the dates from the post date.",
+    "Two expansions of one tool name in one item: 'Mobile Observation Ad Toolkit' and 'Mobile Online Advertising Toolkit (MOAT)'.",
+    "The link text says '2023 UNESCO Global Declaration on Information Integrity Online', but the file name of the target is 'un-global-principles-for-information-integrity'. The target may be a different document. I did not open the PDF.",
+    "The key findings are typed with bullet characters and line breaks, not as a list.",
+    "Three links (aph.gov.au and two on apo.org.au) returned 403 to a header-only request. I could not verify them.",
+    "The closing bracket and italics around '(Declaration' are broken in the last paragraph."
+   ],
+   "verdict": "keep",
+   "verdictReason": "It is recent, substantial and shows the policy value of AIO. Carry it with a corrected slug and a redirect from the old URL. Copy the image to the new site with alt text."
+  },
+  {
+   "url": "https://internetobservatory.org.au/tracking-targeted-advertising-on-intimate-hygiene-products/",
+   "title": "Tracking targeted advertising on intimate hygiene products",
+   "kind": "news",
+   "date": "2026-01-27",
+   "author": "AIO (the WordPress account that posted the item, shown as 'By AIO'; the text reports on an ABC News article by Dr Emmalee Ford)",
+   "categories": [
+    "News"
+   ],
+   "tags": [],
+   "purpose": "A news item that reports an ABC News article on research that used AIO tools to capture ads for 'intimate hygiene' products.",
+   "summary": "The item summarises an ABC News article of 13 January 2026. Dr Giselle Newton of the University of Queensland used AIO's Mobile Observation Ad Toolkit with screen tracking to study these ads. She accessed more than 175,000 ads from the feeds of at least 400 Australians through the Australian Ad Observatory. The item explains why capturing the ads that people really see matters for health regulation.",
+   "wordCount": 378,
+   "externalLinks": [
+    "ABC News article (linked twice) -> https://www.abc.net.au/news/health/2026-01-13/online-advertising-intimate-hygiene-products-consumer-insecurity/106090730",
+    "Dr Giselle Newton -> https://about.uq.edu.au/experts/39049",
+    "Mobile Observation Ad Toolkit with the Screen Tracking feature (internal, dead) -> https://internetobservatory.org.au/screen-tracking",
+    "Australian Ad Observatory -> https://www.admscentre.org.au/adobservatory/"
+   ],
+   "media": [
+    "Image inside the text (no alt text, caption 'Source: Unsplash') -> https://internetobservatory.org.au/wp-content/uploads/2026/04/image-1024x683.webp",
+    "Featured image (no alt text) -> https://internetobservatory.org.au/wp-content/uploads/2026/04/unsplash-image-zLp1aBvMUdA.webp"
+   ],
+   "problems": [
+    "The internal link to https://internetobservatory.org.au/screen-tracking returns 404. It is the only link from this item to an AIO tool.",
+    "Both images have no alt text. The image in the text is a stock photo with the caption 'Source: Unsplash'.",
+    "The post date shown is 27/01/2026, and the last line says 'First published 13 Jan 2026'. That second date is the date of the ABC article, which the line does not say.",
+    "Two words in one phrase are separately bold and italic ('how to observe personalised advertising'), which leaves stray markup.",
+    "The byline 'By AIO' is the account name."
+   ],
+   "verdict": "keep",
+   "verdictReason": "It is a recent example of research done with AIO tools, with working links to the source. Carry it, and point the dead link to the new page for the screen-tracking tool."
+  },
+  {
+   "url": "https://internetobservatory.org.au/building-global-connections-for-national-research-infrastructure-2/",
+   "title": "Building global connections for national research infrastructure",
+   "kind": "news",
+   "date": "2025-09-09",
+   "author": "Jigya Khabar (the WordPress account that posted the item, shown as 'By Jigya Khabar'; the text has no byline)",
+   "categories": [
+    "News"
+   ],
+   "tags": [],
+   "purpose": "A news item on Professor Daniel Angus's visiting fellowship at GESIS in Germany in September 2025.",
+   "summary": "Daniel Angus, the QUT partner lead, is a visiting fellow at GESIS – Leibniz Institute for the Social Sciences. He took part in a data quality workshop of the KODAQS team. On 10 September 2025 he will give a talk on tracking online advertising with citizen-engaged, privacy-preserving methods, built on AIO infrastructure for the Australian Ad Observatory. The item presents the fellowship as an exchange between Australian and European research infrastructure.",
+   "wordCount": 255,
+   "externalLinks": [
+    "GESIS – Leibniz Institute for the Social Sciences -> https://www.gesis.org/en/home",
+    "KODAQS -> https://www.gesis.org/en/research/projects-and-exchange/external-funding-projects/kodaqs-project-page",
+    "Automated Decision-Making and Society (ADM+S) -> https://www.admscentre.org.au/"
+   ],
+   "media": [
+    "Photo inside the text (no alt text, caption 'KODAQS team with Prof Dan Angus') -> https://internetobservatory.org.au/wp-content/uploads/2026/04/image-1-1024x576.webp",
+    "Featured image (no alt text) -> https://internetobservatory.org.au/wp-content/uploads/2026/04/image-1.webp"
+   ],
+   "problems": [
+    "The slug ends in '-2'. The URL without '-2' redirects to this page, so no second copy is live. The suffix is a leftover.",
+    "The text is in the present and future tense about an event of 10 September 2025 ('is currently undertaking', 'will deliver').",
+    "Typo: 'with with'.",
+    "The same photo is the featured image and the image in the text, and neither has alt text.",
+    "Both GESIS links returned 403 to a header-only request. I could not verify them.",
+    "The image files were uploaded in April 2026 with generic names (image-1.webp)."
+   ],
+   "verdict": "keep",
+   "verdictReason": "It is a short, complete archive news item. Carry it under a clean slug without '-2', with a redirect. It has low priority and needs no rewrite beyond the typo."
+  },
+  {
+   "url": "https://internetobservatory.org.au/what-political-ads-are-australians-seeing-online/",
+   "title": "What political ads are Australians seeing online?",
+   "kind": "news",
+   "date": "2025-05-01",
+   "author": "Daniel Angus; Christine Parker; Giselle Newton; Kate Clark; Mark Andrejevic",
+   "categories": [
+    "News"
+   ],
+   "tags": [],
+   "purpose": "A republished article from The Conversation on political advertising seen online before the 2025 Australian federal election.",
+   "summary": "The authors tracked political ads on Facebook, Instagram and TikTok through a panel of Australians with an ad-tracking app, and through the PoliDashboard tool. They found about one third-party ad for each party ad and a rise in astroturfing, which means hiding the sponsor behind a grassroots-sounding name. They note that truth in political advertising is not required by federal law. Less than 2% of the ads that participants saw were political. They call for independent observation of online political communication.",
+   "wordCount": 1079,
+   "externalLinks": [
+    "Original article on The Conversation -> https://theconversation.com/what-political-ads-are-australians-seeing-online-astroturfing-fake-grassroots-groups-and-outright-falsehoods-255225",
+    "PoliDashboard -> https://app.polidashboard.org/facebook_ads_v2?country=au",
+    "'Australian Internet Observatory' (link text; target is an ADM+S Ad Observatory page) -> https://www.admscentre.org.au/australian-ad-observatory-investigating-mobile-and-dynamic-advertising-via-computational-and-participatory-approaches/",
+    "ABC investigation -> https://www.abc.net.au/news/2025-04-04/coalition-pollster-working-with-australians-for-natural-gas/105129478",
+    "The Conversation -> https://theconversation.com/"
+   ],
+   "media": [
+    "Featured image (no alt text) -> https://internetobservatory.org.au/wp-content/uploads/2026/04/gandr-collage3.webp"
+   ],
+   "problems": [
+    "The content holds a second H1 heading (the subtitle 'Astroturfing, fake grassroots groups, and outright falsehoods'), so the page has two H1 headings.",
+    "The page shows 'By Daniel Angus' (the account name), but the text names five authors.",
+    "The author list appears twice, at the top and at the end.",
+    "The link text 'Australian Internet Observatory' points to an ADM+S project page, not to an AIO page.",
+    "It is a republished article. The canonical link in the page head points to the AIO copy, not to the original. I found no The Conversation page-view counter in the page. The Conversation's republishing rules normally ask for one, but I did not re-read those rules today.",
+    "Typo carried in the text: 'Acknowlegement'.",
+    "The text has 38 links. 37 returned 200. One (journals.sagepub.com) returned 403 to a header-only request, so I could not verify it.",
+    "The featured image has no alt text."
+   ],
+   "verdict": "keep",
+   "verdictReason": "It is a substantial article by AIO researchers and is the fullest account of the election monitoring work. Carry it as a republished item with the five authors in the front matter, the subtitle as a subtitle field, and a canonical link to the original."
+  },
+  {
+   "url": "https://internetobservatory.org.au/dark-ads-challenge-truth-and-our-democracy/",
+   "title": "‘Dark ads’ challenge truth and our democracy",
+   "kind": "news",
+   "date": "2024-03-04",
+   "author": "Amanda Lawrence; Daniel Angus; Mark Andrejevic",
+   "categories": [
+    "News"
+   ],
+   "tags": [],
+   "purpose": "A republished article from 360info on 'dark advertising' and misinformation before the 2025 Australian federal election.",
+   "summary": "The article defines dark advertising as personalised ads, more and more made with AI, that the public cannot see or check. It says voters are exposed because a truth-in-political-advertising bill was withdrawn and the platforms' transparency tools show little. It gives examples from the 2024 US election and from Australia. It names two responses: independent tools such as the ADM+S Australian Ad Observatory, and laws such as the EU Digital Services Act. An editor's note says the Mobile Observation Ad Toolkit is being developed as part of AIO.",
+   "wordCount": 1212,
+   "externalLinks": [
+    "First published on 360info -> https://360info.org/dark-ads-challenge-truth-and-our-democracy/",
+    "Creative Commons licence (CC BY 4.0) -> https://creativecommons.org/licenses/by/4.0/",
+    "360info -> https://360info.org/",
+    "ADM+S Australian Ad Observatory project -> https://www.admscentre.org.au/adobservatory/",
+    "AEC on misleading and deceptive communications -> https://www.aec.gov.au/faqs/misleading-and-deceptive-communications.htm"
+   ],
+   "media": [
+    "Featured image (composite art by Michael Joiner, 360info, CC BY 4.0; no alt text) -> https://internetobservatory.org.au/wp-content/uploads/2026/04/image-2.webp"
+   ],
+   "problems": [
+    "Wrong date. The page shows 04/03/2024 and the metadata says 2024-03-04. The text says it was first published on 25 February 2025, and the 360info page metadata confirms 2025-02-25. The article is about the 2025 election, so the 2024 date is an error. It also puts the item last in any list sorted by date.",
+    "The page shows 'By Daniel Angus' (the account name). The text says 'Written By Amanda Lawrence, Daniel Angus and Mark Andrejevic'.",
+    "The text names three authors, but the biographies at the end cover only two (Angus and Andrejevic).",
+    "The credit line 'Composite art by Michael Joiner, 360info CC BY 4.0' appears twice, at the top and at the end.",
+    "The four H2 headings are also set in bold.",
+    "A footnote uses literal asterisks ('toolkit*' and '*AIO editors note'). These need escaping in Markdown, and I escaped them in the saved copy.",
+    "The canonical link in the page head points to the AIO copy, not to the 360info original.",
+    "Four journal links (three on journals.sagepub.com, one on tandfonline.com) returned 403 to a header-only request. I could not verify them. The other 13 links returned 200.",
+    "The featured image has no alt text."
+   ],
+   "verdict": "keep",
+   "verdictReason": "It is a substantial article by AIO people under a CC BY 4.0 licence. Carry it with the date corrected to 2025-02-25, the three authors in the front matter, one credit line and a canonical link to 360info. An owner must confirm the date change."
+  },
+  {
+   "url": "https://internetobservatory.org.au/social-media-algorithms-are-shrouded-in-secrecy-were-trying-to-change-that/",
+   "title": "Social media algorithms are shrouded in secrecy. We’re trying to change that",
+   "kind": "news",
+   "date": "2024-08-06",
+   "author": "Daniel Angus",
+   "categories": [
+    "News"
+   ],
+   "tags": [],
+   "wordCount": 859,
+   "purpose": "Opinion article by Daniel Angus that explains why the AIO exists, republished from The Conversation.",
+   "summary": "Social media companies keep their algorithms closed, so researchers know little about how they work. The article presents the AIO as a new national project that will collect data that users donate from platforms such as Facebook, TikTok and YouTube. It cites the Australian Ad Observatory (nearly 800,000 Facebook ad donations from over 2,100 people) as proof of the method. It asks the Australian government to follow the European Union and pass a law that gives researchers access to platform data.",
+   "externalLinks": [
+    "Original article (The Conversation) -> https://theconversation.com/social-media-algorithms-are-shrouded-in-secrecy-were-trying-to-change-that-236057",
+    "Author profile (The Conversation) -> https://theconversation.com/profiles/daniel-angus-12403",
+    "Parliamentary committee on social media (dead, 404) -> https://www.aph.gov.au/Parliamentary_Business/Committees/Joint/Social_Media",
+    "Australian Ad Observatory -> https://www.admscentre.org.au/adobservatory/",
+    "Australian Search Experience -> https://www.admscentre.org.au/australian-search-experience/",
+    "Data donation paper (Taylor & Francis) -> https://www.tandfonline.com/doi/full/10.1080/19312458.2023.2181319",
+    "Online Safety Act (eSafety) -> https://www.esafety.gov.au/newsroom/whats-on/online-safety-act"
+   ],
+   "media": [
+    "Featured image in page metadata (screenshot of The Conversation) -> https://internetobservatory.org.au/wp-content/uploads/2026/04/TheConversation-Screenshot2024-08-06121915.webp"
+   ],
+   "problems": [
+    "Dead link: the aph.gov.au committee page returns 404.",
+    "The eSafety link redirects to a different page (https://www.esafety.gov.au/about-us/industry-regulation).",
+    "Three links could not be verified because the sites blocked my automated request (HTTP 403 or 202): Taylor & Francis, Mozilla Foundation, figshare. I do not report them as dead.",
+    "The author is named three times: in the template byline, in the first line of the body and at the end.",
+    "The text is dated. It says 'in recent weeks' and 'currently' about events of 2024, and 'we will soon be inviting' donations.",
+    "The page says only 'a Creative Commons license'. I did not check the licence type or its republication conditions."
+   ],
+   "verdict": "keep",
+   "verdictReason": "It is the clearest plain statement of why the AIO exists. Keep it in the news archive with its 2024 date, and check the republication conditions of The Conversation before migration."
+  },
+  {
+   "url": "https://internetobservatory.org.au/aio-presentations-at-the-hass-and-indigenous-research-data-commons-symposium-2025-now-available/",
+   "title": "AIO Presentations at the HASS and Indigenous Research Data Commons Symposium 2025 now available",
+   "kind": "news",
+   "date": "2025-12-10",
+   "author": "AIO",
+   "categories": [
+    "News and Events"
+   ],
+   "tags": [],
+   "wordCount": 604,
+   "purpose": "News post that shares two video recordings of AIO sessions at a 2025 symposium of the Australian Research Data Commons (ARDC).",
+   "summary": "The AIO team presented its research infrastructure at the ARDC HASS (Humanities, Arts and Social Sciences) and Indigenous Research Data Commons Symposium 2025. The post lists five work areas, names the speakers and their topics, and embeds the main presentation. A second embedded video is a demo of the AIO data donation visualisation platform. It ends with an invitation to researchers to collaborate.",
+   "externalLinks": [
+    "ARDC symposium case studies -> https://ardc.edu.au/resource/case-studies-from-the-hass-and-indigenous-research-data-commons-symposium-2025/",
+    "AIO YouTube channel -> https://www.youtube.com/@AustralianInternetObservatory",
+    "'Tools' link (dead, 404, old Squarespace staging address) -> https://hyperboloid-dandelion-ka5d.squarespace.com/tools",
+    "Contact email -> mailto:contact@internetobservatory.org.au?"
+   ],
+   "media": [
+    "Video: Research Infrastructure for Digital Platform Observability: the Australian Internet Observatory -> https://www.youtube.com/embed/8adg0aQWF04?feature=oembed",
+    "Video: Visualising data donations with the Australian Internet Observatory -> https://www.youtube.com/embed/Buf2T9tG1eU?feature=oembed",
+    "Featured image in page metadata -> https://internetobservatory.org.au/wp-content/uploads/2025/12/adem-ay-Tk9m_HP4rgQ-unsplash-scaled.jpg"
+   ],
+   "problems": [
+    "Dead link: 'Tools' points to a Squarespace staging address that returns 404.",
+    "The page description and excerpt read '2-3 pm AEST (UTC+10) Tuesday 21 April'. That text does not belong to this post.",
+    "One person is spelled two ways: 'Lauren Heydon' and 'Lauren Hayden'.",
+    "Typing errors in the source: 'Ad Obverstory 2.0' and 'social research.For those' (no space).",
+    "The phrase 'being developed in Aired' is unclear. It may be a product name or an error.",
+    "The mailto link ends with a stray '?'.",
+    "The category is 'News and Events', while most posts use 'News'. The breadcrumb therefore differs from other posts."
+   ],
+   "verdict": "keep",
+   "verdictReason": "The two videos and the speaker summary are useful. Fix the spelling, the dead 'Tools' link and the wrong description on migration. The demo video is also a candidate for the Resources section."
+  },
+  {
+   "url": "https://internetobservatory.org.au/sicss-melbourne-2026/",
+   "title": "SICSS-Melbourne 2026 – Call for Applications",
+   "kind": "event",
+   "date": "2026-04-22",
+   "author": "Bogdan Mamaev",
+   "categories": [
+    "News"
+   ],
+   "tags": [],
+   "wordCount": 302,
+   "purpose": "Call for applications to SICSS-Melbourne 2026, a two-week training institute run by the AIO and the ARC Centre of Excellence for Automated Decision-Making and Society.",
+   "summary": "SICSS (Summer Institute in Computational Social Science) is a global training initiative founded in 2017. The Melbourne institute ran from June 22 to July 3, 2026 for 20 PhD candidates or early-career researchers. Topics were data collection tools, data donation, web scraping, large language models and ethics. Applicants were sent to the sicss.io page and to an AIO email address for questions.",
+   "externalLinks": [
+    "SICSS-Melbourne 2026 application page -> https://sicss.io/2026/melbourne/",
+    "AIO on LinkedIn -> https://www.linkedin.com/company/australian-internet-observatory/",
+    "ADM+S centre on LinkedIn -> https://www.linkedin.com/company/admscentre/",
+    "Questions -> mailto:sicss@internetobservatory.org.au"
+   ],
+   "media": [
+    "Featured image in page metadata -> https://internetobservatory.org.au/wp-content/uploads/2026/04/Melbourne_SICSS.jpg"
+   ],
+   "problems": [
+    "The event has passed (June 22 to July 3, 2026). The page still reads as an open call and shows no closing date for applications.",
+    "The organisation names link to LinkedIn pages, not to the organisations' own sites. LinkedIn blocked my automated check (HTTP 403), so I could not verify those two links.",
+    "The second list item joins two separate points with a line break.",
+    "The site has two more SICSS posts that I did not read: /sicss-2026-kicks-off-in-melbourne/ and /sicss-melbourne-2026-our-first-week/."
+   ],
+   "verdict": "keep",
+   "verdictReason": "Keep as a past event in the archive and mark the call as closed. The three SICSS posts are candidates for one SICSS-Melbourne 2026 event page, but I read only this one."
+  },
+  {
+   "url": "https://internetobservatory.org.au/partnering-for-public-data-literacy-qut-dmrc-at-woodford-folk-festival-2024/",
+   "title": "Partnering for public data literacy: QUT DMRC at Woodford Folk Festival 2024",
+   "kind": "news",
+   "date": "2024-05-13",
+   "author": "AIO",
+   "categories": [
+    "News"
+   ],
+   "tags": [],
+   "wordCount": 278,
+   "purpose": "News post about 'Data Mystics', a public stall run by the QUT Digital Media Research Centre (DMRC) at the Woodford Folk Festival, with a photo gallery.",
+   "summary": "DMRC researchers 'read' small samples of data that festival visitors donated, in the style of a tarot reader, to prompt reflection on how platforms profile people. The stall was a collaboration of the DMRC, the ADM+S centre and the AIO. The post links to the DMRC event summary and shows 17 photos. It ends with a line of hashtags.",
+   "externalLinks": [
+    "QUT DMRC event summary (clean target of the wrapped link) -> https://research.qut.edu.au/dmrc/2025/05/13/data-mystics-and-digital-media-take-centre-stage-at-woodford-folk-festival-2024/"
+   ],
+   "media": [
+    "17 gallery images under https://internetobservatory.org.au/wp-content/uploads/2026/04/ (all URLs are in the saved file)",
+    "Featured image in page metadata -> https://internetobservatory.org.au/wp-content/uploads/2026/04/8878FB7C-BA95-4935-955B-A17AEA26D627_1_105_c.webp"
+   ],
+   "problems": [
+    "The link to the DMRC summary is an Outlook 'safelinks' address. Safelinks is the Microsoft email wrapper that rewrites links. The address contains a staff email address in its parameters. Replace it with the clean target.",
+    "Date mismatch: the post shows 13/05/2024, but the linked DMRC summary has 2025/05/13 in its address. I could not verify the correct date.",
+    "All 17 gallery images have empty alt text.",
+    "The file names suggest that three photos appear twice (names with and without '-1'). I did not view the images.",
+    "The post ends with a line of seven hashtags, which is social media text."
+   ],
+   "verdict": "keep",
+   "verdictReason": "Short public-engagement story with photos. On migration, replace the wrapped link, confirm the date, remove the repeated photos, add alt text and reduce the gallery."
+  },
+  {
+   "url": "https://internetobservatory.org.au/share-your-data-for-research/",
+   "title": "Share your data for research",
+   "kind": "explainer",
+   "date": "2026-04-01",
+   "author": "AIO",
+   "categories": [
+    "Explainer",
+    "Resource"
+   ],
+   "tags": [
+    "Participants"
+   ],
+   "wordCount": 1082,
+   "purpose": "Explainer for members of the public who are asked to donate their platform data to a study that uses the AIO.",
+   "summary": "The page explains why donated data helps research and what a participant does. It describes two methods: data download packages (DDPs, the personal archives that platforms let users download) in five steps, and observed data packages (ODPs, data collected by an app or browser extension) in four steps. A last section, 'Keeping your data safe', lists six safeguards: data minimisation, consent, research ethics, Australian hosting, the right to withdraw and de-identification.",
+   "externalLinks": [],
+   "media": [
+    "Featured image in page metadata (decorative pattern) -> https://internetobservatory.org.au/wp-content/uploads/2026/04/Pattern_05-1.jpg"
+   ],
+   "problems": [
+    "'For more information on this method, go here.' has no link.",
+    "The page has no links and no call to action: no study to join, no contact, no link to the platform.",
+    "The heading '1. Data Download Packages (DDPs)' has no matching '2.'. The second method is under the heading 'Screen Capture', while its text calls it Observed Data Packages (ODP). Two names for one thing.",
+    "The research-ethics text appears twice word for word: in the paragraph under 'Keeping your data safe' and in the 'Research ethics' bullet.",
+    "The lead paragraph is marked up as a level-4 heading. Heading levels then jump between h4 and h3.",
+    "Each ordered list sits inside an empty outer list item in the source. The source also has one empty h4 and three empty layout containers.",
+    "Unclear phrase: 'why it matters/what it is important'.",
+    "A paragraph ends without a full stop: 'privacy and security measures'."
+   ],
+   "verdict": "keep",
+   "verdictReason": "This is the main content for participants, and at 1,082 words it is the longest of the nine. Edit it into the participant page of the new site. I did not read /participate/, so check for overlap with that page."
+  },
+  {
+   "url": "https://internetobservatory.org.au/what-is-your-tiktok-personality-a-new-citizen-science-project-can-tell-you/",
+   "title": "What is your ‘TikTok personality’? A new Citizen Science project can tell you",
+   "kind": "news",
+   "date": "2025-04-17",
+   "author": "AIO",
+   "categories": [
+    "News"
+   ],
+   "tags": [],
+   "wordCount": 491,
+   "purpose": "News post that promotes the For You Research Project, a TikTok data donation study by QUT and the University of Sydney.",
+   "summary": "The project, led by Patrik Wikström under an ARC Discovery grant, asks Australian TikTok users to upload their downloaded TikTok data. In return, a tool shows them their 'TikTok personality' and viewing patterns. The post states three research questions and explains why people should take part, with a reference to the 2025 federal election. It links to the project site, an ABC News story and the participant dashboard.",
+   "externalLinks": [
+    "For You Research Project -> https://www.foryouresearch.net/",
+    "Donate TikTok data / dashboard (dead, 404) -> https://foryouparticipate.net/tiktok/",
+    "Candidate replacement (responds, HTTP 200) -> https://foryouresearch.net/participate",
+    "ABC News story -> https://www.abc.net.au/news/2025-04-17/your-tiktok-personality-data-donation-citizen-science/105173600",
+    "Patrik Wikström profile (QUT) -> https://www.qut.edu.au/about/our-people/academic-profiles/patrik.wikstrom",
+    "'Australian Internet Observatory' link (dead, 404, old Squarespace staging address) -> https://hyperboloid-dandelion-ka5d.squarespace.com/team"
+   ],
+   "media": [
+    "Featured image in page metadata -> https://internetobservatory.org.au/wp-content/uploads/2026/04/michael-fousert-Yi3Un7xBb5U-unsplash-scaled.jpg"
+   ],
+   "problems": [
+    "Dead link, used twice: foryouparticipate.net/tiktok/ returns 404. The root of that site now points to https://foryouresearch.net/participate.",
+    "Dead link: 'Australian Internet Observatory' in the first line points to a Squarespace staging address that returns 404.",
+    "The QUT profile link returned HTTP 403 to my automated request, so I could not verify it.",
+    "Quotation marks are broken in the Wikström quote (doubled opening marks and a stray mark inside the quote).",
+    "Grammar slips in the source: 'why do you see, what you see', 'how the TikTok curates', 'study online recommender system of TikTok'.",
+    "The call to take part is dated (2025 election). I could not verify whether the study still accepts participants."
+   ],
+   "verdict": "keep",
+   "verdictReason": "It documents a named project that uses the AIO. Fix the two dead links and the quote, and confirm with the project team whether participation is still open."
+  },
+  {
+   "url": "https://internetobservatory.org.au/how-to-do-digital-platform-research-using-aio/",
+   "title": "How to do digital platform research using AIO?",
+   "kind": "video",
+   "date": "2026-05-04",
+   "author": "AIO",
+   "categories": [
+    "Resource",
+    "Video"
+   ],
+   "tags": [
+    "Data donation"
+   ],
+   "wordCount": 50,
+   "purpose": "Resource entry that embeds the recording of the April 2026 AIO webinar.",
+   "summary": "The page holds one YouTube video and one paragraph of 50 words. The paragraph says that the webinar gives a practical overview of digital platform research with AIO data donation tools, including ethics and consent. It has no other content.",
+   "externalLinks": [],
+   "media": [
+    "Video: Doing Digital Platform Research with the Australian Internet Observatory Webinar April 2026 -> https://www.youtube.com/embed/EEzlKi5nT8k?feature=oembed"
+   ],
+   "problems": [
+    "Duplicate: it embeds the same video (YouTube id EEzlKi5nT8k) as the news post 'Video now available – Doing Digital Platform Research with AIO', published five minutes apart on the same day.",
+    "Very thin: 50 words, no speakers, no date of the webinar, no links.",
+    "No featured image is set, unlike the other eight posts.",
+    "The title is a question and promises a how-to guide, but the page is only a video."
+   ],
+   "verdict": "merge",
+   "verdictReason": "Merge into https://internetobservatory.org.au/aio-webinar-showcases-progress-and-future-directions-in-digital-platform-research/. The surviving page takes the categories Resource and Video and the tag Data donation, so one page serves both the news list and the resources list."
+  },
+  {
+   "url": "https://internetobservatory.org.au/aio-webinar-showcases-progress-and-future-directions-in-digital-platform-research/",
+   "title": "Video now available – Doing Digital Platform Research with AIO",
+   "kind": "webinar",
+   "date": "2026-05-04",
+   "author": "AIO",
+   "categories": [
+    "News"
+   ],
+   "tags": [],
+   "wordCount": 318,
+   "purpose": "News post that publishes the recording of the AIO public webinar on digital platform research and describes its content.",
+   "summary": "The post embeds the webinar video and summarises it. Prof Dan Angus, Prof Nic Carah and Dr Amanda Lawrence cover the research challenge, how AIO supports data donation methods, how to combine methods, and how AIO can support researchers. The text also mentions technical architecture, lessons on recruitment and data standardisation, and planned improvements.",
+   "externalLinks": [],
+   "media": [
+    "Video (Elementor video widget) -> https://www.youtube.com/watch?v=EEzlKi5nT8k",
+    "Featured image in page metadata -> https://internetobservatory.org.au/wp-content/uploads/2026/04/image-2048x1366-1.webp"
+   ],
+   "problems": [
+    "The address does not match the title. The slug is 'aio-webinar-showcases-progress-and-future-directions-in-digital-platform-research'.",
+    "Duplicate video: the same recording is on /how-to-do-digital-platform-research-using-aio/.",
+    "The third bullet ends with a stray 'Q&A'. It reads as a fifth item that lost its line.",
+    "The post gives no date for the webinar. The video title says April 2026.",
+    "Only this post of the nine has Prev/Next links inside the body. They are part of the post content, not of the template.",
+    "Five long paragraphs describe the webinar in general terms and repeat one another."
+   ],
+   "verdict": "keep",
+   "verdictReason": "Keep as the single page for this webinar. Fold in /how-to-do-digital-platform-research-using-aio/, add the categories Resource and Video and the tag Data donation, give it a shorter address and shorten the text."
+  },
+  {
+   "url": "https://internetobservatory.org.au/aio-co-design-process-invites-national-research-community-inputs/",
+   "title": "ARDC co-design process invites feedback on AIO mid project",
+   "kind": "news",
+   "date": "2026-05-04",
+   "author": "AIO",
+   "categories": [
+    "News"
+   ],
+   "tags": [],
+   "wordCount": 281,
+   "purpose": "News post that invited written feedback on the AIO during a consultation window of 1 May to 31 May 2026.",
+   "summary": "The AIO opened a mid-point co-design process to collect input on its data donation tools and research methods. It asked researchers, research support staff, civil society, government and industry to read an overview document, watch the webinar video and send a written response by email by 31 May 2026.",
+   "externalLinks": [
+    "AIO 2026 Mid-Point Co-Design Overview (PDF on ardc.edu.au, responds HTTP 200, not downloaded) -> https://ardc.edu.au/wp-content/uploads/2026/05/aio-2026-mid-point-co-design-overview_v1-0.pdf",
+    "AIO webinar video -> https://www.youtube.com/watch?v=EEzlKi5nT8k"
+   ],
+   "media": [
+    "Featured image in page metadata -> https://internetobservatory.org.au/wp-content/uploads/2026/05/john-2FPjlAyMQTA-unsplash-scaled.jpg"
+   ],
+   "problems": [
+    "The consultation closed on 31 May 2026. The page still reads as an open invitation.",
+    "The submission email address is marked as a link but has no target, so a click does nothing.",
+    "The address does not match the title. The slug is 'aio-co-design-process-invites-national-research-community-inputs'.",
+    "The title is unclear: 'feedback on AIO mid project'.",
+    "The post does not say what happened after the consultation. I found no outcome on this page."
+   ],
+   "verdict": "keep",
+   "verdictReason": "Keep in the news archive as a record and mark it as closed. If the team does not want closed calls in the archive, drop it. The overview PDF stays on the ARDC site."
+  },
+  {
+   "url": "https://internetobservatory.org.au/building-digital-platform-observatories-symposium/",
+   "title": "Building Digital Platform Observatories Symposium",
+   "kind": "event",
+   "date": "2026-05-07",
+   "author": "AIO",
+   "categories": [
+    "Events"
+   ],
+   "tags": [],
+   "wordCount": 308,
+   "purpose": "Announcement of a one-day symposium on 16 June 2026 in Brisbane, with a registration link.",
+   "summary": "The post announces a symposium hosted by the Centre for Digital Cultures and Societies (DCS) at the University of Queensland (UQ), in partnership with the Australian Internet Observatory (AIO). It names seven speakers with profile links and lists the topics, such as data donation and access to platform data. It gives the date (16 June 2026, 9:00am to 5:00pm), the venue (UQ Brisbane City Campus, 308 Queen Street) and a registration deadline of 12 June 2026. It ends with the funding acknowledgement and its DOI.",
+   "externalLinks": [
+    "Register now (Humanitix) -> https://events.humanitix.com/digital-platform-observatories",
+    "Building Digital Platform Observatories (UQ event page) -> https://hass.uq.edu.au/event/session/17724",
+    "Centre for Digital Cultures and Societies (DCS) -> https://hass.uq.edu.au/centre-digital-cultures-societies",
+    "Liz McFall (University of Edinburgh) -> https://www.sps.ed.ac.uk/staff/liz-mcfall",
+    "James Smithies (Australian National University) -> https://researchportalplus.anu.edu.au/en/persons/james-smithies/",
+    "Daniel Angus (Queensland University of Technology) -> https://www.qut.edu.au/about/our-people/academic-profiles/daniel.angus",
+    "Kellie Vella (University of Queensland) -> https://www.qut.edu.au/about/our-people/academic-profiles/kellie.vella",
+    "Laura Vodden (Queensland University of Technology) -> https://research.qut.edu.au/dmrc/people/laura-vodden/",
+    "Nic Carah -> https://communication-arts.uq.edu.au/profile/363/nicholas-carah",
+    "Julian Thomas -> https://www.rmit.edu.au/profiles/t/julian-thomas",
+    "Photo credit (Unsplash) -> https://unsplash.com/photos/three-person-pointing-the-silver-laptop-computer-2FPjlAyMQTA"
+   ],
+   "media": [
+    "Event banner image (no alt text) -> https://internetobservatory.org.au/wp-content/uploads/2026/05/Building-digital-platform-observatories-16-June-2026-2-1024x1024.png"
+   ],
+   "problems": [
+    "Obsolete: the event was on 16 June 2026, but the post still shows a \"Register now\" button and says registrations are open until 12 June 2026.",
+    "The text is in the future tense (\"will host\") five months after the event.",
+    "Kellie Vella has the label \"University of Queensland\", but her link goes to a Queensland University of Technology profile. I could not check which is right, because that page refused my request (HTTP 403).",
+    "The post calls the same event a \"symposium\" and a \"workshop\".",
+    "The one image has no alt text. It is a stock photo with the event title on it.",
+    "Not verified: the UQ event page (HTTP 403) and the two Unsplash links (HTTP 401) refused an automated request. The Humanitix link answered HTTP 200.",
+    "The Nic Carah link redirects to https://about.uq.edu.au/experts/1512.",
+    "A report on the same event exists as a separate post (/bdo-event-uq-june-2026/), and the two posts do not link to each other."
+   ],
+   "verdict": "merge",
+   "verdictReason": "Merge into /bdo-event-uq-june-2026/ (the report on the same event). Carry over the date, venue, speaker list with links and the funding acknowledgement as an \"Event details\" block. Drop the registration button and deadline. Redirect the old URL."
+  },
+  {
+   "url": "https://internetobservatory.org.au/online-ads-are-becoming-harder-to-spot-but-were-not-powerless-to-stop-it/",
+   "title": "Online ads are becoming harder to spot – but we’re not powerless to stop it",
+   "kind": "news",
+   "date": "2026-06-09",
+   "author": "Lauren Hayden",
+   "categories": [
+    "News"
+   ],
+   "tags": [],
+   "wordCount": 898,
+   "purpose": "Repost of an opinion article by three AIO researchers, first published in The Conversation on 3 June 2026.",
+   "summary": "The article says that AI tools from Google, Meta and ByteDance make online ads personal and hard to tell from other content. It says that weaker ad labels make it harder for researchers and regulators to audit advertising. It proposes four minimum disclosure rules for Australia's planned digital duty of care, such as clear labels and public ad archives. A closing line points to the AIO resources section.",
+   "externalLinks": [
+    "First published in The Conversation, 3 June 2026 -> https://theconversation.com/online-ads-are-becoming-harder-to-spot-but-were-not-powerless-to-stop-it-283782",
+    "Australian Ad Observatory -> https://www.admscentre.org.au/adobservatory/",
+    "Australian Internet Observatory -> https://internetobservatory.org.au/",
+    "resources section -> https://internetobservatory.org.au/resources/",
+    "Google Marketing Live -> https://blog.google/products/ads-commerce/google-marketing-live-2026-collection/",
+    "emerging digital duty of care framework -> https://www.infrastructure.gov.au/have-your-say/digital-duty-care",
+    "dissolve into the flow (paper) -> https://doi.org/10.1177/20563051241234691",
+    "difficult it already is (paper) -> https://doi.org/10.14763/2024.2.1779",
+    "observe and analyse (paper) -> https://doi.org/10.1080/00913367.2024.2394156",
+    "limited forms of disclosure (paper) -> https://doi.org/10.1080/15252019.2025.2554149"
+   ],
+   "media": [
+    "Header photo, AVIF format, no alt text -> https://internetobservatory.org.au/wp-content/uploads/2026/06/file-20260601-57-xs9cn0.avif",
+    "Screenshot of Meta ad tools, loaded from The Conversation's image server -> https://images.theconversation.com/files/739002/original/file-20260601-57-x0pwk2.png?ixlib=rb-4.1.0&q=45&auto=format&w=754&fit=clip",
+    "Instagram post embed (iframe) -> https://www.instagram.com/p/DWmuVjAAX6O/embed/captioned/"
+   ],
+   "problems": [
+    "The site shows \"By Lauren Hayden\", but the byline in the text names three authors: Daniel Angus, Lauren Hayden and Nicholas Carah.",
+    "The byline in the text is set as a level-3 heading.",
+    "One image loads directly from images.theconversation.com, not from the AIO site.",
+    "The Instagram embed is a pasted iframe that still carries The Conversation's page address in its parameters.",
+    "The post has a credit line with a link to The Conversation. I found no Conversation republish counter in the HTML. I did not check the republishing terms.",
+    "The page's share-image field (og:image) is empty, although the post is marked as having a featured image.",
+    "Both images have no alt text.",
+    "Not verified: four journal links (HTTP 403) and two Facebook business links (HTTP 400) refused an automated request.",
+    "The post has no tags."
+   ],
+   "verdict": "keep",
+   "verdictReason": "It is substantive writing by AIO researchers. Carry it as a news item marked as a repost, with the three authors and the original link in the front matter. Host the second image locally or link to it."
+  },
+  {
+   "url": "https://internetobservatory.org.au/high-school-students-explore-ai-media-literacy-and-digital-futures/",
+   "title": "High school students explore AI, media literacy and digital futures",
+   "kind": "news",
+   "date": "2026-06-09",
+   "author": "AIO",
+   "categories": [
+    "News"
+   ],
+   "tags": [],
+   "wordCount": 616,
+   "purpose": "Repost of a news story from the ADM+S research centre about a school visit to QUT that used AIO tools.",
+   "summary": "Senior English students from Wavell Heights State High School visited Queensland University of Technology (QUT) for sessions on AI and automation. Researchers ran sessions on digital inclusion, media literacy and \"Dark Political Communication\". Professor Daniel Angus led a workshop on how platforms collect and sort user data, based on the \"Data Mystics\" project and AIO tools. The students also tried the GenAI Arcade. A last line says the article first appeared on the website of ADM+S (the ARC Centre of Excellence for Automated Decision-Making and Society).",
+   "externalLinks": [
+    "ADM+S website (original article) -> https://www.admscentre.org.au/high-school-students-explore-ai-media-literacy-and-digital-futures",
+    "DMRC (QUT Digital Media Research Centre) -> https://research.qut.edu.au/dmrc/",
+    "Digital Child -> https://digitalchild.org.au/",
+    "Professor Daniel Angus -> https://www.admscentre.org.au/daniel-angus-2/",
+    "Dr Kim Osman -> https://digitalchild.org.au/team-members/dr-kim-osman/",
+    "Associate Professor Stephen Harrington -> https://www.qut.edu.au/about/our-people/academic-profiles/s.harrington",
+    "GenAI Arcade -> https://genai-arcade.net/",
+    "QUT's GenAI Lab -> https://research.qut.edu.au/genailab/",
+    "Australian Internet Observatory -> https://internetobservatory.org.au/"
+   ],
+   "media": [
+    "Photo of students in the workshop, no alt text -> https://internetobservatory.org.au/wp-content/uploads/2026/06/High-School-Engagement-768x432-1.png"
+   ],
+   "problems": [
+    "One paragraph about the data workshop appears twice in slightly different words. The first copy is a body paragraph set between two decorative quote images (quote.svg and quote-footer.svg), so it looks like a pull quote. In my saved copy I wrote it as a quote block and left out the two decorative images.",
+    "The article is a repost from ADM+S, and the site author is \"AIO\".",
+    "The photo is only 768 by 432 pixels and has no alt text.",
+    "Not verified: the Stephen Harrington profile at QUT refused an automated request (HTTP 403).",
+    "The post has no tags.",
+    "This post and the other post of 9 June 2026 never appear in the \"latest news\" cards under the news posts."
+   ],
+   "verdict": "keep",
+   "verdictReason": "It shows AIO tools in public outreach. Carry it as a short news item marked as a repost, and remove the repeated paragraph."
+  },
+  {
+   "url": "https://internetobservatory.org.au/sicss-2026-kicks-off-in-melbourne/",
+   "title": "SICSS 2026 starts in Melbourne",
+   "kind": "news",
+   "date": "2026-06-20",
+   "author": "Bogdan Mamaev",
+   "categories": [
+    "News"
+   ],
+   "tags": [],
+   "wordCount": 458,
+   "purpose": "Preview of the two-week SICSS-Melbourne 2026 training institute, with the program and the speakers.",
+   "summary": "The post says that the Summer Institute in Computational Social Science (SICSS) runs from 22 June to 3 July 2026 at RMIT University and Deakin University. It says that 19 early-career researchers from ten universities take part. It lists the first-week sessions and about 25 speakers with profile links, including sessions on data donation, screen capture and the AIReD dashboard. In the second week, teams build research projects and present them on the final day.",
+   "externalLinks": [
+    "Full program -> https://sicss.io/2026/melbourne/",
+    "ARC Centre of Excellence for Automated Decision-Making and Society (ADM+S) -> https://www.admscentre.org.au/",
+    "Australian Research Data Commons (ARDC) -> https://ardc.edu.au/",
+    "\"aired\" dashboard (broken on the site, the address lacks the first letter) -> https://www.aio.eresearch.unimelb.edu.au/",
+    "Bogdan Mamaev -> https://bmamaev.com",
+    "Kateryna Kasianenko -> https://www.admscentre.org.au/kateryna-kasianenko/"
+   ],
+   "media": [
+    "Featured image, used only on listing cards and not in the post body -> https://internetobservatory.org.au/wp-content/uploads/2026/04/Melbourne_SICSS.jpg"
+   ],
+   "problems": [
+    "Broken link: the \"aired\" link has the address \"ttps://www.aio.eresearch.unimelb.edu.au/\" (the \"h\" is missing). With the \"h\" the address answers HTTP 200.",
+    "The first sentence shows a raw address in brackets after \"(SICSS)\", which looks like leftover Markdown.",
+    "The dashboard is written \"aired\" here and \"AIReD\" in the other SICSS post.",
+    "The address of the post says \"kicks-off\" and the title says \"starts\".",
+    "The post says 19 participants. The post /sicss-melbourne-2026-our-first-week/ says 20.",
+    "The text says \"next week\", so it is out of date after the event.",
+    "The post body has no image.",
+    "Not verified: two QUT profile links refused an automated request (HTTP 403). The Swinburne profile link (experts.swinburne.edu.au/12345-dominique-carlon) answered HTTP 200 with only a generic page title.",
+    "The post has no tags."
+   ],
+   "verdict": "keep",
+   "verdictReason": "It is the fullest record of the 2026 program and speakers. Repair the broken link and the first sentence, and link it to the first-week post."
+  },
+  {
+   "url": "https://internetobservatory.org.au/bdo-event-uq-june-2026/",
+   "title": "Shaping the future at Building Digital Platform Observatories",
+   "kind": "news",
+   "date": "2026-06-24",
+   "author": "Lauren Hayden",
+   "categories": [
+    "News",
+    "News and Events"
+   ],
+   "tags": [
+    "Data donation",
+    "DDPs",
+    "Policy"
+   ],
+   "wordCount": 586,
+   "purpose": "Report on the Building Digital Platform Observatories event held at the University of Queensland on 16 June 2026.",
+   "summary": "The report explains what a digital platform observatory is and why \"observability\" is a better aim than transparency. It summarises talks by Liz McFall and James Smithies on the idea of an observatory and on the cost of research infrastructure for the humanities and social sciences. It quotes Nichola Burton of the Australian Research Data Commons and Nicholas Carah, the AIO Deputy Director. It says the discussions will inform how the AIO builds its infrastructure.",
+   "externalLinks": [
+    "observability (Rieder and Hofmann article) -> https://policyreview.info/articles/analysis/towards-platform-observability"
+   ],
+   "media": [
+    "Photo of Professor Liz McFall presenting (alt text \"Liz McFall\", credit Jess White) -> https://internetobservatory.org.au/wp-content/uploads/2026/06/Liz-McFall-edited-1024x617.jpg"
+   ],
+   "problems": [
+    "The post has two overlapping categories, \"News\" and \"News and Events\". The page shows them run together as \"NewsNews and Events\".",
+    "The report does not give the date or venue of the event and does not link to the announcement post.",
+    "The report has only one link, and it names no speaker profiles.",
+    "The site shows the date 24/06/2026 (local time). The page metadata gives 23 June 2026 in UTC.",
+    "The address \"bdo-event-uq-june-2026\" uses an abbreviation (BDO) that the page does not explain."
+   ],
+   "verdict": "keep",
+   "verdictReason": "It is the lasting record of the event. Fold the event details from /building-digital-platform-observatories-symposium/ into it and use one category."
+  },
+  {
+   "url": "https://internetobservatory.org.au/sicss-melbourne-2026-our-first-week/",
+   "title": "SICSS-Melbourne 2026 – Our First Week",
+   "kind": "news",
+   "date": "2026-06-24",
+   "author": "Bogdan Mamaev",
+   "categories": [
+    "News"
+   ],
+   "tags": [],
+   "wordCount": 403,
+   "purpose": "Photo report on the first three days of SICSS-Melbourne 2026, reposted from a LinkedIn post.",
+   "summary": "The post describes days 1 to 3 of the institute: an opening discussion, an online keynote on bias, an ethics panel and sessions on data donation run by AIO staff. It mentions a showcase of the AIReD social media data repository and a session on theory. It thanks the supporting organisations and Olga Boichak, who brought the institute to Australia in 2022. It has five photos and ends with the address of the original LinkedIn post.",
+   "externalLinks": [
+    "Original post (LinkedIn, shown as plain text and not as a link) -> https://www.linkedin.com/posts/kat-kasian_this-monday-we-kicked-off-sicss-melbourne-ugcPost-7475411249279844352-VLjv/"
+   ],
+   "media": [
+    "Photo 1 -> https://internetobservatory.org.au/wp-content/uploads/2026/06/1782276923220-1024x788.jpeg",
+    "Photo 2 -> https://internetobservatory.org.au/wp-content/uploads/2026/06/1782276923846-768x1024.jpeg",
+    "Photo 3 -> https://internetobservatory.org.au/wp-content/uploads/2026/06/1782276923708-1024x768.jpeg",
+    "Photo 4 -> https://internetobservatory.org.au/wp-content/uploads/2026/06/1782276925007-1024x768.jpeg",
+    "Photo 5 -> https://internetobservatory.org.au/wp-content/uploads/2026/06/1782276924154-1-1024x768.jpeg",
+    "Featured image, used only on listing cards -> https://internetobservatory.org.au/wp-content/uploads/2026/06/IMG_0229-scaled.jpeg"
+   ],
+   "problems": [
+    "The title says \"Our First Week\", but the text covers only days 1 to 3 and was written during the event (\"We will finish day 3\", \"Excited for the remaining 9 days!\").",
+    "The post says 20 participants. The post /sicss-2026-kicks-off-in-melbourne/ says 19.",
+    "The text has no links. The address of the original LinkedIn post is plain text.",
+    "The LinkedIn address points to another person's post, but the site author is \"Bogdan Mamaev\".",
+    "All five photos have no alt text and no captions, and the files have number names.",
+    "The title tag uses a hyphen and the page heading uses an en dash.",
+    "The phrase \"Winter (Summer) Institute\" is not explained.",
+    "No report on the second week or on the results exists among these pages.",
+    "The post has no tags."
+   ],
+   "verdict": "keep",
+   "verdictReason": "It holds the only photos and first-hand account of the event. Carry it as a dated news item, link it to the SICSS preview post, and add alt text. A merge of the two SICSS posts into one page is a possible later edit."
+  },
+  {
+   "url": "https://internetobservatory.org.au/data-download-packages-explainer/",
+   "title": "Data Download Packages Explainer",
+   "kind": "explainer",
+   "date": "2026-04-04",
+   "author": "AIO",
+   "categories": [
+    "Explainer",
+    "Resource"
+   ],
+   "tags": [
+    "Data donation",
+    "DDPs"
+   ],
+   "wordCount": 2920,
+   "purpose": "Long reference text for researchers on Data Download Packages (DDPs): what they are, what they hold and how to use them in a study.",
+   "summary": "A DDP is the personal data archive that a user can request from a platform. The page explains the legal basis, and what the DDPs of Instagram, Facebook, TikTok, Google Takeout and ChatGPT contain. It lists what DDPs hold and what they lack, and the problems of unstable formats and language-dependent file names. It then gives the steps of data cleaning and advice for before, during and after a study. It names the AIO's \"Data Relay\" tool as the support for this work.",
+   "externalLinks": [
+    "Boeschoten et al. (cited as 2025) -> https://doi.org/10.21105/joss.05596",
+    "Carriere et al., 2025 -> https://doi.org/10.1007/s11135-024-01983-x",
+    "Ohme et al. (cited as 2024) -> https://doi.org/10.1016/j.patter.2022.100467",
+    "Keusch et al., 2024 -> https://doi.org/10.1177/1525822X231225907",
+    "GDPR Article 15 (Right of Access) -> https://gdpr-info.eu/art-15-gdpr/",
+    "GDPR Article 20 (Right to Data Portability) -> https://gdpr-info.eu/art-20-gdpr/",
+    "Act on the Protection of Personal Information (Japan) -> https://www.japaneselawtranslation.go.jp/en/laws/view/4241/en",
+    "LGPD (Brazil) -> https://lgpd-brazil.info/",
+    "CCPA (California) -> https://oag.ca.gov/privacy/ccpa",
+    "SHIELD Act (New York) -> https://ag.ny.gov/resources/organizations/data-breach-reporting/shield-act"
+   ],
+   "media": [
+    "Featured image, an abstract pattern used only on listing cards -> https://internetobservatory.org.au/wp-content/uploads/2026/04/Pattern_04.jpg"
+   ],
+   "problems": [
+    "Very long page: about 2,900 words, with no table of contents, no images and no tables.",
+    "Repeated content: the section \"Language-Dependent Naming\" and the later block \"Language-Dependent Keys and Filenames\" say the same thing. Unstable formats are explained in three places.",
+    "The heading levels are out of order. The lead paragraph is set as a level-4 heading. \"Structural Changes Over Time\" is plain text, and two other sub-headings are bold text.",
+    "The heading \"ChatGPT (OpenAI)\" has broken bold marks around its last letters, and \"Legal basis for DDPS\" has a capital S.",
+    "Citation years do not match the linked papers. \"Boeschoten et al., 2025\" (3 uses) links to a paper that Crossref dates 2023. \"Ohme et al., 2024\" links to a 2022 paper by Ohme and Araujo.",
+    "\"van Driel et al. (2022)\" is cited twice with no link, and the page has no reference list.",
+    "A space is missing before every citation link and before several law links (for example \"format(Boeschoten\").",
+    "The page names \"Data Relay\" four times but never explains it or links to it. \"privacy.openai.com\" is plain text.",
+    "The page does not link to the AIO Platform, the ethics guide or the screen capture explainer.",
+    "The page shows two category labels run together (\"ExplainerResource\"). The breadcrumb says \"Resource\" and the section address is /resources/.",
+    "Not verified: the Keusch paper link refused an automated request (HTTP 403). I did not check the facts about each platform, such as file counts and preparation times."
+   ],
+   "verdict": "keep",
+   "verdictReason": "It is core reference content and the natural link to the learning system. Carry it as a guide page with a table of contents. Remove the repeated sections and repair the citations."
+  },
+  {
+   "url": "https://internetobservatory.org.au/screen-capture-explainer/",
+   "title": "Screen Capture Explainer",
+   "kind": "explainer",
+   "date": "2026-04-02",
+   "author": "AIO",
+   "categories": [
+    "Explainer",
+    "Resource"
+   ],
+   "tags": [
+    "Data donation",
+    "Screen capture",
+    "test123"
+   ],
+   "wordCount": 513,
+   "purpose": "Short reference text for researchers on screen capture as a data donation method.",
+   "summary": "Screen capture records what appears on a participant's screen during normal use of apps such as TikTok, Facebook, Instagram and YouTube. The page lists the strengths (short-lived and ordered content, no need for platform APIs) and the limits (participant burden, sensitive content, changed behaviour). It gives the six steps of a study, from ethics approval to the participant's consent and the researcher's dashboard. It names past uses, such as studies of gambling, alcohol and election ads, and current tests in Vietnam, Brazil and South Africa.",
+   "externalLinks": [],
+   "media": [
+    "Featured image, an abstract pattern used only on listing cards -> https://internetobservatory.org.au/wp-content/uploads/2026/04/Pattern_11.jpg"
+   ],
+   "problems": [
+    "Test content: the post has the public tag \"test123\", and the tag page /tag/test123/ answers HTTP 200.",
+    "Step 4 of the list ends with a stray backslash (\"discarded.\\\").",
+    "The page has no links at all. It says \"see the resources section\" for DDPs, but gives no link.",
+    "The page has no image, diagram or video of the method.",
+    "The method has three names on one page: \"screen capture\", \"screen tracking\" and \"screen recording\".",
+    "Small language errors: \"a data donation method that enable\", \"DDPS\", \"eg Meta Ad Library\" with no full stop.",
+    "Technical terms such as \"YOLOv11\" and \"reactivity bias\" are not explained for the stated audience.",
+    "The page does not say which tool or app does this, or how a researcher starts.",
+    "The page shows two category labels run together (\"ExplainerResource\")."
+   ],
+   "verdict": "keep",
+   "verdictReason": "It is core reference content, a pair with the DDP explainer. Carry it as a guide page, remove the test tag and the stray character, and add links to the DDP explainer and the ethics guide."
+  },
+  {
+   "url": "https://internetobservatory.org.au/aio-launch-new-2026/",
+   "title": "The all new AIO platform is here!",
+   "kind": "news",
+   "date": "2026-09-23",
+   "author": "Jigya Khabar",
+   "categories": [
+    "News",
+    "Webinar"
+   ],
+   "tags": [
+    "Data donation",
+    "DDPs"
+   ],
+   "wordCount": 872,
+   "purpose": "Launch announcement of the AIO Platform, a self-service research tool, with a login link and a webinar invitation.",
+   "summary": "The post announces the AIO Platform for researchers at Australian universities, who sign in with their institutional credentials. At launch it supports data donation research with Data Download Packages (DDPs), and projects still need ethics approval. It quotes Julian Thomas, Jenny Fewster, Nicholas Carah and Daniel Angus. It lists what researchers can do on the platform and five possible research areas. It ends with an invitation to a demonstration webinar \"tomorrow at 1pm AEST\".",
+   "externalLinks": [
+    "Login to the AIO Platform here -> https://app.internetobservatory.org.au/",
+    "Register for a AIO Platform demo here (Eventbrite) -> https://www.eventbrite.com.au/e/introducing-the-aio-platform-for-digital-platform-research-tickets-1997822306298",
+    "\"Australian Internet Observatory\" (links to a Google Docs edit page) -> https://docs.google.com/document/d/1qR0Y9Dec6x-BxOqLWRMAhzyu5oXHue3HLE7_4oiLTXE/edit?tab=t.0#heading=h.lek6bb6seq29",
+    "internetobservatory.org.au (http address) -> http://internetobservatory.org.au/"
+   ],
+   "media": [
+    "Screenshot of the AIO Platform login page, no alt text -> https://internetobservatory.org.au/wp-content/uploads/2026/09/AIO-Platform-Homepage-Login-page-scaled.png"
+   ],
+   "problems": [
+    "Wrong link: the words \"Australian Internet Observatory\" in the first paragraph link to a Google Docs edit address, which looks like the draft of the text. The address answered HTTP 200 with no sign-in redirect. I did not open the document.",
+    "Out of date: the webinar is \"tomorrow at 1pm AEST\" with no date. The post is dated 23 September 2026, so the webinar was on 24 September 2026, and the \"Register\" link remains.",
+    "The post has no featured image, so its listing card shows the site favicon (Favicon.png).",
+    "The category \"Webinar\" is on a news post that only invites readers to a webinar. The page shows the labels run together (\"NewsWebinar\").",
+    "The Jenny Fewster quotation has no closing quotation mark. A space is missing in \"researchers.“Researchers\".",
+    "The lead paragraph is set as a level-4 heading and the section headings as level-5 headings.",
+    "The list of platform functions sits inside an empty outer list item in the HTML. My saved copy shows it as one flat list.",
+    "The link to the AIO site uses http, and it redirects to https.",
+    "The article says \"a AIO Platform demo\" and has no link to the DDP explainer or the ethics guide.",
+    "The login link redirects to a sign-in page at app.internetobservatory.org.au. I did not sign in."
+   ],
+   "verdict": "keep",
+   "verdictReason": "It is the main product announcement and the entry point to the platform. Repair the Google Docs link, replace the webinar invitation with a dated note or a recording, and add a featured image."
+  }
+ ]
+}
