@@ -64,7 +64,7 @@ The template is also in the file `docs/templates/news-post.md`.
 |---|---|
 | `title` | Required. Sentence case: "New study on TikTok ads", not "New Study On TikTok Ads". If the title contains a colon (`:`) or starts with a quote mark, put the whole title in double quotes: `title: "SICSS: call for applications"`. The same applies to `summary`. |
 | `date` | Required. Year-month-day, for example `2026-11-20`. |
-| `type` | `news`, `event` or `case-study`. Events appear under Events. Case studies appear under Case studies. |
+| `type` | `news`, `event` or `case-study`. Events appear under Events. Case studies appear on the Case studies page (`/case-studies/`), which is out of the menu for now. |
 | `summary` | One or two sentences. They appear in the lists and on the home page. |
 | `image` | Leave empty, or give the address of an image, for example `/uploads/photo.jpg`. |
 | `imageAlt` | What the image shows, for people who cannot see it. Required when there is an image. |

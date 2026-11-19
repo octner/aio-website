@@ -3,7 +3,7 @@
 // The three columns share the page width, so every page has the same left and right edges.
 import Base from './Base.astro';
 import Icon from '../components/Icon.astro';
-import { site, pagePath, sectionFor, statusLabel, type Status } from '../lib/site';
+import { site, pagePath, sectionFor, shown, statusLabel, type Status } from '../lib/site';
 
 interface Props {
   title: string;
@@ -27,7 +27,7 @@ const showStatus = site.draft && status && status !== 'migrated';
         <>
           <h2><Icon name={section.group.icon} />{section.group.label}</h2>
           <ul>
-            {section.group.items.map((item) => (
+            {shown(section.group).map((item) => (
               <li><a href={item.href} aria-current={item.href === path ? 'page' : undefined}>{item.label}</a></li>
             ))}
           </ul>

@@ -3,6 +3,8 @@ title: Who we are
 summary: The Australian Internet Observatory is a national research infrastructure facility that enables research on digital platforms, applications and emerging technologies in the public interest.
 status: edited
 source: https://internetobservatory.org.au/about/
+legacy:
+  - /about/funding/
 ---
 
 ## What AIO is
@@ -26,10 +28,6 @@ The Australian Internet Observatory is developing the tools and capabilities req
 - **Data governance and management.** Ethical and legal frameworks and guides for working with digital research methods and social data, including guidance for Human Research Ethics Committee (HREC) applications. [Read the research ethics guide](/learn/resources/ethics-guide/)
 - **Outreach and training.** Supporting research training and engagement through workshops, events, training and online resources. [See the training](/learn/training/)
 
-## Introduction to the Australian Internet Observatory
-
-<div class="video" data-youtube="euBcBukcW8w"><a href="https://www.youtube.com/watch?v=euBcBukcW8w"><img src="https://i.ytimg.com/vi/euBcBukcW8w/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="play">Play video: Introduction to the Australian Internet Observatory</span></a></div>
-
 ## Our team
 
 The AIO is governed by a Steering Committee and built by a team based across our partner organisations.
@@ -38,6 +36,19 @@ The AIO is governed by a Steering Committee and built by a team based across our
 
 ## Partners and funding
 
-The AIO is a co-investment partnership with the Australian Research Data Commons (ARDC) and is delivered by six Australian university partners.
+The Australian Internet Observatory (AIO) is a co-investment partnership with the Australian Research Data Commons (ARDC) through the HASS and Indigenous Research Data Commons ([DOI: 10.3565/hjrp-b141](https://doi.org/10.3565/hjrp-b141)). The ARDC is enabled by the Australian Government's National Collaborative Research Infrastructure Strategy (NCRIS).
 
-[Read about AIO funding and partners](/about/funding/)
+### University partners
+
+AIO is delivered by six Australian university partners:
+
+- RMIT University
+- Queensland University of Technology
+- University of Queensland
+- University of Melbourne
+- Swinburne University
+- Deakin University
+
+### Collaboration
+
+AIO is developed in collaboration with researchers, research centres, and organisations across Australia and internationally including the ARC Centre of Excellence for Automated Decision Making + Society.

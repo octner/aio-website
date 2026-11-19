@@ -1,6 +1,6 @@
 ---
-title: Tools to observe and understand the digital world
-summary: We help researchers collect, manage and analyse data from digital platforms, through data donation, browser tracking, mobile capture and APIs.
+title: Tools to observe the digital world
+summary: We help researchers collect, manage and analyse data from digital platforms, through data donation, mobile capture and APIs.
 status: edited
 source: https://internetobservatory.org.au/home-2/
 legacy:
@@ -8,8 +8,21 @@ legacy:
   - /explore/
 video: 15xDm12TMFU
 videoTitle: What is AIO? Introducing the AIO Platform
+start:
+  - who: For researchers
+    title: Plan a project
+    text: The steps from a research question to data on the AIO Platform.
+    href: /learn/platform-guide/
+  - who: For participants
+    title: Share your data
+    text: What happens when a study asks you to donate your data.
+    href: /take-part/
+  - who: For learners
+    title: Learn the methods
+    text: Online training, guides and explainers on digital data.
+    href: /learn/training/
 blocks:
-  - title: Digital Research Platform
+  - title: AIO Platform
     text: A full research workflow platform. Manage your project end-to-end, from participant recruitment through data collection and analysis.
     href: /platform/
     link: About the AIO Platform

@@ -13,6 +13,8 @@
 <symbol id="i-precheck" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/><circle cx="12" cy="14" r="1" fill="currentColor" stroke="none"/></symbol>
 <symbol id="i-watch" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M10 8.5v7l5.5-3.5z"/></symbol>
 <symbol id="i-explore" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36z"/></symbol>
+<!-- website only: a magnifier for the search link -->
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7.5"/><path d="m20.5 20.5-4.2-4.2"/></symbol>
 <symbol id="i-check" viewBox="0 0 24 24"><path d="m3 7 2 2 4-4"/><path d="m3 17 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></symbol>
 <symbol id="i-practice" viewBox="0 0 24 24"><path d="M14 4.1 12 6"/><path d="m5.1 8-2.9-.8"/><path d="m6 12-1.9 2"/><path d="M7.2 2.2 8 5.1"/><path d="M9.04 9.69a.5.5 0 0 1 .65-.65l11 4.5a.5.5 0 0 1-.07.95l-4.35 1.04a1 1 0 0 0-.74.74l-1.04 4.35a.5.5 0 0 1-.95.07z"/></symbol>
 <symbol id="i-apply" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h4"/><path d="M16 4h2a2 2 0 0 1 2 2v3"/><path d="M8 11h5"/><path d="M8 15h2"/><path d="M21.38 13.63a1.5 1.5 0 0 0-2.12-2.12l-5.36 5.35a2 2 0 0 0-.5.86L13 20l2.28-.4a2 2 0 0 0 .86-.5z"/></symbol>

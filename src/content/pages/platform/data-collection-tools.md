@@ -1,5 +1,5 @@
 ---
-title: Data collection tools
+title: Data donation tools
 summary: The Australian Internet Observatory provides a range of ways to collect data and observe digital platforms, including via APIs and data donation methods.
 status: edited
 source: https://internetobservatory.org.au/explore/observe/

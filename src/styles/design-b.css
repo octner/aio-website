@@ -1,0 +1,90 @@
+/* Design B: the look of the "varsha" website template (varsha.myndlabs.tech) in the AIO colours.
+   These rules are written for this site. No file of the template is copied.
+   Its marks: monospace headings, menu and buttons; flat boxes with thin lines and small corners;
+   a small label above each section heading; a header that stays at the top of the window.
+   The colours and fonts are in tokens.css. Every rule here starts with [data-design='b'],
+   so design A does not change. To remove design B, delete this file, its import in Base.astro,
+   the [data-design='b'] block in tokens.css and the :global([data-design='b']) rules in index.astro. */
+
+[data-design='b'] { scroll-padding-top: 6.5rem; }
+[data-design='b'] h1, [data-design='b'] h2, [data-design='b'] h3 { font-weight: 500; letter-spacing: -0.03em; overflow-wrap: break-word; }
+[data-design='b'] h4 { font-family: var(--font-body); font-weight: 600; letter-spacing: 0; }
+[data-design='b'] a { text-decoration-color: var(--accent); }
+[data-design='b'] a:hover { text-decoration-color: var(--accent-strong); text-decoration-thickness: 2px; }
+[data-design='b'] th { font-family: var(--font-ui); font-size: var(--fs-xs); }
+
+/* Small labels above headings */
+[data-design='b'] .eyebrow { display: flex; align-items: center; gap: 0.5rem; margin: 0 0 0.6rem; font: 600 var(--fs-xs)/var(--lh-snug) var(--font-ui); letter-spacing: 0.04em; color: var(--muted-fg); }
+[data-design='b'] .eyebrow .dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--accent-strong); }
+[data-design='b'] .section-head { margin: 3.5rem 0 1.25rem; padding-top: 2.5rem; border-top: 1px solid var(--border-strong); }
+[data-design='b'] .section-head h2 { margin: 0; }
+[data-design='b'] .hero + section .section-head { margin-top: 0; padding-top: 0; border-top: 0; }
+
+/* Buttons and the test banner */
+[data-design='b'] .btn { font-size: 0.9375rem; font-weight: 600; letter-spacing: -0.01em; }
+[data-design='b'] .btn-primary:hover { background: var(--text-2); }
+[data-design='b'] .test-banner { background: var(--papaya); border-bottom-color: var(--border-strong); color: var(--fg); font-size: var(--fs-xs); }
+[data-design='b'] .design-switch button[aria-pressed='true'] { background: var(--primary); border-color: var(--primary); color: var(--primary-fg); }
+
+/* Header: stays at the top, a little see-through */
+[data-design='b'] .site-header { position: sticky; top: 0; border-bottom-color: var(--border-strong); background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(10px); }
+[data-design='b'] .site-header .wrap { min-height: 4.25rem; }
+[data-design='b'] .brand img { height: 2.75rem; }
+[data-design='b'] .nav-desktop summary { font-size: 0.875rem; letter-spacing: -0.03em; padding: 0.5rem 0.5rem; }
+[data-design='b'] .nav-tool { border: 1px solid var(--border-strong); background: var(--muted-2); padding: 0.5rem 0.65rem; margin-left: 0.4rem; }
+[data-design='b'] .nav-launch { font-size: 0.875rem; }
+[data-design='b'] .nav-desktop .panel { box-shadow: 0 10px 24px rgba(41, 38, 46, 0.1); border-color: var(--border-strong); }
+[data-design='b'] .panel strong { font-family: var(--font-ui); font-size: 0.9375rem; letter-spacing: -0.02em; }
+[data-design='b'] .panel a[aria-current='page'], [data-design='b'] .mobile-panel a[aria-current='page'] { box-shadow: inset 3px 0 0 var(--accent-strong); }
+[data-design='b'] .mobile-panel h2 { font-family: var(--font-ui); text-transform: uppercase; letter-spacing: 0.06em; font-size: var(--fs-xs); }
+/* Monospace letters are wider: the full menu needs 1,175 px inside the margins. */
+@media (max-width: 82rem) {
+  [data-design='b'] .nav-desktop { display: none; }
+  [data-design='b'] .nav-mobile { display: block; }
+}
+
+/* Content pages. The side lists stop below the header, which stays at the top. */
+[data-design='b'] .section-nav, [data-design='b'] .page-toc { top: 5.75rem; }
+@media (max-width: 56rem) { [data-design='b'] .section-nav { top: auto; } }
+[data-design='b'] .breadcrumb { font-family: var(--font-ui); font-size: var(--fs-xs); }
+[data-design='b'] .page-head { padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-strong); }
+[data-design='b'] .page-head .lede { color: var(--text-2); }
+[data-design='b'] .section-nav h2, [data-design='b'] .page-toc h2 { font-family: var(--font-ui); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted-fg); }
+[data-design='b'] .section-nav a[aria-current='page'] { background: var(--accent-soft); border-left-color: var(--accent-strong); }
+[data-design='b'] .status { border-radius: var(--radius-sm); border-color: var(--periwinkle); background: var(--accent-soft); color: var(--accent-text); }
+[data-design='b'] .status-new { border-color: #e2c98f; background: var(--papaya); color: var(--fg); }
+[data-design='b'] .status-placeholder { border: 1px dashed var(--fg); background: var(--blush); color: var(--fg); }
+[data-design='b'] .todo { border-color: #e2c98f; border-left-color: #e28b28; background: var(--papaya); color: var(--fg); }
+[data-design='b'] blockquote { border-left-color: var(--accent); }
+[data-design='b'] .prose details, [data-design='b'] .event-box, [data-design='b'] .post-event { background: var(--muted-2); border-color: var(--border-strong); }
+[data-design='b'] .event-box { border: 1px solid var(--border-strong); border-top: 3px solid var(--accent-strong); border-radius: var(--radius); }
+[data-design='b'] .event-box dt { font-family: var(--font-ui); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.06em; padding-top: 0.2rem; }
+[data-design='b'] .site-graph-scroll { background: #fff; border-color: var(--border-strong); }
+[data-design='b'] .figure-diagram .figure-scroll { background: #fff; border: 1px solid var(--border-strong); border-radius: var(--radius); padding: 1rem; }
+[data-design='b'] .video a, [data-design='b'] .video iframe, [data-design='b'] .hero-img, [data-design='b'] .prose img { border: 1px solid var(--border-strong); }
+
+/* Team: each person in a box */
+[data-design='b'] .people { gap: 1.25rem; }
+[data-design='b'] .person { padding: 1.25rem; background: var(--muted-2); border: 1px solid var(--border-strong); border-radius: var(--radius); }
+[data-design='b'] .person-photo { border: 1px solid var(--border-strong); }
+[data-design='b'] .person h3 { font-size: var(--fs-base); }
+[data-design='b'] .person h3 + p { font-family: var(--font-ui); font-size: var(--fs-xs); color: var(--accent-text); }
+
+/* Lists of posts */
+[data-design='b'] .item-list, [data-design='b'] .item-list li { border-color: var(--border-strong); }
+[data-design='b'] .item-list .when { font-family: var(--font-ui); font-size: var(--fs-xs); padding-top: 0.3rem; }
+[data-design='b'] .item-title { font-size: var(--fs-base); }
+[data-design='b'] .tag { font-family: var(--font-ui); background: var(--muted-2); border-color: var(--border-strong); }
+
+/* Emblem: a small flat box, without the orange dot */
+[data-design='b'] .emblem { width: 2.5rem; height: 2.5rem; border-radius: var(--radius); background: var(--accent-soft); border: 1px solid var(--border-strong); color: var(--fg); }
+[data-design='b'] .emblem .i { width: 1.35rem; height: 1.35rem; }
+[data-design='b'] .emblem::after { content: none; }
+
+/* Comment box and footer */
+[data-design='b'] .feedback { border-top-color: var(--border-strong); }
+[data-design='b'] .site-footer { border-top-color: var(--border-strong); }
+[data-design='b'] .site-footer h2 { font-family: var(--font-ui); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted-fg); }
+[data-design='b'] .comment-toggle { border-radius: var(--radius-sm); font-family: var(--font-ui); }
+[data-design='b'] .comment-dialog { background: var(--bg); color: var(--text); border-color: var(--border-strong); }
+[data-design='b'] .comment-dialog::backdrop { background: rgb(41 38 46 / 0.45); }

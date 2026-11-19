@@ -1,7 +1,7 @@
 ---
 import Brand from './Brand.astro';
 import Icon from './Icon.astro';
-import { nav, site, pagePath } from '../lib/site';
+import { nav, site, pagePath, shown } from '../lib/site';
 const path = pagePath(Astro.url);
 const current = (href: string) => (href === path ? 'page' : undefined);
 ---
@@ -15,7 +15,7 @@ const current = (href: string) => (href === path ? 'page' : undefined);
         <details name="main-menu">
           <summary>{group.label}<Icon name="chevron-down" /></summary>
           <ul class="panel">
-            {group.items.map((item) => (
+            {shown(group).map((item) => (
               <li>
                 <a href={item.href} aria-current={current(item.href)}>
                   <Icon name={item.icon} />
@@ -26,7 +26,7 @@ const current = (href: string) => (href === path ? 'page' : undefined);
           </ul>
         </details>
       ))}
-      <a class="nav-tool" href="/search/" aria-label="Search"><Icon name="explore" /></a>
+      <a class="nav-tool" href="/search/" aria-label="Search" title="Search"><Icon name="search" /></a>
       <a class="btn btn-primary nav-launch" href={site.platformUrl} target="_blank" rel="noopener">Launch AIO Platform<span class="sr-only"> (opens in a new tab)</span></a>
     </nav>
 
@@ -37,7 +37,7 @@ const current = (href: string) => (href === path ? 'page' : undefined);
         {[...nav.groups, nav.site].map((group) => (
           <>
             <h2><Icon name={group.icon} />{group.label}</h2>
-            <ul>{group.items.map((item) => <li><a href={item.href} aria-current={current(item.href)}>{item.label}</a></li>)}</ul>
+            <ul>{shown(group).map((item) => <li><a href={item.href} aria-current={current(item.href)}>{item.label}</a></li>)}</ul>
           </>
         ))}
         <a class="btn btn-primary" href={site.platformUrl} target="_blank" rel="noopener">Launch AIO Platform<span class="sr-only"> (opens in a new tab)</span></a>

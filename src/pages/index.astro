@@ -14,27 +14,66 @@ const posts = await publishedPosts();
 const next = posts.filter((p) => isUpcoming(p)).sort((a, b) => eventDate(a).valueOf() - eventDate(b).valueOf())[0];
 ---
 <Base title={d.title} description={d.summary} source={home.entry.filePath} home>
-  <!-- The learning system's lesson band: dark, with the AIO arcs as the one decorative motif -->
+  <!-- Design A: a dark band with the AIO arcs in the background. Design B: text on the left and
+       the arcs as a picture on the right. The small labels ("eyebrow") show in design B only. -->
   <section class="hero" style={`--motif: url("${motif}")`}>
-    <div class="wrap">
-      <h1>{d.title}</h1>
-      {d.summary && <p class="lede">{d.summary}</p>}
-      <p class="hero-actions">
-        <a class="btn btn-light" href={site.platformUrl} target="_blank" rel="noopener">Launch AIO Platform<span class="sr-only"> (opens in a new tab)</span></a>
-        <a class="btn btn-ghost" href="/learn/platform-guide/">Plan a project with AIO</a>
-      </p>
-      <p class="hero-aside">Asked to share your data for a study? <a href="/take-part/">Find out how data donation works</a>.</p>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow b-only" aria-hidden="true"><span class="dot"></span>national research infrastructure</p>
+        <h1>{d.title}</h1>
+        {d.summary && <p class="lede">{d.summary}</p>}
+        <p class="hero-actions">
+          <a class="btn btn-light" href={site.platformUrl} target="_blank" rel="noopener">Launch AIO Platform<span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="btn btn-ghost" href="/learn/platform-guide/">Plan a project with AIO</a>
+        </p>
+      </div>
+      <div class="hero-art b-only" aria-hidden="true">
+        <!-- The arcs of the AIO logo, drawn with thick lines in the AIO secondary colours -->
+        <svg viewBox="60 0 340 400" fill="none" stroke-width="30" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="#acb7f5" d="M400 20 L140 144.8 Q88 170 88 200 Q88 230 140 255.2 L400 380" />
+          <path stroke="#f9c6bf" d="M400 75.5 L205 169.1 Q170 186 170 200 Q170 214 205 230.9 L400 324.5" />
+          <path stroke="#be9eec" d="M400 131 L290 183.8 Q262 197.2 262 200 Q262 202.8 290 216.2 L400 269" />
+          <circle cx="345" cy="200" r="20" fill="#29262e" />
+        </svg>
+      </div>
     </div>
   </section>
 
+  {d.start.length > 0 && (
+    <section class="wrap" aria-labelledby="start-heading">
+      <div class="section-head">
+        <p class="eyebrow b-only" aria-hidden="true"># start</p>
+        <h2 id="start-heading">Where to start</h2>
+      </div>
+      <ul class="tiles">
+        {d.start.map((t) => (
+          <li>
+            <a href={t.href}>
+              <span class="tile-who">{t.who}</span>
+              <strong>{t.title}</strong>
+              <span class="tile-text">{t.text}</span>
+              <Icon name="arrow-right" />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
   <section class="wrap intro" aria-label="What is the AIO Platform?">
-    <div class="prose" set:html={home.entry.rendered?.html ?? ''} />
+    <div class="prose">
+      <p class="eyebrow b-only" aria-hidden="true"># platform</p>
+      <Fragment set:html={home.entry.rendered?.html ?? ''} />
+    </div>
     {d.video && <Video id={d.video} title={d.videoTitle ?? 'Introduction to AIO'} />}
   </section>
 
   {d.blocks.length > 0 && (
     <section class="wrap" aria-labelledby="offer-heading">
-      <h2 id="offer-heading">What AIO offers</h2>
+      <div class="section-head">
+        <p class="eyebrow b-only" aria-hidden="true"># pillars</p>
+        <h2 id="offer-heading">What AIO offers</h2>
+      </div>
       <ul class="offer">
         {d.blocks.map((b) => (
           <li>
@@ -50,8 +89,11 @@ const next = posts.filter((p) => isUpcoming(p)).sort((a, b) => eventDate(a).valu
     </section>
   )}
 
-  <section class="wrap" aria-labelledby="news-heading">
-    <h2 id="news-heading">Latest news</h2>
+  <section class="wrap home-news" aria-labelledby="news-heading">
+    <div class="section-head">
+      <p class="eyebrow b-only" aria-hidden="true"># news</p>
+      <h2 id="news-heading">Latest news</h2>
+    </div>
     {next && <p class="next-event"><Icon name="time" /> Next event: <a href={postUrl(next)}>{next.data.title}</a></p>}
     <PostList posts={posts.slice(0, 3)} />
     <p><a href="/news/">All news</a> · <a href="/events/">Events</a> · <a href={site.newsletterUrl}>Subscribe to the newsletter</a></p>
@@ -59,6 +101,19 @@ const next = posts.filter((p) => isUpcoming(p)).sort((a, b) => eventDate(a).valu
 </Base>
 
 <style>
+  /* ── Both designs ── */
+  .tiles { list-style: none; margin: 1rem 0 3rem; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+  .tiles a { display: grid; gap: 0.35rem; height: 100%; padding: 1.4rem 1.5rem 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--muted-2); color: var(--text); text-decoration: none; }
+  .tiles a:hover { border-color: var(--primary); background: var(--muted); }
+  .tile-who { font: 600 var(--fs-xs)/var(--lh-snug) var(--font-ui); color: var(--muted-fg); }
+  .tiles strong { font: 500 var(--fs-h3)/var(--lh-head) var(--font-head); color: var(--fg); }
+  .tile-text { font-size: var(--fs-sm); line-height: var(--lh-snug); color: var(--text-2); }
+  .tiles .i { margin-top: 0.6rem; align-self: end; }
+  .intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
+  .intro :global(h2) { margin-top: 0; }
+  .next-event { display: flex; align-items: center; gap: 0.5rem; font-weight: 500; }
+
+  /* ── Design A: the learning system's lesson band ── */
   .hero {
     --hero: #334155; /* slate 700: white text on it has a contrast of 10.4:1 */
     margin-top: -2.25rem; margin-bottom: 3rem; padding: 4rem 0 3.5rem;
@@ -67,23 +122,61 @@ const next = posts.filter((p) => isUpcoming(p)).sort((a, b) => eventDate(a).valu
   }
   .hero h1 { color: #fff; font-size: clamp(2.4rem, 1.6rem + 3.2vw, 4rem); line-height: 1.05; letter-spacing: -0.02em; max-width: 18ch; margin-bottom: 1.25rem; }
   .hero .lede { color: #e2e8f0; max-width: 44rem; }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 2rem 0 1rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 2rem 0 0; }
   .btn-light { background: #fff; color: var(--primary); }
   .btn-light:hover { background: var(--muted); }
   .btn-ghost { color: #fff; border-color: #94a3b8; }
   .btn-ghost:hover { border-color: #fff; }
-  .hero-aside { color: #e2e8f0; margin: 0; }
-  .hero a:not(.btn) { color: #fff; text-decoration-color: var(--accent); }
   .hero :focus-visible { outline-color: #fff; }
-  .intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
-  .intro :global(h2) { margin-top: 0; }
   .offer { list-style: none; margin: 1rem 0 2rem; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; border-top: 1px solid var(--border); }
   .offer li { display: flex; gap: 1.1rem; padding: 1.4rem 0; border-bottom: 1px solid var(--border); }
   .offer h3 { margin: 0 0 0.3rem; font-size: var(--fs-lead); }
   .offer p { margin: 0 0 0.5rem; color: var(--text-2); font-size: var(--fs-sm); line-height: var(--lh-snug); }
-  .next-event { display: flex; align-items: center; gap: 0.5rem; font-weight: 500; }
+
+  /* ── Design B: text and picture side by side, boxes with a coloured top line ── */
+  :global([data-design='b']) .hero { margin-bottom: 3.5rem; padding: 0; background: none; color: var(--text); border-bottom: 1px solid var(--border-strong); }
+  :global([data-design='b']) .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+  :global([data-design='b']) .hero-copy { padding: 4.5rem 3rem 4.5rem 0; }
+  :global([data-design='b']) .hero h1 { color: var(--fg); font-size: clamp(2.25rem, 1.2rem + 4vw, 4.25rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.04em; max-width: 14ch; }
+  :global([data-design='b']) .hero .lede { color: var(--text-2); max-width: 34rem; }
+  :global([data-design='b']) .btn-light { background: var(--primary); color: var(--primary-fg); }
+  :global([data-design='b']) .btn-light:hover { background: var(--text-2); }
+  :global([data-design='b']) .btn-ghost { background: var(--bg); color: var(--primary); border-color: var(--border-strong); }
+  :global([data-design='b']) .btn-ghost:hover { border-color: var(--primary); background: var(--muted-2); }
+  :global([data-design='b']) .hero :focus-visible { outline-color: var(--primary); }
+  /* The picture stands on squared paper, behind a line that divides the band */
+  :global([data-design='b']) .hero-art {
+    display: grid; place-items: center end; overflow: hidden; border-left: 1px solid var(--border-strong);
+    background-color: var(--muted-2);
+    background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 2.5rem 2.5rem;
+    margin-right: calc(-1 * var(--gutter));
+  }
+  :global([data-design='b']) .hero-art svg { display: block; width: auto; height: 100%; max-height: 30rem; min-height: 20rem; }
+  :global([data-design='b']) .tiles a { border-color: var(--border-strong); border-top: 3px solid var(--primary); }
+  :global([data-design='b']) .tiles li:nth-child(1) a { background: var(--periwinkle); border-color: var(--periwinkle); border-top-color: var(--primary); }
+  :global([data-design='b']) .tiles li:nth-child(2) a { background: var(--papaya); border-color: var(--papaya); border-top-color: var(--primary); }
+  :global([data-design='b']) .tiles li:nth-child(3) a { background: var(--lime); border-color: var(--lime); border-top-color: var(--primary); }
+  :global([data-design='b']) .tiles a:hover { border-color: var(--primary); }
+  :global([data-design='b']) .tile-who, :global([data-design='b']) .tile-text { color: var(--fg); }
+  :global([data-design='b']) .tile-who { text-transform: uppercase; letter-spacing: 0.06em; }
+  :global([data-design='b']) .offer { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; border-top: 0; }
+  :global([data-design='b']) .offer li { flex-direction: column; gap: 0.9rem; padding: 1.25rem; background: var(--muted-2); border: 1px solid var(--border-strong); border-top: 3px solid var(--accent-strong); border-radius: var(--radius); }
+  :global([data-design='b']) .offer li:nth-child(4n + 2) { border-top-color: var(--accent); }
+  :global([data-design='b']) .offer li:nth-child(4n + 3) { border-top-color: var(--wisteria); }
+  :global([data-design='b']) .offer li:nth-child(4n + 4) { border-top-color: var(--periwinkle); }
+  :global([data-design='b']) .offer h3 { font-size: var(--fs-base); }
+  :global([data-design='b']) .home-news { margin-top: 3rem; }
+
+  @media (max-width: 68rem) {
+    :global([data-design='b']) .offer { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
   @media (max-width: 52rem) {
-    .intro, .offer { grid-template-columns: minmax(0, 1fr); }
+    .intro, .offer, .tiles { grid-template-columns: minmax(0, 1fr); }
     .hero { padding: 3rem 0 2.5rem; background-size: auto 120%; background-position: right -8rem center; }
+    :global([data-design='b']) .offer { grid-template-columns: minmax(0, 1fr); }
+    :global([data-design='b']) .hero-grid { grid-template-columns: minmax(0, 1fr); }
+    :global([data-design='b']) .hero-copy { padding: 2.75rem 0 2.5rem; }
+    :global([data-design='b']) .hero-art { display: none; }
   }
 </style>

@@ -28,11 +28,15 @@ const pages = defineCollection({
     status,
     source: optionalText, // address on the current site that the text comes from
     legacy,
-    // Home page only: the intro video and the short link blocks under it
     // Show each level-3 heading with its photo as a card, two to a row (the Team page)
     people: z.boolean().default(false),
+    // Home page only: the intro video, the three "Where to start" tiles and the "What AIO offers" blocks
     video: optionalText, // YouTube video id
     videoTitle: optionalText,
+    start: z
+      .array(z.object({ who: z.string(), title: z.string(), text: z.string(), href: z.string() }))
+      .nullish()
+      .transform((v) => v ?? []),
     blocks: z
       .array(z.object({ title: z.string(), text: z.string(), href: z.string(), link: z.string(), icon: z.string() }))
       .nullish()

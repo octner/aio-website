@@ -5,7 +5,7 @@
 
 settings:
   content:
-    merge: true   # keep front matter fields that the forms below do not show (legacy, status, listing, video, blocks)
+    merge: true   # keep front matter fields that the forms below do not show (legacy, status, listing, video, start, blocks)
 
 media:
   input: public/uploads   # where uploaded images are saved in the repository
@@ -109,6 +109,13 @@ content:
     format: json
     fields:
       - { name: draft, label: Test mode (banner, comment box, hidden from search engines), type: boolean }
+      - name: design
+        label: Design
+        type: select
+        options:
+          values:
+            - { value: a, label: "A: slate and orange (the first design)" }
+            - { value: b, label: "B: the AIO colours with monospace headings" }
       - { name: platformUrl, label: AIO Platform address, type: string }
       - { name: trainingUrl, label: Learning system address (empty until it is published), type: string }
       - { name: contactEmail, label: Contact email, type: string }

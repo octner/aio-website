@@ -195,21 +195,3 @@ University of Melbourne
 Research Training Manager
 
 Deakin University
-
-## Former AIO members
-
-AIO acknowledges the valuable contributions of our former team members, whose work has helped shape the platform, tools and research infrastructure we continue to build today.
-
-### Dr Amanda Lawrence
-
-![Amanda Lawrence](https://internetobservatory.org.au/wp-content/uploads/elementor/thumbs/amanda-lawrence-sq-rma2rwkio7tku2actc7k7t3um9b5m5bbktgyoz08mw.jpg)
-
-Former AIO Program Manager
-
-### Robert Fleet
-
-![Robert Fleet](https://internetobservatory.org.au/wp-content/uploads/2026/04/Robert_Fleet_09102023_-3_vert-scaled-250x250-1.jpeg)
-
-### Luke Munn
-
-![Luke Munn](https://internetobservatory.org.au/wp-content/uploads/2026/04/luke-munn-sq.jpg)

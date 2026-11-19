@@ -1,11 +1,15 @@
-/* AIO design tokens, shared by the website and (from January) the learning system.
-   Names and values are those of the AIO Research Training System (app/style.css, October 2026),
-   so that the learning system can load this file without a change of meaning:
-   slate neutrals and one orange accent, Space Grotesk for headings, Inter Tight for text.
-   The website loads both fonts itself (src/layouts/Base.astro), under the same family names.
+/* AIO design tokens. The site has two designs. site.json "design" picks the one that visitors see.
+   In the test version, the "Design A / B" buttons in the test banner switch between them.
+
+   Design A (the :root block): the tokens of the AIO Research Training System (app/style.css,
+   October 2026). Names and values are the same, so the learning system can load this block without
+   a change of meaning: slate neutrals and one orange accent, Space Grotesk and Inter Tight.
    Contrast on white: --fg 19.0:1, --primary 17.9:1, --text 14.6:1, --text-2 7.6:1,
    --muted-fg 4.8:1, --accent-text 7.3:1, --accent-strong 3.6:1 (focus marks only).
-   --accent (2.8:1) is for marks and rules only, never for text or focus rings. */
+   --accent (2.8:1) is for marks and rules only, never for text or focus rings.
+
+   Design B (the [data-design='b'] block at the end): the colours of internetobservatory.org.au
+   and monospace headings. src/styles/design-b.css holds its other rules. */
 :root {
   --bg: #ffffff;           /* page background */
   --fg: #020617;           /* strongest text */
@@ -24,10 +28,14 @@
   --accent-soft: #fff7ed;
   --accent-border: #fed7aa;
   --accent-text: #9a3412;  /* website only: orange that is safe for text */
+  --secondary: #acb7f5;    /* website only: periwinkle, an AIO secondary colour, for the second kind of button */
+  --secondary-hover: #97a4f0;
+  --secondary-fg: #29262e; /* charcoal: 7.7:1 on periwinkle */
 
   --font-head: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'SF Mono', Menlo, Consolas, monospace;
+  --font-ui: var(--font-body); /* menu, buttons and small labels */
 
   /* Type scale: one size for each role. Every font size and line height in global.css uses these. */
   --fs-xs: 0.875rem;    /* 14 px: labels, tags, the small print of the footer */
@@ -48,4 +56,47 @@
   /* website only */
   --page: 80rem;                      /* one width for header, content and footer */
   --gutter: clamp(1rem, 4vw, 2.5rem); /* equal left and right margins */
+}
+
+/* Design B. Colours are those of the current AIO website (its --color-* variables).
+   Contrast on porcelain (--bg): --fg and --text 14.3:1, --text-2 10.7:1, --muted-fg 5.4:1,
+   --accent-text 6.4:1. White on --accent-strong 6.7:1. Charcoal on the pastels: periwinkle 7.7:1,
+   wisteria 6.6:1, blush 9.8:1, papaya 12.8:1, lime 14.0:1.
+   --accent (cornflower, 3.3:1) is for marks and rules only. */
+:root[data-design='b'] {
+  --bg: #fdfaf7;           /* porcelain */
+  --fg: #29262e;           /* charcoal */
+  --text: #29262e;
+  --text-2: #3a3b45;
+  --muted-fg: #656779;
+  --muted: #f0f1fa;        /* hover */
+  --muted-2: #f8f7ff;      /* boxes and bands */
+  --border: #dcdff3;
+  --border-strong: #babfe2;
+  --ring: #9ea3c7;
+  --primary: #29262e;
+  --primary-fg: #fdfaf7;
+  --accent: #6b87d8;       /* cornflower: marks only */
+  --accent-strong: #4552b7;/* azure */
+  --accent-soft: #f0f1fa;
+  --accent-border: #acb7f5;/* periwinkle */
+  --accent-text: #4552b7;
+  --periwinkle: #acb7f5;
+  --wisteria: #be9eec;
+  --blush: #f9c6bf;
+  --papaya: #ffebca;
+  --lime: #f0ffbe;
+
+  --font-head: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --font-ui: var(--font-head);
+
+  /* Monospace letters are wide, so the headings are one step smaller than in design A. */
+  --fs-h3: 1.25rem;
+  --fs-h2: clamp(1.5rem, 1.3rem + 0.8vw, 1.875rem);
+  --fs-h1: clamp(2rem, 1.6rem + 1.8vw, 2.75rem);
+
+  --radius-sm: 0.25rem;
+  --radius: 0.375rem;
+  --radius-lg: 0.5rem;
 }

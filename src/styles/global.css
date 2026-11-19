@@ -57,7 +57,7 @@ th { font-weight: 600; color: var(--fg); background: var(--muted-2); }
 .btn {
   display: inline-flex; align-items: center; gap: 0.5rem;
   min-height: 2.75rem; padding: 0.6rem 1.15rem;
-  font: 500 var(--fs-sm)/var(--lh-head) var(--font-body);
+  font: 500 var(--fs-sm)/var(--lh-head) var(--font-ui);
   border-radius: var(--radius-sm); border: 1px solid transparent;
   text-decoration: none; cursor: pointer;
 }
@@ -65,22 +65,32 @@ th { font-weight: 600; color: var(--fg); background: var(--muted-2); }
 .btn-primary:hover { background: var(--text); }
 .btn-outline { background: var(--bg); color: var(--primary); border-color: var(--border-strong); }
 .btn-outline:hover { border-color: var(--primary); background: var(--muted-2); }
+.btn-secondary { background: var(--secondary); color: var(--secondary-fg); }
+.btn-secondary:hover { background: var(--secondary-hover); }
+.cta { text-align: center; margin: 1.5rem 0 2rem; }
+
+/* Parts that only design B shows (small labels above headings, the picture of the home page) */
+.b-only { display: none; }
+[data-design='b'] .b-only { display: revert; }
 
 /* ── Test banner ──────────────────────────────────────── */
-.test-banner { background: var(--accent-soft); border-bottom: 1px solid var(--accent-border); color: var(--accent-text); font: 600 var(--fs-sm)/var(--lh-snug) var(--font-head); text-align: center; padding: 0.45rem var(--gutter); }
+.test-banner { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; justify-content: center; align-items: center; background: var(--accent-soft); border-bottom: 1px solid var(--accent-border); color: var(--accent-text); font: 600 var(--fs-sm)/var(--lh-snug) var(--font-head); padding: 0.45rem var(--gutter); }
+/* Test version: the two designs side by side, for reviewers */
+.design-switch { display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 500; }
+.design-switch button { min-width: 2rem; min-height: 1.75rem; padding: 0 0.5rem; border: 1px solid currentColor; border-radius: var(--radius-sm); background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.design-switch button[aria-pressed='true'] { background: var(--accent-text); border-color: var(--accent-text); color: #fff; }
 
 /* ── Header and menu ─────────────────────────────────── */
 .site-header { border-bottom: 1px solid var(--border); background: var(--bg); position: relative; z-index: 20; }
 .site-header .wrap { display: flex; align-items: center; gap: 1rem; min-height: 4.75rem; }
 .brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; color: var(--fg); flex: none; }
-.brand img { width: 25px; height: 32px; }
-.brand span { font: 600 var(--fs-sm)/var(--lh-head) var(--font-head); letter-spacing: -0.01em; max-width: 9rem; }
+.brand img { display: block; width: auto; height: 3rem; }
 .nav-desktop { display: flex; align-items: center; gap: 0.1rem; margin-left: auto; }
 .nav-desktop > details { position: relative; }
 .nav-desktop summary, .nav-tool {
   display: flex; align-items: center; gap: 0.3rem; list-style: none; cursor: pointer;
   min-height: 2.75rem; padding: 0.5rem 0.6rem; border-radius: var(--radius-sm);
-  font: 500 var(--fs-sm)/var(--lh-head) var(--font-body); color: var(--primary); text-decoration: none; white-space: nowrap;
+  font: 500 var(--fs-sm)/var(--lh-head) var(--font-ui); color: var(--primary); text-decoration: none; white-space: nowrap;
 }
 .nav-desktop summary::-webkit-details-marker { display: none; }
 .nav-desktop summary:hover, .nav-tool:hover, .nav-desktop details[open] > summary { background: var(--muted); }
@@ -98,29 +108,33 @@ th { font-weight: 600; color: var(--fg); background: var(--muted-2); }
 .panel a[aria-current='page'] { box-shadow: inset 3px 0 0 var(--accent); }
 .panel strong { display: block; font-weight: 600; }
 .panel small { display: block; color: var(--text-2); font-size: var(--fs-xs); }
-.nav-launch { margin-left: 0.5rem; }
+.nav-tool .i { width: 1.35rem; height: 1.35rem; }
+/* The button keeps its text on one line and never shrinks; the menu changes to the short form first. */
+.nav-launch { margin-left: 0.5rem; white-space: nowrap; flex: none; }
 .nav-mobile { display: none; margin-left: auto; }
 
-@media (max-width: 76rem) {
+/* The short menu: one "Menu" button. Design A changes to it below 80rem: the full menu needs
+   1,144 px inside the margins. Design B has wider letters and changes earlier (design-b.css). */
+.nav-mobile > summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; gap: 0.5rem;
+  min-height: 2.75rem; padding: 0.5rem 0.9rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm);
+  font: 500 var(--fs-sm)/var(--lh-head) var(--font-ui); color: var(--primary);
+}
+.nav-mobile > summary::-webkit-details-marker { display: none; }
+.nav-mobile[open] .mobile-panel {
+  position: absolute; left: 0; right: 0; top: 100%;
+  background: var(--bg); border-bottom: 1px solid var(--border);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+  padding: 1rem var(--gutter) 1.5rem; max-height: calc(100vh - 6rem); overflow-y: auto;
+}
+.mobile-panel h2 { display: flex; align-items: center; gap: 0.5rem; font: 600 var(--fs-sm)/var(--lh-snug) var(--font-head); margin: 1rem 0 0.25rem; color: var(--muted-fg); letter-spacing: 0; }
+.mobile-panel ul { list-style: none; margin: 0; padding: 0; }
+.mobile-panel a { display: block; padding: 0.55rem 0; font-size: var(--fs-sm); line-height: var(--lh-snug); text-decoration: none; border-bottom: 1px solid var(--border); }
+.mobile-panel a[aria-current='page'] { font-weight: 600; box-shadow: inset 3px 0 0 var(--accent); padding-left: 0.6rem; }
+.mobile-panel .btn { margin-top: 1.25rem; }
+@media (max-width: 80rem) {
   .nav-desktop { display: none; }
   .nav-mobile { display: block; }
-  .nav-mobile > summary {
-    list-style: none; cursor: pointer; display: flex; align-items: center; gap: 0.5rem;
-    min-height: 2.75rem; padding: 0.5rem 0.9rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm);
-    font: 500 var(--fs-sm)/var(--lh-head) var(--font-body); color: var(--primary);
-  }
-  .nav-mobile > summary::-webkit-details-marker { display: none; }
-  .nav-mobile[open] .mobile-panel {
-    position: absolute; left: 0; right: 0; top: 100%;
-    background: var(--bg); border-bottom: 1px solid var(--border);
-    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
-    padding: 1rem var(--gutter) 1.5rem; max-height: calc(100vh - 6rem); overflow-y: auto;
-  }
-  .mobile-panel h2 { display: flex; align-items: center; gap: 0.5rem; font: 600 var(--fs-sm)/var(--lh-snug) var(--font-head); margin: 1rem 0 0.25rem; color: var(--muted-fg); letter-spacing: 0; }
-  .mobile-panel ul { list-style: none; margin: 0; padding: 0; }
-  .mobile-panel a { display: block; padding: 0.55rem 0; font-size: var(--fs-sm); line-height: var(--lh-snug); text-decoration: none; border-bottom: 1px solid var(--border); }
-  .mobile-panel a[aria-current='page'] { font-weight: 600; box-shadow: inset 3px 0 0 var(--accent); padding-left: 0.6rem; }
-  .mobile-panel .btn { margin-top: 1.25rem; }
 }
 .nav-mobile:not([open]) .mobile-panel { display: none; }
 
@@ -149,7 +163,7 @@ main { padding: 2.25rem 0 4rem; min-height: 50vh; }
 .breadcrumb a { color: var(--muted-fg); }
 .page-head { margin-bottom: 2rem; }
 .page-head .meta { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; }
-.status { display: inline-block; font: 600 var(--fs-xs)/var(--lh-snug) var(--font-body); padding: 0.15rem 0.6rem; border-radius: 99px; border: 1px solid #7dd3fc; color: #075985; background: #f0f9ff; margin-bottom: 0.75rem; }
+.status { display: inline-block; font: 600 var(--fs-xs)/var(--lh-snug) var(--font-ui); padding: 0.15rem 0.6rem; border-radius: 99px; border: 1px solid #7dd3fc; color: #075985; background: #f0f9ff; margin-bottom: 0.75rem; }
 .status-new { color: #92400e; background: #fffbeb; border-color: #fde68a; }
 .status-placeholder { color: var(--accent-text); background: var(--accent-soft); border: 1px dashed var(--accent-strong); }
 
@@ -237,7 +251,7 @@ h2:hover .anchor, h3:hover .anchor, .anchor:focus { opacity: 1; }
 .site-footer h2 { font: 600 var(--fs-sm)/var(--lh-snug) var(--font-head); color: var(--fg); margin: 0 0 0.75rem; letter-spacing: 0; }
 .site-footer ul { list-style: none; margin: 0; padding: 0; }
 .site-footer li { margin-bottom: 0.4rem; }
-.site-footer .brand { margin-bottom: 0.9rem; }
+.site-footer .brand { margin-bottom: 0.9rem; display: inline-block; }
 .footer-small { border-top: 1px solid var(--border); margin-top: 2rem; padding-top: 1.5rem; font-size: var(--fs-xs); color: var(--muted-fg); }
 .footer-small p { max-width: 60rem; }
 .funders { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; margin: 1rem 0; }
@@ -259,6 +273,7 @@ h2:hover .anchor, h3:hover .anchor, .anchor:focus { opacity: 1; }
 .comment-dialog::backdrop { background: rgb(15 23 42 / 0.4); }
 .comment-dialog label, .review-form label, .post-editor label { display: block; margin: 0.8rem 0; font-weight: 500; }
 .comment-dialog textarea, .comment-dialog input, .review-form textarea, .review-form input, .post-editor textarea, .post-editor input:not([type="checkbox"]), .post-editor select { display: block; width: 100%; margin-top: 0.3rem; font: inherit; padding: 0.5rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); }
+.comment-dialog .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 .comment-target { color: var(--muted-fg); font-size: var(--fs-sm); line-height: var(--lh-snug); }
 .post-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1rem; }
 .post-editor .post-check { display: flex; gap: 0.5rem; align-items: center; font-weight: 400; }

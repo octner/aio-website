@@ -4,6 +4,7 @@
   "tagline": "National research infrastructure for digital platform observability.",
   "description": "The Australian Internet Observatory builds data collection and analysis tools, methods and workflows for research on digital cultures and societies in the public interest.",
   "draft": true,
+  "design": "b",
   "platformUrl": "https://app.internetobservatory.org.au/",
   "trainingUrl": "",
   "contactEmail": "contact@internetobservatory.org.au",

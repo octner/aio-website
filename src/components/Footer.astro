@@ -46,6 +46,8 @@ const [beforeDoi, afterDoi] = site.funding.split(doi);
         <img src="https://internetobservatory.org.au/wp-content/uploads/2026/04/NCRIS_Aus-Gov_Lockup.png" alt="Australian Government, National Collaborative Research Infrastructure Strategy (NCRIS)" width="176" height="44" loading="lazy" />
       </div>
       <p>AIO guides and explainers are licensed under <a href={site.licence.url}>{site.licence.label}</a>. Republished articles keep the licence of their first publisher.</p>
+      {/* The licence of the varsha template asks for this credit, with this wording and link. Design B only. */}
+      <p class="b-only">Design built with <a href="https://myndlabs.tech">varsha by myndlabs</a>.</p>
       {editLink && <p><a href={editLink}>Edit this page on GitHub</a></p>}
     </div>
   </div>

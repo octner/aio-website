@@ -3,12 +3,17 @@ import nav from '../data/navigation.json';
 
 export { site, nav };
 
-export type NavItem = { label: string; href: string; icon: string; description: string };
+// "hidden": true takes a page out of the menus for now. The page, its address and its breadcrumb stay.
+export type NavItem = { label: string; href: string; icon: string; description: string; hidden?: boolean };
 export type NavGroup = { label: string; icon: string; items: NavItem[] };
 
 // Templates and Markdown write links from the site root ("/news/"). scripts/postbuild.mjs adds the
 // GitHub Pages sub-path ("/aio-website") after the build. Only the few places that need a full
 // address (canonical link, RSS) use BASE here.
+export type Design = 'a' | 'b';
+/** The design that the site shows: "a" (slate and orange) or "b" (the AIO colours, monospace headings). */
+export const design: Design = site.design === 'a' ? 'a' : 'b';
+
 export const BASE = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
 
 /** Path of the current page without the sub-path, for example "/about/team/". */
@@ -21,6 +26,9 @@ export function pagePath(url: URL): string {
 export function absoluteUrl(url: URL, siteUrl: URL | undefined): string {
   return (siteUrl?.origin ?? 'https://internetobservatory.org.au') + BASE + pagePath(url);
 }
+
+/** The items of a group that the menus show. */
+export const shown = (group: NavGroup): NavItem[] => group.items.filter((item) => !item.hidden);
 
 /** The groups a page can belong to: the five menu groups, the footer pages, and (in the test version) the review pages. */
 export function sections(): NavGroup[] {

@@ -5,7 +5,7 @@
       "icon": "dashboard",
       "items": [
         { "label": "AIO Platform", "href": "/platform/", "icon": "project", "description": "What the platform does and how to start" },
-        { "label": "Data collection tools", "href": "/platform/data-collection-tools/", "icon": "data-donation", "description": "Data donation, download packages, screen capture and APIs" },
+        { "label": "Data donation tools", "href": "/platform/data-collection-tools/", "icon": "data-donation", "description": "Data download packages and screen capture" },
         { "label": "AIReD", "href": "/platform/aired/", "icon": "aired", "description": "Dashboard for platform-centric social media data" },
         { "label": "Test AI range and environments", "href": "/platform/test-ai-range/", "icon": "tools", "description": "To be written" }
       ]
@@ -16,7 +16,7 @@
       "items": [
         { "label": "News", "href": "/news/", "icon": "glossary", "description": "All articles, newest first" },
         { "label": "Events", "href": "/events/", "icon": "time", "description": "Upcoming and past events and training" },
-        { "label": "Case studies", "href": "/case-studies/", "icon": "case-study", "description": "Research done with AIO" },
+        { "label": "Case studies", "href": "/case-studies/", "icon": "case-study", "description": "Research done with AIO", "hidden": true },
         { "label": "Newsletter", "href": "/newsletter/", "icon": "external", "description": "Sign up for the AIO newsletter" }
       ]
     },
@@ -25,8 +25,8 @@
       "icon": "lesson",
       "items": [
         { "label": "Training", "href": "/learn/training/", "icon": "lesson", "description": "Online modules and workshops" },
-        { "label": "Learning resources", "href": "/learn/resources/", "icon": "full-text", "description": "Guides, explainers and reference" },
-        { "label": "Platform guide", "href": "/learn/platform-guide/", "icon": "plan", "description": "Steps to a project on the AIO Platform" }
+        { "label": "Learning resources", "href": "/learn/resources/", "icon": "full-text", "description": "General guides on methods and research ethics" },
+        { "label": "Platform guide", "href": "/learn/platform-guide/", "icon": "plan", "description": "Get started on the AIO Platform" }
       ]
     },
     {
@@ -43,9 +43,8 @@
       "label": "About AIO",
       "icon": "observatory",
       "items": [
-        { "label": "Who we are", "href": "/about/", "icon": "observatory", "description": "Mission and the four pillars" },
+        { "label": "Who we are", "href": "/about/", "icon": "observatory", "description": "Mission, partners and funding" },
         { "label": "Team", "href": "/about/team/", "icon": "team", "description": "Steering committee and team" },
-        { "label": "Funding", "href": "/about/funding/", "icon": "infrastructure", "description": "ARDC, NCRIS and our partners" },
         { "label": "Communities", "href": "/about/communities/", "icon": "network", "description": "Networks and related observatories" },
         { "label": "Contact", "href": "/about/contact/", "icon": "briefing", "description": "Email and social channels" }
       ]
@@ -55,7 +54,7 @@
     "label": "This site",
     "icon": "glossary",
     "items": [
-      { "label": "Search", "href": "/search/", "icon": "explore", "description": "Search all pages" },
+      { "label": "Search", "href": "/search/", "icon": "search", "description": "Search all pages" },
       { "label": "Privacy", "href": "/privacy/", "icon": "lock", "description": "What this website collects" },
       { "label": "Accessibility", "href": "/accessibility/", "icon": "check", "description": "Accessibility statement" }
     ]

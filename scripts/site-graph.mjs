@@ -63,7 +63,8 @@ function wrap(text, max) {
   return lines;
 }
 
-const columns = [...nav.groups, nav.site];
+// Pages with "hidden": true are out of the menus for now, so the graph leaves them out too.
+const columns = [...nav.groups, nav.site].map((group) => ({ ...group, items: group.items.filter((item) => !item.hidden) }));
 // Three groups per row keeps the graph narrow enough for the text column of a page.
 const PER_ROW = 3, COL = 196, GAP = 18, PAD = 28, TRUNK_X = 12;
 const width = PAD * 2 + PER_ROW * COL + (PER_ROW - 1) * GAP;
@@ -84,7 +85,7 @@ parts.push(`<a href="/"><rect x="${homeX}" y="${HOME_Y}" width="${homeW}" height
 
 /** Draws one group and its pages from (x, top); returns the y below its last page. */
 function drawGroup(group, x, top) {
-  const isFooter = group === nav.site;
+  const isFooter = group.label === nav.site.label;
   const glines = wrap(group.label, 15);
   parts.push(`<rect x="${x}" y="${top}" width="${COL}" height="${GROUP_H}" rx="12" fill="${isFooter ? '#475569' : '#0f172a'}"/>`
     + icon(group.icon, x + 14, top + 17, 24, '#ffffff')

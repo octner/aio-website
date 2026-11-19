@@ -5,7 +5,7 @@ status: edited
 source: https://internetobservatory.org.au/aio-launch-new-2026/
 ---
 
-<p><a class="btn btn-primary" href="https://app.internetobservatory.org.au/">Launch the AIO Platform</a></p>
+<p class="cta"><a class="btn btn-secondary" href="https://app.internetobservatory.org.au/" target="_blank" rel="noopener">Launch the AIO Platform<span class="sr-only"> (opens in a new tab)</span></a></p>
 
 The AIO Platform is a national self-service research infrastructure developed by the Australian Internet Observatory (AIO). Researchers can focus on designing rigorous and ethical studies, rather than building the underlying technology from scratch.
 

@@ -45,19 +45,26 @@ The menu uses the lower part of the Miro board, titled "New AIO". Each group hea
 
 | Group | Pages |
 |---|---|
-| Platform & tools | AIO Platform, Data collection tools, AIReD, Test AI range and environments |
-| News & events | News, Events, Case studies, Newsletter |
+| Platform & tools | AIO Platform, Data donation tools, AIReD, Test AI range and environments |
+| News & events | News, Events, Newsletter |
 | Learning & resources | Training, Learning resources, Platform guide |
 | Take part | Share your data, How we protect your data, MOT apps, Questions and answers |
-| About AIO | Who we are, Team, Funding, Communities, Contact |
+| About AIO | Who we are, Team, Communities, Contact |
 
 The button **Launch AIO Platform** stays at the right end of the menu on every page and opens app.internetobservatory.org.au. The footer has links to Search, Privacy, Accessibility, Contact, the newsletter, and the social channels.
 
 These parts of the menu are new, or placed differently from the board:
 
 - **Take part.** A person who is asked to donate data needs one clear place to go. The group collects the pages that the board lists "to fit in".
-- **Data collection tools.** This page is new in the menu. It contains the text of the current Observe page, the main description of the AIO methods.
+- **Data donation tools.** This page is new in the menu. It contains the text of the current Observe page, the main description of the AIO methods.
 - **Communities** is on the board only with a question mark. It sits under About AIO.
+
+The first review, on 17 November 2026, changed the menu in four ways:
+
+- "Data collection tools" is now "Data donation tools".
+- The Funding page is now a section of the page Who we are, and its old address redirects there.
+- The Case studies page is out of the menu for now. The page and its address still work.
+- The search link shows a magnifier.
 
 Three pages are still to be written. They show a "To be written" box.
 
@@ -113,14 +120,22 @@ On 14 November 2026 I compared four site generators, Astro, Eleventy, Hugo, and 
 | Analytics | GoatCounter, without cookies | Free for reasonable public use, supported by donations |
 | Newsletter | Mailchimp, as now | Unchanged |
 
-The site uses the design of the AIO learning system, so the two sites look the same:
+The site has two designs. The setting `design` in `src/data/site.json` chooses the design that visitors see. In the test version, the buttons "Design A" and "Design B" in the test banner let each reviewer compare the two.
 
-- the AIO logo of the learning system
-- the fonts Space Grotesk for headings and Inter Tight for text, stored on the site itself, at a text size of 18 pixels
+- **Design A** is the design of the AIO learning system. It has slate greys with one orange accent, and the font Space Grotesk for headings.
+- **Design B** is the new design. It has the colours of the current AIO website. They are charcoal on porcelain, with periwinkle, azure, wisteria, blush, papaya, and lime. Its headings, menu, and buttons use the monospace font JetBrains Mono.
+
+  Its layout uses the look of the website template "varsha" (varsha.myndlabs.tech). It has flat boxes with thin lines, a small label above each section, and a header that stays at the top of the window. Its rules are written for this site, and no file of the template is copied. The footer of design B credits the template, as its licence asks.
+
+To return to design A, set `design` to `a`. Both designs share these parts:
+
+- the AIO logo of the current AIO website
+- the font Inter Tight for text, stored on the site itself, at a text size of 18 pixels
 - the icon set of the learning system, with a text label beside each icon
-- slate greys with one orange accent, with the same colours as the learning system (`src/styles/tokens.css`)
 - the diagrams of the learning system, for example the steps of a data donation on the Take part page
 - one width for the content of every page, with equal margins on the left and the right
+
+The home page takes three ideas from the website of the UNSW Resilient Democracy Lab. They are a short statement of purpose at the top, three large links under the heading "Where to start", and a magnifier for search.
 
 ## 6. Editors
 
@@ -197,14 +212,14 @@ The outreach team enters the text of the pages marked "To be written" through Pa
 
 ## 10. Measured on the test version
 
-I built the test version under the sub-path `/aio-website/`, the folder of its address on GitHub Pages, on 16 November 2026. "Sent" is the size after the compression that GitHub Pages applies.
+I built the test version under the sub-path `/aio-website/`, the folder of its address on GitHub Pages, on 20 November 2026, with design B. "Sent" is the size after the compression that GitHub Pages applies.
 
 | Measure | Current site | Test version | Target |
 |---|---|---|---|
-| Home page, sent before images | not measured (948 KB with images, section 2) | 82 KB in 5 files, of which 67 KB are the two fonts and 3 KB the comment script of the test version | at most 100 KB |
-| Script elements on the home page | 26 | 3, which are two short ones inside the page and the comment script of the test version | only the scripts that a page needs |
-| Pages built | not applicable | 108, of which 56 are redirect pages. 43 redirect pages serve changed addresses of section 2, and 13 serve tag, category, and short addresses of the current site. | no target |
-| Internal links and images checked | not applicable | 5,764, all working | all working |
+| Home page, sent before images | not measured (948 KB with images, section 2) | 101 KB in 6 files, of which 83 KB are the two fonts and 3 KB the comment script of the test version. Without that script, the real site sends 98 KB. | about 100 KB, as a guide and not a hard limit |
+| Script elements on the home page | 26 | 4, which are three short ones inside the page and the comment script of the test version | only the scripts that a page needs |
+| Pages built | not applicable | 108, of which 57 are redirect pages. 43 redirect pages serve changed addresses of section 2, 13 serve tag, category, and short addresses of the current site, and 1 serves the former Funding page. | no target |
+| Internal links and images checked | not applicable | 5,381, all working | all working |
 | Build time | not applicable | about 2 seconds | no target |
 
 When its code is set, GoatCounter adds one script file of about 3.5 KB. I also tested search, a redirect, the menu with the keyboard, and every page type at a phone width of 375 pixels. I did not test with a screen reader.

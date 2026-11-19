@@ -10,7 +10,7 @@ const LABELS: Record<string, string> = {
   p: 'Paragraph', li: 'List item', h1: 'Title', h2: 'Heading', h3: 'Heading', h4: 'Heading', dt: 'Term', dd: 'Description',
   blockquote: 'Quotation', pre: 'Code', figure: 'Figure', img: 'Image', table: 'Table', a: 'Link', summary: 'Menu group',
 };
-const TOOLS = '.feedback, .comment-toggle, .comment-bar, .comment-dialog, .comment-badge';
+const TOOLS = '.feedback, .comment-toggle, .comment-bar, .comment-dialog, .comment-badge, .test-banner';
 const NAME_KEY = 'aio-comment-name';
 
 let store = '';
@@ -68,6 +68,9 @@ function describe(el: Element): { kind: Kind; target: string } {
   return { kind: el.closest('.site-header') ? 'menu' : 'element', target };
 }
 
+/** The page title with the design on screen, so the team knows which design a comment is about. */
+const titleNow = () => `${title} (design ${(document.documentElement.dataset.design ?? '').toUpperCase()})`;
+
 // ---------- the form ----------
 
 function openForm(next: Omit<NewComment, 'comment' | 'name'>) {
@@ -102,7 +105,7 @@ async function send(form: HTMLFormElement) {
   button.disabled = true;
   error.textContent = 'Sending…';
   try {
-    await addComment(store, { ...draft, comment, name, website: field('website') });
+    await addComment(store, { ...draft, title: titleNow(), comment, name, website: field('website') });
     $<HTMLDialogElement>('[data-comment-dialog]')!.close();
     draft = null;
     status('Your comment is saved in the shared file.');
@@ -240,7 +243,7 @@ function initReview() {
     out.textContent = 'Sending…';
     try {
       for (const t of answers) {
-        await addComment(store, { page, title, kind: 'question', target: t.dataset.question!, heading: '', selector: '', snippet: '', quote: '', comment: t.value.trim(), name, website });
+        await addComment(store, { page, title: titleNow(), kind: 'question', target: t.dataset.question!, heading: '', selector: '', snippet: '', quote: '', comment: t.value.trim(), name, website });
         t.value = '';
       }
       out.textContent = `Thank you. ${answers.length} answer${answers.length === 1 ? ' is' : 's are'} saved in the shared file.`;
